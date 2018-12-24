@@ -8,9 +8,9 @@ tags:
 ---
 
 
-[VMwareÔÇÖs vSphere 4 PDF cheat sheet](http://www.boche.net/blog/wp-content/uploads/2009/VsphereData.pdf) from [boche.net](http://www.boche.net/).
+[VMware's vSphere 4 PDF cheat sheet](http://www.boche.net/blog/wp-content/uploads/2009/VsphereData.pdf) from [boche.net](http://www.boche.net/).
 
-> ÔÇ£VMware supports 4x more guest operating systems than Microsoft. In fact, VMware supports more versions of Windows than Microsoft.ÔÇØ
+> "VMware supports 4x more guest operating systems than Microsoft. In fact, VMware supports more versions of Windows than Microsoft."
 
 pwned!
 

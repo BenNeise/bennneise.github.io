@@ -16,6 +16,6 @@ tags:
 
 [Online Training ÔÇô Automating vSphere with the VIX API](http://vimeo.com/11193427) from [Eric Sloof NTPRO.NL](http://vimeo.com/esloof) on [Vimeo](http://vimeo.com).
 
-I canÔÇÖt wait to try this out, although I think IÔÇÖm going to have to do a little Visual Basic study first.
+I can't wait to try this out, although I think I'm going to have to do a little Visual Basic study first.
 
 

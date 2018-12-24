@@ -9,7 +9,7 @@ tags:
 ---
 
 
-YouÔÇÖve probably noticed that when you double-click on a PowerShell script, it is opened for editing rather than being run. This is useful from a security standpoint, and while administrators have no problem opening up the shell and running the script, youÔÇÖve probably made something useful that you want to share with users, and users always need a bit more hand-holding.
+You've probably noticed that when you double-click on a PowerShell script, it is opened for editing rather than being run. This is useful from a security standpoint, and while administrators have no problem opening up the shell and running the script, you've probably made something useful that you want to share with users, and users always need a bit more hand-holding.
 
 ![PowerShell shortcut properties](/content/images/2016/01/psshortcut.png)
 

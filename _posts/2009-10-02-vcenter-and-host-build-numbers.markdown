@@ -9,9 +9,9 @@ tags:
 ---
 
 
-This is based on [Carter ShanklinÔÇÖs PowerShell snippets to query VC and ESX build version numbers](http://communities.vmware.com/message/1013433#1013433).
+This is based on [Carter Shanklin's PowerShell snippets to query VC and ESX build version numbers](http://communities.vmware.com/message/1013433#1013433).
 
-This script loops through the list of vCenter servers, and gets their version and build info, as well as the version and build info for itÔÇÖs connected hosts.
+This script loops through the list of vCenter servers, and gets their version and build info, as well as the version and build info for it's connected hosts.
 
 <script src="https://gist.github.com/GuruAnt/7216184.js"></script>
 

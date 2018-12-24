@@ -9,7 +9,7 @@ tags:
 ---
 
 
-Eric Siebert at [vSphere-Land.com](http://vsphere-land.com/news/check-out-the-new-vsphere-evaluators-guide.html) points out that VMware have published a 120-page [vSphere EvaluatorÔÇÖs Guide](http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf) thatÔÇÖs chock-full of information about the new features (including a nice little demo of PowerCLI).
+Eric Siebert at [vSphere-Land.com](http://vsphere-land.com/news/check-out-the-new-vsphere-evaluators-guide.html) points out that VMware have published a 120-page [vSphere Evaluator's Guide](http://www.vmware.com/files/pdf/vsphere-evaluators-guide.pdf) that's chock-full of information about the new features (including a nice little demo of PowerCLI).
 
 Definitely worth checking out.
 

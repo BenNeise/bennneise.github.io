@@ -11,7 +11,7 @@ tags:
 ---
 
 
-I was at a training course last week and ┬áit was mentioned briefly on one of the slides that PCOIP session statistics were available via WMI. After a quick Google, I found [MyVirtualCloudÔÇÖs page](http://myvirtualcloud.net/?p=2069), which details the class, and property names.
+I was at a training course last week and  it was mentioned briefly on one of the slides that PCOIP session statistics were available via WMI. After a quick Google, I found [MyVirtualCloud's page](http://myvirtualcloud.net/?p=2069), which details the class, and property names.
 
 The following is a PowerShell function, which pulls this information from WMI, appends the names and descriptions, and returns an object. You could, for example, export the returned object to an HTML page. Or use the function against a range of machines to look for outliers.
 
@@ -21,8 +21,8 @@ Use like so
 
  Get-PCOIPStatsViaWMI("Computer01")
 
-ItÔÇÖs not the most elegant script IÔÇÖve ever written. If I get the time, I think IÔÇÖll try and streamline it; and maybe add some ÔÇ£expected rangesÔÇØ. I may also export ┬áa timestamped XML object, this would allow comparisons over a time-range (which will allow bandwidth calculations).
+It's not the most elegant script I've ever written. If I get the time, I think I'll try and streamline it; and maybe add some "expected ranges". I may also export  a timestamped XML object, this would allow comparisons over a time-range (which will allow bandwidth calculations).
 
-[MindFluxÔÇÖs PCOIP log viewer](http://mindfluxinc.net/?p=195) is still a better solution for investigating problems on a single machine, but this might help get an overview of PCOIP performance across the whole estate.
+[MindFlux's PCOIP log viewer](http://mindfluxinc.net/?p=195) is still a better solution for investigating problems on a single machine, but this might help get an overview of PCOIP performance across the whole estate.
 
 

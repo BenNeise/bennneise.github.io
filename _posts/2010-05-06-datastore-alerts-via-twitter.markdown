@@ -5,9 +5,9 @@ date: '2010-05-06 13:28:41'
 ---
 
 
-With thin provisioning currently being implemented in our environment, and plans to expand the use of Linked Clones, itÔÇÖs become apparent that weÔÇÖre going to have to start paying close attention to our datastores.
+With thin provisioning currently being implemented in our environment, and plans to expand the use of Linked Clones, it's become apparent that we're going to have to start paying close attention to our datastores.
 
-[Eric Gray](http://www.vcritical.com/about/)ÔÇÿs done some great stuff with using [VMware vCenter alarms with PowerShell to automatically migrate machines](http://www.vcritical.com/2009/10/powershell-prevents-datastore-emergencies/). And Carter ShanklinÔÇÖs got a [great description of a different method](http://blogs.vmware.com/vipowershell/2009/09/how-to-run-powercli-scripts-from-vcenter-alarms.html), but I was after something which didnÔÇÖt involve making any modifications to the vCenter server. Not everyone here is familiar with the PowerShell /PowerCLI, and I didnÔÇÖt want to put something in place which would require this knowledge to support (or more likely, require me to be dragged off whatever IÔÇÖm doing to take a look!).
+[Eric Gray](http://www.vcritical.com/about/)ÔÇÿs done some great stuff with using [VMware vCenter alarms with PowerShell to automatically migrate machines](http://www.vcritical.com/2009/10/powershell-prevents-datastore-emergencies/). And Carter Shanklin's got a [great description of a different method](http://blogs.vmware.com/vipowershell/2009/09/how-to-run-powercli-scripts-from-vcenter-alarms.html), but I was after something which didn't involve making any modifications to the vCenter server. Not everyone here is familiar with the PowerShell /PowerCLI, and I didn't want to put something in place which would require this knowledge to support (or more likely, require me to be dragged off whatever I'm doing to take a look!).
 
 I decided to use a scheduled task, running from the reporting server (which already runs the scheduled tasks for the maintenance and reporting scripts). This would periodically check the datastores, and tweet if they exceeded a certain threshold. The team supporting the servers can easily set up their phones for Twitter alerts from the specific user
 
@@ -19,10 +19,10 @@ As the screenshot below shows, this works a treat (I adjusted the thresholds for
 
 [![Screenshot showing datastore's Twitter posts](http://ben.neise.co.uk/wp-content/uploads/2010/05/Capture-300x150.png "Datastores Tweeting")](http://ben.neise.co.uk/wp-content/uploads/2010/05/Capture.png)
 
-The Twitter account is protected (to save it from getting followed by porn-bots). I can now set it up for device alerts, which should hopefully give me a headÔÇÖs up on any potential problems. I could also implement other alerts in this method. For example, you could ping a critical machine, and tweet if itÔÇÖs not available:
+The Twitter account is protected (to save it from getting followed by porn-bots). I can now set it up for device alerts, which should hopefully give me a head's up on any potential problems. I could also implement other alerts in this method. For example, you could ping a critical machine, and tweet if it's not available:
 
 If ((Get-WmiObject -Class Win32_PingStatus -Filter "Address='CriticalMachineHostname'").StatusCode -ne 0){ E:\Tools\tweetC\tweetc.exe "Critical machine not reposnding to pings!" }
 
-Ideally IÔÇÖd like to revisit this, and remove the requirement for TweetC, but in the meantime it seems to be working great.
+Ideally I'd like to revisit this, and remove the requirement for TweetC, but in the meantime it seems to be working great.
 
 

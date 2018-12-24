@@ -7,8 +7,8 @@ tags:
 ---
 
 
-Virtual Geek has [an interesting article on VMware I/O queues, ÔÇ£micro-burstingÔÇØ, and multipathing](http://virtualgeek.typepad.com/virtual_geek/2009/06/vmware-io-queues-micro-bursting-and-multipathing.html).
+Virtual Geek has [an interesting article on VMware I/O queues, "micro-bursting", and multipathing](http://virtualgeek.typepad.com/virtual_geek/2009/06/vmware-io-queues-micro-bursting-and-multipathing.html).
 
-Looks intimidating at first glance, but itÔÇÖs suprisingly straightforward.
+Looks intimidating at first glance, but it's suprisingly straightforward.
 
 

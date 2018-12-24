@@ -4,7 +4,7 @@ title: AppSense and VMware View Horizon Linked Clones
 date: '2014-02-24 13:36:47'
 ---
 
-The move from persistent physical desktops, to non-persistent linked clones (with a separate user personalisation layer) requires rethinking the way in which machines are configured and software is deployed. The challenge is to deliver a consistent, highly available platform with the maximum efficiency. In this case efficiency means utilising Horizon ViewÔÇÖs ability to dynamically provision just enough desktops, while ensuring that the necessary configuration changes are delivered by AppSense.
+The move from persistent physical desktops, to non-persistent linked clones (with a separate user personalisation layer) requires rethinking the way in which machines are configured and software is deployed. The challenge is to deliver a consistent, highly available platform with the maximum efficiency. In this case efficiency means utilising Horizon View's ability to dynamically provision just enough desktops, while ensuring that the necessary configuration changes are delivered by AppSense.
 
 ## Computer configuration
 
@@ -20,27 +20,27 @@ The AppSense Client Configuration Agent and the Environment Manager Agent are al
 
 `MSIEXEC /I "ClientCommunicationsAgent64.msi" /Q WEB_SITE="http://appsense:80/"`
 
-To avoid all linked-clones sharing the Pool MasterÔÇÖs AppSense SID, we need to remove the SID from the pool master. This┬áis done via a shutdown script on a GPO linked to the pool masterÔÇÖs OU.
+To avoid all linked-clones sharing the Pool Master's AppSense SID, we need to remove the SID from the pool master. This is done via a shutdown script on a GPO linked to the pool master's OU.
 
 
 ## User configuration
 
 User configuration is done via AppSense on the linked clones themselves.
 
-As the Environment Manager Configuration is modified at a greater frequency than the pool masters are updated, we donÔÇÖt want it installed on the pool master prior to deployment. Rather we want the machines to download the newest configuration as it becomes available. AppSense allows us to deliver the latest version of the configuration.
+As the Environment Manager Configuration is modified at a greater frequency than the pool masters are updated, we don't want it installed on the pool master prior to deployment. Rather we want the machines to download the newest configuration as it becomes available. AppSense allows us to deliver the latest version of the configuration.
 
 ![AppSense Configuration Schedule](/content/images/2016/01/AppSense-Configuration-Schedule.png)
 
-Remember, that as weÔÇÖve already applied computer settings via GPO, we donÔÇÖt need to worry about restarting the computer after the AppSense configuration has been installed (which we would need to do in order to apply AppSense start-up actions). WeÔÇÖve also pre-deployed the agents (Environment and Client Communication), which means that the installation of the configuration should proceed fairly quickly.
+Remember, that as we've already applied computer settings via GPO, we don't need to worry about restarting the computer after the AppSense configuration has been installed (which we would need to do in order to apply AppSense start-up actions). We've also pre-deployed the agents (Environment and Client Communication), which means that the installation of the configuration should proceed fairly quickly.
 
 
-### Ensuring the machine is ÔÇ£readyÔÇØ for the user
+### Ensuring the machine is "ready" for the user
 
-However, this approach did introduce an issue where View was provisioning Linked Clones and marking them as ÔÇ£AvailableÔÇØ (and potentially allowing users to log on) before the configuration had been downloaded. This would result in users getting machines which had not yet had the configuration applied.┬áIn order to give AppSense enough time to deploy new configurations, we introduced an artificial delay to the start-up of the VMware View Agent (WSNM). The OUs which contain the linked clones, have the following start-up script:
+However, this approach did introduce an issue where View was provisioning Linked Clones and marking them as "Available" (and potentially allowing users to log on) before the configuration had been downloaded. This would result in users getting machines which had not yet had the configuration applied. In order to give AppSense enough time to deploy new configurations, we introduced an artificial delay to the start-up of the VMware View Agent (WSNM). The OUs which contain the linked clones, have the following start-up script:
 
 ```
 Get-Service -Name "WSNM" | Stop-Service | Set-Service -StartUpType "Manual"
 Start-Sleep -Seconds 300
 Get-Service -Name "WSNM" | Start-Service | Set-Service -StartUpType "Automatic"
 ```
-This script results in machines showing as ÔÇ£Agent UnreachableÔÇØ for the first five minutes after starting-up which gives AppSense enough time to deploy the configuration.
+This script results in machines showing as "Agent Unreachable" for the first five minutes after starting-up which gives AppSense enough time to deploy the configuration.

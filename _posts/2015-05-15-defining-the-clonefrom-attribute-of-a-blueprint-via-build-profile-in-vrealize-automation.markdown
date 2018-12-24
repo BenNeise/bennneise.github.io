@@ -8,37 +8,37 @@ date: '2015-05-15 18:03:58'
 
 ![vRealize Automation](/content/images/2016/01/vRA-Product-Icon-Mac_0.png)
 
-Using┬ávRealize Automation (vRA) to allow your users to deploy their own infrastructure in minutes is great, but if the first thing they┬áneed to do is apply a bunch of patches, theyÔÇÖre not going to be happy. ItÔÇÖs essential that you keep your templates up to date.
+Using vRealize Automation (vRA) to allow your users to deploy their own infrastructure in minutes is great, but if the first thing they need to do is apply a bunch of patches, they're not going to be happy. It's essential that you keep your templates up to date.
 
-Doing so is fairly straightforward ÔÇô clone the existing template, convert it to a running machine, power it on, apply all updates., shut it down and convert it to a template again. You can create a vRealize Automation workflow to do this fairly easily. But once youÔÇÖve done that ÔÇª┬áhow do you go about updating┬áyour vRA blueprints to use the new template?
+Doing so is fairly straightforward ÔÇô clone the existing template, convert it to a running machine, power it on, apply all updates., shut it down and convert it to a template again. You can create a vRealize Automation workflow to do this fairly easily. But once you've done that ÔÇª how do you go about updating your vRA blueprints to use the new template?
 
-Normally you would click the browse button┬ánext to the **Clone from** box in the **Build Information**┬átab of the blueprint. This would present you with a list of templates on the attached compute. You would select┬áthe updated version of your template, and save your changes.┬áIf youÔÇÖre using the same parent template for multiple blueprints, then this means you could end up doing this on┬áa large number of blueprints.
+Normally you would click the browse button next to the **Clone from** box in the **Build Information** tab of the blueprint. This would present you with a list of templates on the attached compute. You would select the updated version of your template, and save your changes. If you're using the same parent template for multiple blueprints, then this means you could end up doing this on a large number of blueprints.
 
-So, whatÔÇÖs the alternative?
+So, what's the alternative?
 
 What we can do instead is we select the parent template using a custom attribute called **CloneFrom**. We can then assign this property using a **Build Profile**, which is then applied to multiple blueprints ([this page contains a good description of Build Profiles](http://www.virtualizationteam.com/cloud/vcac-6-custom-properties-build-profiles-property-dictionary.html)).
 
-Once implemented, we can ÔÇô by updating a single Build Profile ÔÇô update every blueprint which uses this Build Profile. (Even if youÔÇÖare automating the creation and maintenance of Blueprints, updating a single Build Profile property is easier than updating the Clone from property on multiple blueprints.)
+Once implemented, we can ÔÇô by updating a single Build Profile ÔÇô update every blueprint which uses this Build Profile. (Even if you'are automating the creation and maintenance of Blueprints, updating a single Build Profile property is easier than updating the Clone from property on multiple blueprints.)
 
-As we can (via the Property Dictionary) offer a choice of Custom Properties to the user who is┬árequesting a machine, we can now offer a selection┬áof parent┬áVM templates. Fort example we could present a user with different versions of the template, or we could present a selection of templates with different base applications installed.
+As we can (via the Property Dictionary) offer a choice of Custom Properties to the user who is requesting a machine, we can now offer a selection of parent VM templates. Fort example we could present a user with different versions of the template, or we could present a selection of templates with different base applications installed.
 
-One nice effect of this is that as these machines use the same Blueprint, this means that theyÔÇÖre drawn from the same **Maximum per user**. This prevents users from┬ágaming the system by deploying the maximum number of machines for each blueprint type. For example, say youÔÇÖve got a couple┬áof Windows blueprints available to your developers (Vanilla and SQL) with the maximum per user set to 3┬áon each flavour, if the user wants┬á5┬áVanilla, machines┬áthey could deploy 3 vanilla servers and 2 SQL Servers, and just remove┬áor ignore the SQL installation. But, if you have a single blueprint with┬áparent template defined as an attribute, then┬áthe limit for that blueprint is applied across all machines deployed from that blueprint.
+One nice effect of this is that as these machines use the same Blueprint, this means that they're drawn from the same **Maximum per user**. This prevents users from gaming the system by deploying the maximum number of machines for each blueprint type. For example, say you've got a couple of Windows blueprints available to your developers (Vanilla and SQL) with the maximum per user set to 3 on each flavour, if the user wants 5 Vanilla, machines they could deploy 3 vanilla servers and 2 SQL Servers, and just remove or ignore the SQL installation. But, if you have a single blueprint with parent template defined as an attribute, then the limit for that blueprint is applied across all machines deployed from that blueprint.
 
 
 # Instructions
 
 
-## Optional ÔÇô Creating a ÔÇ£placeholderÔÇØ template
+## Optional ÔÇô Creating a "placeholder" template
 
-One complication is that you must┬ádefine a value in the **Clone from** property of the **Build Information** tab of the blueprint; despite┬áthe fact that itÔÇÖs just going to be overridden by a custom property. In order to avoid confusion, we using a ÔÇ£placeholderÔÇØ┬áVM template which weÔÇÖve┬ánamed┬á**UseCustomProperty**, this should make it clear to anyone else looking at the Blueprint, that weÔÇÖre setting the parent template via attribute.
+One complication is that you must define a value in the **Clone from** property of the **Build Information** tab of the blueprint; despite the fact that it's just going to be overridden by a custom property. In order to avoid confusion, we using a "placeholder" VM template which we've named **UseCustomProperty**, this should make it clear to anyone else looking at the Blueprint, that we're setting the parent template via attribute.
 
-In vSphere client, all you need to do is create a new machine named **UseCustomProperty**. It does not need to have an operating system installed, but it does need to have a disk. The size of this disk wil be the size shown to the user when they request a machine, so this size should be the same as your template. Of course, as itÔÇÖs Thin Provisioned it only takes up a fraction of that space.
+In vSphere client, all you need to do is create a new machine named **UseCustomProperty**. It does not need to have an operating system installed, but it does need to have a disk. The size of this disk wil be the size shown to the user when they request a machine, so this size should be the same as your template. Of course, as it's Thin Provisioned it only takes up a fraction of that space.
 
 
 ## Creating a Build Profile which can be used to assign a parent template
 
 1. Log into vCAC
-2. Go to **Infrastructure**┬á> **Blueprints**┬á> **Build Profiles**
+2. Go to **Infrastructure** > **Blueprints** > **Build Profiles**
 3. Click **New Build Profile**
 4. Give the build profile a sensible name and description.
 5. Under **Custom Properties**, create a **New Property**
@@ -46,13 +46,13 @@ In vSphere client, all you need to do is create a new machine named **UseCustomP
 7. Save your changes ÔÇô remember to click the little green check-mark, before clicking **Ok**!
 
 
-## Updating a machine to use a parent template┬áassigned via Build Profile
+## Updating a machine to use a parent template assigned via Build Profile
 
 1. Log into vCAC
-2. Go to **Infrastructure** > **Blueprints**┬á> **Blueprints**
+2. Go to **Infrastructure** > **Blueprints** > **Blueprints**
 3. Edit the blueprint of the machine you wish to update
-4. Optional: On the **Build Information**┬átab, modify the **Clone from. F**rom the browse menu, select your placeholder machine
-5. On the **Properties**┬átab, next to **Build Profiles**, select your Build Profile.
+4. Optional: On the **Build Information** tab, modify the **Clone from. F**rom the browse menu, select your placeholder machine
+5. On the **Properties** tab, next to **Build Profiles**, select your Build Profile.
 6. Save your changes by clicking **Ok**
 
 

@@ -5,14 +5,14 @@ date: '2015-07-28 18:49:42'
 ---
 
 
-This site uses cookies. Most websites do this. Our cookies arenÔÇÖt used to identify you personally, theyÔÇÖre here to make the site work better and allow us to analyse how itÔÇÖs being used. You can delete these cookies as you wish, but some aspects of the site may not work correctly without cookies.
+This site uses cookies. Most websites do this. Our cookies aren't used to identify you personally, they're here to make the site work better and allow us to analyse how it's being used. You can delete these cookies as you wish, but some aspects of the site may not work correctly without cookies.
 
 To learn more about cookies and how to manage them, visit [AboutCookies.org](http://aboutcookies.org).
 
 ### Specific Cookies Used
 
-- Google Analytics Cookies ÔÇö These cookies are used to track how people use the site. These cookies include _utma, _utmb, _utmc, and _utmz.
+- Google Analytics Cookies ' These cookies are used to track how people use the site. These cookies include _utma, _utmb, _utmc, and _utmz.
 
-- Cookie Message ÔÇö Once you have been informed about cookies, a cookie is stored to track that you have seen the message, and it wonÔÇÖt be shown again. This cookie is named icc_cookie_message.
+- Cookie Message ' Once you have been informed about cookies, a cookie is stored to track that you have seen the message, and it won't be shown again. This cookie is named icc_cookie_message.
 
 

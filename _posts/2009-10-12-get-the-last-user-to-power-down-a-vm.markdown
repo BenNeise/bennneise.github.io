@@ -15,6 +15,6 @@ $objEvent = @(
 $objEvent[0].userName $objEvent[0].createdTime
 ```
 
-I recall seeing an alternate way of getting events, which might be faster; if I have time, IÔÇÖll look it up.
+I recall seeing an alternate way of getting events, which might be faster; if I have time, I'll look it up.
 
 

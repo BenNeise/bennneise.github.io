@@ -6,22 +6,22 @@ date: '2015-05-29 13:24:49'
 
 
 ![vcologo](/content/images/2016/01/vcologo.png)
-WeÔÇÖre soon going to be implementing multiple [vRealize Orchestrator](http://www.vmware.com/uk/products/vrealize-orchestrator) (vRO)┬áservers in our [vRealize Automation ](http://www.vmware.com/uk/products/vrealize-automation)(vRA) development environment to allow people to choose different endpoints. Essentially if someoneÔÇÖs working on a workflow, that shouldnÔÇÖt affect a different developer who is testing a template. So I wanted a way of allowing customers (in this case, developers) to choose from a list of Orchestrator endpoints.
+We're soon going to be implementing multiple [vRealize Orchestrator](http://www.vmware.com/uk/products/vrealize-orchestrator) (vRO) servers in our [vRealize Automation ](http://www.vmware.com/uk/products/vrealize-automation)(vRA) development environment to allow people to choose different endpoints. Essentially if someone's working on a workflow, that shouldn't affect a different developer who is testing a template. So I wanted a way of allowing customers (in this case, developers) to choose from a list of Orchestrator endpoints.
 
 This might be useful in the following cases:
 
 - Allowing specific customers to use their own Orchestrators (for example in different domains)
-- Having multiple Development Orchestrators at various stages of ÔÇ£doneÔÇØ. So┬áworkflow developers can break workflows without hampering┬áanyone elseÔÇÖs ability to deploy machines.
-- Using┬áa Development┬áOrchestrator┬áfrom Production. For example┬ásome┬áof our customerÔÇÖs Blueprints┬ácanÔÇÖt be tested in DEV as we donÔÇÖt have the same networks available.
+- Having multiple Development Orchestrators at various stages of "done". So workflow developers can break workflows without hampering anyone else's ability to deploy machines.
+- Using a Development Orchestrator from Production. For example some of our customer's Blueprints can't be tested in DEV as we don't have the same networks available.
 
-Thankfully, using [vRA Custom Properties](http://pubs.vmware.com/vCAC-61/topic/com.vmware.ICbase/PDF/vcloud-automation-center-61-custom-property-reference.pdf), this isnÔÇÖt too difficult to implement.
+Thankfully, using [vRA Custom Properties](http://pubs.vmware.com/vCAC-61/topic/com.vmware.ICbase/PDF/vcloud-automation-center-61-custom-property-reference.pdf), this isn't too difficult to implement.
 
-Before you start, you should be comfortable┬áusing Orchestrator with┬ávRA. This isnÔÇÖt a guide on how to set up vRA/vRO integration. Your vRO server must be set up with all the necessary prerequisites that it would need to work as an endpoint.┬á If youÔÇÖve done this once, youÔÇÖve hopefully documented the process, so itÔÇÖs just a case of replicating it on another server.
+Before you start, you should be comfortable using Orchestrator with vRA. This isn't a guide on how to set up vRA/vRO integration. Your vRO server must be set up with all the necessary prerequisites that it would need to work as an endpoint.  If you've done this once, you've hopefully documented the process, so it's just a case of replicating it on another server.
 
 
 ## Create the vRO Endpoint in vRA
 
-Assuming you havenÔÇÖt already go multiple endpoints configured; the first thing youÔÇÖre going to need to do is create one.
+Assuming you haven't already go multiple endpoints configured; the first thing you're going to need to do is create one.
 
 1. Log into your vRealize Automation portal
 2. Navigate to **Infrastructure** > **Endpoints** > **Endpoints**
@@ -40,7 +40,7 @@ You can add custom properties that apply to provisioned machines to the followin
 - **Blueprint**, to apply the custom properties to all machines provisioned from the blueprint
 - **Build profile**, which can be incorporated into any global or local blueprint, to apply the custom properties to all machines provisioned from the blueprint
 
-If youÔÇÖre going to set it in multiple places, be aware of the [order of precedence](http://pubs.vmware.com/vra-62/index.jsp?topic=%2Fcom.vmware.vra.iaas.cloud.doc%2FGUID-F45F332E-1003-45BC-BC05-0EA2FDE1B31F.html).
+If you're going to set it in multiple places, be aware of the [order of precedence](http://pubs.vmware.com/vra-62/index.jsp?topic=%2Fcom.vmware.vra.iaas.cloud.doc%2FGUID-F45F332E-1003-45BC-BC05-0EA2FDE1B31F.html).
 
 1. Wherever you decide to create the custom attribute, click **New Property**
 2. Create a new property with the Name **VMware.VCenterOrchestrator.EndpointName**
@@ -50,7 +50,7 @@ If youÔÇÖre going to set it in multiple places, be aware of the [order of pre
 
 ## Create the vRA Property Dictionary entry
 
-What weÔÇÖve done so far will create an empty text box on one or more blueprints, into which the user can enter an endpoint name. What we want to do next is provide them with a drop-down list of available endpoints.
+What we've done so far will create an empty text box on one or more blueprints, into which the user can enter an endpoint name. What we want to do next is provide them with a drop-down list of available endpoints.
 
 1. In vRA navigate to **Infrastructure** > **Blueprints** > **Property Dictionary**
 2. Click **New Property Definition**, set the **name** as **VMware.VCenterOrchestrator.EndpointName**.
@@ -59,7 +59,7 @@ What weÔÇÖve done so far will create an empty text box on one or more bluepri
 5. Click the green checkmark to save your changes, then click **Ok**.
 6. Now, edit the **Property Attributes** of the **Property Definition** you just created. Click **New Property Attribute**
 7. Set the `Type` to `ValueList`, and the name to `VMware.VCenterOrchestrator.EndpointName`.
-8. Set the **Value** to be a comma-seperated┬álist of your Orchestrator endpoint names (copy and paste so that you know youÔÇÖre getting them right!)
+8. Set the **Value** to be a comma-seperated list of your Orchestrator endpoint names (copy and paste so that you know you're getting them right!)
 9. Click the green checkmark to save your changes, then click **OK**
 
 ![SelectTheOrchestratorServer](/content/images/2016/01/SelectTheOrchestratorServer.png)

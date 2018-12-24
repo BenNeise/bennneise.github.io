@@ -9,9 +9,9 @@ tags:
 ---
 
 
-I havenÔÇÖt been posting too much here recently IÔÇÖm afraid. A lot of the things that IÔÇÖm currently working on are pretty specific to the environment here, and are not particularly useful (or indeed, interesting) to anyone else.
+I haven't been posting too much here recently I'm afraid. A lot of the things that I'm currently working on are pretty specific to the environment here, and are not particularly useful (or indeed, interesting) to anyone else.
 
-One of the things IÔÇÖve been doing might be more generally useful. We needed to convert around 700 of our machines to thin-provisioned format. When migrating to the new environment weÔÇÖd stuck to traditional ÔÇ£thickÔÇØ machines, as there was a lot of upheaval, and we didnÔÇÖt have the necessary monitoring in place. Now that things have settled, we were looking to take advantage of the thin format to save us some space. We had already run [SDELETE](http://ben.neise.co.uk/index.php/2009/10/using-sdelete-to-maximise-the-amount-of-disk-space-reclaimed-during-conversion-to-thin-provisioned-disks/) on the (non-persistent) machines during the migration, so we were ready to go.
+One of the things I've been doing might be more generally useful. We needed to convert around 700 of our machines to thin-provisioned format. When migrating to the new environment we'd stuck to traditional "thick" machines, as there was a lot of upheaval, and we didn't have the necessary monitoring in place. Now that things have settled, we were looking to take advantage of the thin format to save us some space. We had already run [SDELETE](http://ben.neise.co.uk/index.php/2009/10/using-sdelete-to-maximise-the-amount-of-disk-space-reclaimed-during-conversion-to-thin-provisioned-disks/) on the (non-persistent) machines during the migration, so we were ready to go.
 
 The conversion process is fairly simple: a new option during a storage vMotion. However, the idea of doing this 700 times did not appeal to me, so I wrote the script below to automate the process.
 
@@ -24,8 +24,8 @@ It works through the collection of virtual machine objects in **$objVMs**, and a
 - Not switched on with snapshots
 - Not a linked clone (thanks to [Keshav Attrey](http://www.vmdev.info/?page_id=2) for his [method of finding linked clones](http://www.vmdev.info/?p=546))
 
-It then starts a separate loop going through each machine object in the array. I could have integrated the migration task into the first loop, but this approach means you can add a human ÔÇ£sanity-checkÔÇØ if youÔÇÖve got certain machines you donÔÇÖt want to migrate.
+It then starts a separate loop going through each machine object in the array. I could have integrated the migration task into the first loop, but this approach means you can add a human "sanity-check" if you've got certain machines you don't want to migrate.
 
-The script finds the datastore with the largest amount of free space, and then the actual migration is done using code which I [generated using Onyx](http://ben.neise.co.uk/index.php/2009/11/changing-standbyaction-using-powershell-script-generated-with-help-from-onyx/). The free space on the datastores is re-evaluated before every move. This makes the script quite slow, but this isnÔÇÖt something you want to rush.
+The script finds the datastore with the largest amount of free space, and then the actual migration is done using code which I [generated using Onyx](http://ben.neise.co.uk/index.php/2009/11/changing-standbyaction-using-powershell-script-generated-with-help-from-onyx/). The free space on the datastores is re-evaluated before every move. This makes the script quite slow, but this isn't something you want to rush.
 
 

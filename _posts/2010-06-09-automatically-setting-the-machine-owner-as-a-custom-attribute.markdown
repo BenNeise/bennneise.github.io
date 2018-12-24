@@ -5,17 +5,17 @@ date: '2010-06-09 08:49:58'
 ---
 
 
-As we are constantly creating, moving, renaming and deleting machines, itÔÇÖs difficult enough to keep track of machines I have deployed myself; never mind keeping track of what the other team members are doing.
+As we are constantly creating, moving, renaming and deleting machines, it's difficult enough to keep track of machines I have deployed myself; never mind keeping track of what the other team members are doing.
 
-In order to try make it easier to find the owner of a machine, we implemented a custom attribute ÔÇ£Infrastructure ConsultantÔÇØ, which the analyst should complete. Inevitably, despite the best of intentions, this is occasionally missed, and we end up with machine of unknown provenance.
+In order to try make it easier to find the owner of a machine, we implemented a custom attribute "Infrastructure Consultant", which the analyst should complete. Inevitably, despite the best of intentions, this is occasionally missed, and we end up with machine of unknown provenance.
 
-The following script sorts this by finding machines where the custom attribute is empty, then populating it with a best guess, based on the machineÔÇÖs event log.
+The following script sorts this by finding machines where the custom attribute is empty, then populating it with a best guess, based on the machine's event log.
 
 It looks for three types of events:-
 
-- ÔÇ£DeployingÔÇªÔÇØ covers machines which have been deployed from another template
-- ÔÇ£CreatingÔÇªÔÇØ covers machines which have been imported via VMware Converter
-- ÔÇ£Clone ofÔÇªÔÇØ covers machines cloned from existing machines
+- "DeployingÔÇª" covers machines which have been deployed from another template
+- "CreatingÔÇª" covers machines which have been imported via VMware Converter
+- "Clone ofÔÇª" covers machines cloned from existing machines
 
 This seems to cover everything on our environment. If you find something else, then it should be simple enough to add it.
 
@@ -37,6 +37,6 @@ ForEach ($objVM in (Get-VM | Sort-Object Name)){
     }
 }
 ```
-This doesnÔÇÖt take a long time to run, and will hopefully catch all those occasions where we forget to complete the custom attributes on the machine. It could of course be easily modified to check/update any other custom attribute.
+This doesn't take a long time to run, and will hopefully catch all those occasions where we forget to complete the custom attributes on the machine. It could of course be easily modified to check/update any other custom attribute.
 
 

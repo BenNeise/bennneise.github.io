@@ -8,14 +8,14 @@ tags:
 ---
 
 
-[Carter Shanklin](http://www.twitter.com/cshanklin) has used [Microsoft Office Document Imaging Library (MODI)](http://www.codeproject.com/KB/office/modi.aspx?fid=172151&df=90&mpp=25&noise=3&sort=Position&view=Quick&fr=76&select=1629759) to improve Eric SloofÔÇÖs [script](http://www.ntpro.nl/blog/archives/1100-Virtual-Machine-Blue-Screen-detector.html) [ to detect Blue Screens of Death (BSoDs)](http://www.ntpro.nl/blog/archives/1100-Virtual-Machine-Blue-Screen-detector.html); it now captures the errors and converts them to text.
+[Carter Shanklin](http://www.twitter.com/cshanklin) has used [Microsoft Office Document Imaging Library (MODI)](http://www.codeproject.com/KB/office/modi.aspx?fid=172151&df=90&mpp=25&noise=3&sort=Position&view=Quick&fr=76&select=1629759) to improve Eric Sloof's [script](http://www.ntpro.nl/blog/archives/1100-Virtual-Machine-Blue-Screen-detector.html) [ to detect Blue Screens of Death (BSoDs)](http://www.ntpro.nl/blog/archives/1100-Virtual-Machine-Blue-Screen-detector.html); it now captures the errors and converts them to text.
 
 ![BlueScreenDetector](/content/images/2016/01/BlueScreenDetector.jpg)
 
-From EricÔÇÖs blog:
+From Eric's blog:
 
-> [F]irst it captures a screenshot of a virtual machine. Secondly it uses the Toolkit Extensions to copy it to the local drive. When the PNG image is saved on the local drive, itÔÇÖs converted to TIFF. The TIFF image will be used to extract the text using OCR.
+> [F]irst it captures a screenshot of a virtual machine. Secondly it uses the Toolkit Extensions to copy it to the local drive. When the PNG image is saved on the local drive, it's converted to TIFF. The TIFF image will be used to extract the text using OCR.
 
-ItÔÇÖs the kind of thing that na├»ve users expect computers to be able to do, but which actually turn out to be rather difficult. ItÔÇÖs an incredible use of the various technologies involved ÔÇô PowerCLI, the Toolkit Extensions, MODI and PrimalForms.
+It's the kind of thing that na├»ve users expect computers to be able to do, but which actually turn out to be rather difficult. It's an incredible use of the various technologies involved ÔÇô PowerCLI, the Toolkit Extensions, MODI and PrimalForms.
 
 

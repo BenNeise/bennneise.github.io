@@ -33,8 +33,8 @@ The following enhancements have been made to ESX (from the [release notes](http:
 
 vCenter 4.0 has also been updated, and now has full compatibility with Windows 7 x86 and x64 versions. Saving the [various hacks that were necessary to get it working](http://xtravirt.com/running-vmware-vsphere-client-windows-7).
 
-Also, the PowerCLI has been updated, and can be found [here](http://blogs.vmware.com/vipowershell/2009/11/powercli-40-u1-is-out.html). There are 68 new CMDLETS, which [Alan Renouf does a great job of explaining](http://www.virtu-al.net/2009/11/20/powercli-bring-on-the-next-version/). IÔÇÖm especially looking forward to trying out Get\Set-CustomAttribute (no more manipulation of the View object), Move-VMTemplate (no more converting templates to machines), and Get\Set-VMQuestion (for those times when the datastores run out of space for the REDO files necessitated by Non-Persistent disks).
+Also, the PowerCLI has been updated, and can be found [here](http://blogs.vmware.com/vipowershell/2009/11/powercli-40-u1-is-out.html). There are 68 new CMDLETS, which [Alan Renouf does a great job of explaining](http://www.virtu-al.net/2009/11/20/powercli-bring-on-the-next-version/). I'm especially looking forward to trying out Get\Set-CustomAttribute (no more manipulation of the View object), Move-VMTemplate (no more converting templates to machines), and Get\Set-VMQuestion (for those times when the datastores run out of space for the REDO files necessitated by Non-Persistent disks).
 
-IÔÇÖm looking forward to investigating the new PowerCLI functionality, and IÔÇÖm also looking forward to not needing to┬á manually customise the dozen or so Windows 7 guests IÔÇÖm deploying next week!
+I'm looking forward to investigating the new PowerCLI functionality, and I'm also looking forward to not needing to  manually customise the dozen or so Windows 7 guests I'm deploying next week!
 
 

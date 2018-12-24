@@ -7,24 +7,24 @@ date: '2016-09-05 19:10:48'
 
 ![jenkins](/content/images/2016/01/jenkins.png)
 
-[VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). ItÔÇÖs pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
+[VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). It's pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
 
 ```
 urlObject = new URL(yourJobUrl);
 urlObject.getContent();
 ```
 
-This works well enough, assuming that you donÔÇÖt need to wait on the job to complete and/or check that it completed successfully. If you do need to to do either of those things, then┬áyou need to use vROÔÇÖs REST capabilities. 
+This works well enough, assuming that you don't need to wait on the job to complete and/or check that it completed successfully. If you do need to to do either of those things, then you need to use vRO's REST capabilities. 
 
-In this article, I'll describe how to set up and use a Jenkins REST host in vRO. Before we start, IÔÇÖm assuming youÔÇÖre familiar (at least to some degree) with Jenkins, vRO┬áand JavaScript.
+In this article, I'll describe how to set up and use a Jenkins REST host in vRO. Before we start, I'm assuming you're familiar (at least to some degree) with Jenkins, vRO and JavaScript.
 
 ## Running a simple Jenkins (no build parameters)
 
 ### Create the example Jenkins job
 
-1. I created a simple Jenkins job, which requires no build parameters. It returns a single cat fact from [catfacts-api.appspot.com](http://catfacts-api.appspot.com). To do this, IÔÇÖm using the [PowerShell plug-in](https://wiki.jenkins-ci.org/display/JENKINS/PowerShell+Plugin) to run a single-line of PowerShell (`((Invoke-Webrequest -Uri "http://catfacts-api.appspot.com/api/facts?number=1" -UseBasicParsing).content | ConvertFrom-Json).facts`). What the job does isnÔÇÖt really important though, I just wanted something slightly more interesting than a random number generator, or a ÔÇ£Hello World!ÔÇØ.
+1. I created a simple Jenkins job, which requires no build parameters. It returns a single cat fact from [catfacts-api.appspot.com](http://catfacts-api.appspot.com). To do this, I'm using the [PowerShell plug-in](https://wiki.jenkins-ci.org/display/JENKINS/PowerShell+Plugin) to run a single-line of PowerShell (`((Invoke-Webrequest -Uri "http://catfacts-api.appspot.com/api/facts?number=1" -UseBasicParsing).content | ConvertFrom-Json).facts`). What the job does isn't really important though, I just wanted something slightly more interesting than a random number generator, or a "Hello World!".
 2. Under the **Build triggers** section, make sure that **Trigger builds remotely (e.g., from scripts)** is set. You should also [create an authentication token](http://randomkeygen.com).
-3. **Build** the job in Jenkins to confirm that┬áit works, the console output should look something like this:-
+3. **Build** the job in Jenkins to confirm that it works, the console output should look something like this:-
 
 ```Started by user Neise, Ben
 Building remotely on ######## (#################################) in workspace #:\Resources\jenkins\workspace\###########\Generate Cat Fact
@@ -40,24 +40,24 @@ We need to create a REST host object representing the Jenkins server, and a REST
 1. Run the vRO workflow **Library\Configuration\Add a REST host** and configure **Host Properties** as follows:
  - Name: `My Jenkins Server`
  - URL: `http://:8080/jenkins/` (use the URL and port of your Jenkins server)
- - Connection timeout (seconds): `30.0` (you may wish to tune this for your specific requirements, but IÔÇÖm leaving it as the default for now)
- - Operation timeout (seconds): `60.0`┬á(you may wish to tune this for your specific requirements, but IÔÇÖm leaving it as the default for now)
+ - Connection timeout (seconds): `30.0` (you may wish to tune this for your specific requirements, but I'm leaving it as the default for now)
+ - Operation timeout (seconds): `60.0` (you may wish to tune this for your specific requirements, but I'm leaving it as the default for now)
  - Configure **Proxy settings**
  - Use Proxy: `No` (Unless you have a proxy!)
  - Configure `Host Authentication`
- - HostÔÇÖs authentication type: `NONE`
+ - Host's authentication type: `NONE`
 2. Now run the Orchestrator workflow **Library\Configuration\Add a REST Operation and configure **Operation properties** as follows:
  - Parent host: Select your new REST host `My Jenkins Server` (or whatever you called it)
  - Name: `Generate cat fact`
  - Template URL: This should be the URL to your job. You should be able to see this below the **Trigger builds remotely (e.g., from scripts)** section in the Jenkins job configuration. It will look something like `/job/Generate%20Cat%20Fact/build?token=xxxxxxxxxxxxxxxxxxxxxxxxx`
  - HTTP Method: `GET`
-3. You can test this operation by right-clicking, then selecting **Run workflow > Invoke a REST operation > Submit.**┬áIt should run without errors (but it wonÔÇÖt wait for the Jenkins job to complete, or give you any output)
+3. You can test this operation by right-clicking, then selecting **Run workflow > Invoke a REST operation > Submit.** It should run without errors (but it won't wait for the Jenkins job to complete, or give you any output)
 
 ### Create the vRO Workflow which will run the Jenkins job, and get the results
 
 Now we need an Orchestrator workflow which runs the operation, waits for it to complete and displays the status and output.
 
-1. Using the Orchestrator client, create a new workflow. IÔÇÖm going to call mine **Cat fact**
+1. Using the Orchestrator client, create a new workflow. I'm going to call mine **Cat fact**
 2. The workflow needs a single attribute of type `REST:RESTOperation`, this should be set to your REST operation. My operation is `Generate cat fact` and I named this attribute `generateCatFact`.
 3. The workflow needs a single scriptable task, the `REST:Operation` attribute named `generateCatFact` should be bound as an input. The script should be something like this.
 
@@ -74,25 +74,25 @@ Now we need an Orchestrator workflow which runs the operation, waits for it to c
 
 ### Create the Jenkins job
 
-1. I created another job, using the same┬á[cat facts api](http://catfacts-api.appspot.com), but this time it allows multiple cat facts to be returned.
+1. I created another job, using the same [cat facts api](http://catfacts-api.appspot.com), but this time it allows multiple cat facts to be returned.
 2. The job has a single string parameter named `facts`, this parameter is used in the job like so `((Invoke-Webrequest -Uri "http://catfacts-api.appspot.com/api/facts?number=:$env:facts" -UseBasicParsing).content | ConvertFrom-Json).facts`
 
 
 ### Create the vRO REST Host & REST Operation
 
-1. WeÔÇÖre going to use the same REST host object, but create a new operation.
+1. We're going to use the same REST host object, but create a new operation.
 2. Run the Orchestrator workflow **Library\Configuration\Add a REST Operation** and configure **Operation properties**
  - Parent host: Select your REST host
  - Name: `Generate cat facts`
- - Template URL: As before, you can get the URL from under the **Trigger builds remotely**┬ásection on the Jenkins job configuration. YouÔÇÖll need to also pass any parameters. In the example, we need to pass `facts`. The Orchestrator dialog explains the placeholder syntax requires that runtime parameters be surrounded by curly-braces, so you should end up with something like this┬á`/job/Generate%20Cat%20Facts/buildWithParameters?facts={facts}&token=xxxxxxxxxxxxxxxxxxxxxx`
+ - Template URL: As before, you can get the URL from under the **Trigger builds remotely** section on the Jenkins job configuration. You'll need to also pass any parameters. In the example, we need to pass `facts`. The Orchestrator dialog explains the placeholder syntax requires that runtime parameters be surrounded by curly-braces, so you should end up with something like this `/job/Generate%20Cat%20Facts/buildWithParameters?facts={facts}&token=xxxxxxxxxxxxxxxxxxxxxx`
  - HTTP Method: `GET`
-3. You can test this operation by right-clicking, then selecting **Run workflow > Invoke a REST operation > Submit**. It should run without errors (but it wonÔÇÖt wait for the Jenkins job to complete, or give you any output)
+3. You can test this operation by right-clicking, then selecting **Run workflow > Invoke a REST operation > Submit**. It should run without errors (but it won't wait for the Jenkins job to complete, or give you any output)
 
 
 ### Create the vRO Workflow which will run the Jenkins job, and get the results
 
 1. Duplicate the **Cat fact** Orchestrator workflow we created above (on the right-click menu), name it **Cat facts**, and make the following changes:
  - Create a single input called `facts` of type `Number`.
- - Bind `facts`┬áto the `Scriptable task`. The scriptable task should have two inputs ÔÇô `facts`┬á(a `Number`), and `generateCatFacts`┬á(a `REST:RESTOperation`).
+ - Bind `facts` to the `Scriptable task`. The scriptable task should have two inputs ÔÇô `facts` (a `Number`), and `generateCatFacts` (a `REST:RESTOperation`).
  - In the scriptable task, change the line `var objRESTRequest = generateCatFact.createRequest(null,null);` to `var objRESTRequest = generateCatFact.createRequest([facts],null);`, this will now pass the REST operation an array containing a single element (the facts input). If you have multiple inputs, you simply add them as items in this array in the order in which they are required in the URL (which is defined in the REST operation).
-5. Run the new vRO job, and enter a valid input (for [this API](https://catfacts-api.appspot.com/doc.html), something between 1-100). You should now get the Jenkins console output in your Orchestrator console.┬áObviously, outputting the job result and console output to screen is of limited use, but you are now able to parse those values and bind them to workflow outputs.
+5. Run the new vRO job, and enter a valid input (for [this API](https://catfacts-api.appspot.com/doc.html), something between 1-100). You should now get the Jenkins console output in your Orchestrator console. Obviously, outputting the job result and console output to screen is of limited use, but you are now able to parse those values and bind them to workflow outputs.

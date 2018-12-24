@@ -5,17 +5,17 @@ date: '2012-08-22 11:09:55'
 ---
 
 
-One of the great things about PowerShell is its ability to easily export objects to HTML, which ÔÇô with a little CSS ÔÇô makes it straightforward to create great-looking reports. But static lists of data arenÔÇÖt enough anymore, people demand interactivity.
+One of the great things about PowerShell is its ability to easily export objects to HTML, which ÔÇô with a little CSS ÔÇô makes it straightforward to create great-looking reports. But static lists of data aren't enough anymore, people demand interactivity.
 
 [DataTables](http://datatables.net) is a plug-in for the [jQuery](http://jquery.com/) JavaScript library which is great for displaying interactive HTML tables, with options for sorting and filtering. You can have a look at some of the [examples](http://datatables.net/examples/) on their page to see how powerful it is.
 
-Unfortunately for us, DataTables requires that HTML tables be formatted in a [particular](http://datatables.net/usage/) way, with the THEAD and TBODY sections declared,┬áand this formatting is not the same as the tables output from the ConvertTo-HTML CMDlet.
+Unfortunately for us, DataTables requires that HTML tables be formatted in a [particular](http://datatables.net/usage/) way, with the THEAD and TBODY sections declared, and this formatting is not the same as the tables output from the ConvertTo-HTML CMDlet.
 
-For example, say we want to get a list of VMware services running on the current machine. WeÔÇÖre going to output the HTML table to a text file, and then use a server-side-include to integrate it into a larger page (with headings, a style sheet, navigation etc.). We can generate the HTML easily with the following command.
+For example, say we want to get a list of VMware services running on the current machine. We're going to output the HTML table to a text file, and then use a server-side-include to integrate it into a larger page (with headings, a style sheet, navigation etc.). We can generate the HTML easily with the following command.
 
 `Get-Service -Name VMware* | Select-Object Name,Status | ConvertTo-HTML -Fragment`
 
-By looking at the output generated, we can see that, although valid HTML, it doesnÔÇÖt have the THEAD and TBODY sections required by DataTables.
+By looking at the output generated, we can see that, although valid HTML, it doesn't have the THEAD and TBODY sections required by DataTables.
 ```
 <table>
     <colgroup>
