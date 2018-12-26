@@ -24,8 +24,8 @@ github_username:  benneise
 
 # Build settings
 markdown: kramdown
-remote_theme: daattali/beautiful-jekyll
-#theme: minima
+#remote_theme: daattali/beautiful-jekyll
+theme: minima
 plugins:
     - jekyll-feed
 
