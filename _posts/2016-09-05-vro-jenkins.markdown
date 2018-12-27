@@ -93,6 +93,6 @@ Now we need an Orchestrator workflow which runs the operation, waits for it to c
 
 1. Duplicate the **Cat fact** Orchestrator workflow we created above (on the right-click menu), name it **Cat facts**, and make the following changes:
  - Create a single input called `facts` of type `Number`.
- - Bind `facts` to the `Scriptable task`. The scriptable task should have two inputs ÔÇô `facts` (a `Number`), and `generateCatFacts` (a `REST:RESTOperation`).
+ - Bind `facts` to the `Scriptable task`. The scriptable task should have two inputs  - `facts` (a `Number`), and `generateCatFacts` (a `REST:RESTOperation`).
  - In the scriptable task, change the line `var objRESTRequest = generateCatFact.createRequest(null,null);` to `var objRESTRequest = generateCatFact.createRequest([facts],null);`, this will now pass the REST operation an array containing a single element (the facts input). If you have multiple inputs, you simply add them as items in this array in the order in which they are required in the URL (which is defined in the REST operation).
 5. Run the new vRO job, and enter a valid input (for [this API](https://catfacts-api.appspot.com/doc.html), something between 1-100). You should now get the Jenkins console output in your Orchestrator console. Obviously, outputting the job result and console output to screen is of limited use, but you are now able to parse those values and bind them to workflow outputs.

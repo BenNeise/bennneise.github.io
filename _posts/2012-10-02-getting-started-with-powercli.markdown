@@ -7,11 +7,11 @@ tags:
 ---
 
 
-In 2007, I moved from working as an application packager ÔÇô responsible for a handful of (VMware Workstation) virtual machines, to a new role supporting a consolidated infrastructure for over 200 packagers who required around a thousand virtual machines on VMware vSphere (at that point still called Virtual Infrastructure).
+In 2007, I moved from working as an application packager  - responsible for a handful of (VMware Workstation) virtual machines, to a new role supporting a consolidated infrastructure for over 200 packagers who required around a thousand virtual machines on VMware vSphere (at that point still called Virtual Infrastructure).
 
 While I was (and I still am) impressed by VMware's hypervisor based virtualisation, there were a few things that started to grate with such an otherwise excellent product:-
 
-- Performing repetitive tasks ÔÇô for example setting a group of virtual hard-drives to non-persistent ÔÇô using the vSphere Client GUI was time-consuming (and RSI inducing!).
+- Performing repetitive tasks  - for example setting a group of virtual hard-drives to non-persistent  - using the vSphere Client GUI was time-consuming (and RSI inducing!).
 - There was also no real way of extracting information from vCenter in any structured way. For example, if I wanted to know how many of our Microsoft Windows XP guests had over 512MB RAM allocated to them, they had to be counted manually.
 
 I had a look into [running scripts on the host](http://www.amazon.com/Scripting-VMware-Power-Tools-Infrastructure/dp/1597490598), and toyed with the [Remote CLI Appliance](http://www.vmware.com/download/vi/drivers_tools.html), but it was the [VMware PowerCLI](http://communities.vmware.com/community/vmtn/vsphere/automationtools/windows_toolkit) that unlocked the functionality I'd been looking for.
@@ -99,7 +99,7 @@ This uses your current windows credentials to connects to the specified server (
 
 You should now be looking at a list of virtual machines managed by your vCenter server. You can reduce the scope by adding switches, for exampleÔÇª
 
-`Get-VM ÔÇôName A*`
+`Get-VM  -Name A*`
 
 ÔÇªgets all machines with names starting "A". For more information, try
 

@@ -44,7 +44,7 @@ If you're going to set it in multiple places, be aware of the [order of preceden
 
 1. Wherever you decide to create the custom attribute, click **New Property**
 2. Create a new property with the Name **VMware.VCenterOrchestrator.EndpointName**
-3. Either leave the **Value** blank ÔÇô or ÔÇô if you want set it to whatever should be the default Orchestrator.
+3. Either leave the **Value** blank  - or  - if you want set it to whatever should be the default Orchestrator.
 4. Check the **Prompt user** box, and click the green checkmark to save your change before clicking **OK**
 
 

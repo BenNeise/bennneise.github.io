@@ -10,7 +10,7 @@ tags:
 ---
 
 
-We've had an ongoing problem with "Sequencing" machines for [Microsoft Application Virtualisation](http://en.wikipedia.org/wiki/Microsoft_Application_Virtualization) (formerly SoftGrid). The virtual machine template is correctly set up with a secondary drive set to Q:\ (the drive letter is integral to the sequencing process). However, when the machines are deployed from the template, the Sysprep part of the customization process [results in the drive being "reset"](http://social.technet.microsoft.com/forums/en-US/itprovistadeployment/thread/694daccd-a48d-4529-9aaa-555cda297038) to the lowest available ÔÇô in this case D:\.
+We've had an ongoing problem with "Sequencing" machines for [Microsoft Application Virtualisation](http://en.wikipedia.org/wiki/Microsoft_Application_Virtualization) (formerly SoftGrid). The virtual machine template is correctly set up with a secondary drive set to Q:\ (the drive letter is integral to the sequencing process). However, when the machines are deployed from the template, the Sysprep part of the customization process [results in the drive being "reset"](http://social.technet.microsoft.com/forums/en-US/itprovistadeployment/thread/694daccd-a48d-4529-9aaa-555cda297038) to the lowest available  - in this case D:\.
 
 At first, we manually changed these assignments using the Disk Management MMC before setting the drives to non-persistent. Lately, I've been using a DISKPART script, which speeds up the process, but still requires logging into each machine.
 

@@ -5,7 +5,7 @@ date: '2009-10-12 08:07:40'
 ---
 
 
-We can use PowerShell to search through the event logs of a machine object ($objVM in the example below) for events which match a specific pattern ÔÇô in this case powering off a machine. Once we have the event object, we can access the properties of the first object in the array (the most recent event).
+We can use PowerShell to search through the event logs of a machine object ($objVM in the example below) for events which match a specific pattern  - in this case powering off a machine. Once we have the event object, we can access the properties of the first object in the array (the most recent event).
 
 
 ```

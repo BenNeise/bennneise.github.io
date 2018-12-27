@@ -22,11 +22,11 @@ The problem was that AppSense would wait until the script executed before comple
 
 Invoking the PowerShell executable with the command above passed as an argument above worked as intended, but required encoding the path argument in order to escape the pipe character. This meant that a simple installation like
 
-`PowerShell.exe ÔÇôCommand {Add-AppvClientPackage -Path "\\apps\app-v$\Microsoft Office Project 2010\Microsoft Office Project 2010.appv" | Publish-AppvClientPackage ÔÇôGlobal}`
+`PowerShell.exe  -Command {Add-AppvClientPackage -Path "\\apps\app-v$\Microsoft Office Project 2010\Microsoft Office Project 2010.appv" | Publish-AppvClientPackage  -Global}`
 
 Would turn into this:-
 
-`PowerShell.exe ÔÇôEncodedCommand {QQBkAGQALQBBAHAAcAB2AEMAbABpAGUAbgB0AFAAYQBjAGsAYQBnAGUAIAAtAFAAYQB0AGgAIAAiAFwAXABhAHAAcABzAFwAYQBwAHAALQB2ACQAXABNAGkAYwByAG8AcwBvAGYAdAAgAE8AZgBmAGkAYwBlACAAUAByAG8AagBlAGMAdAAgADIAMAAxADAAXABNAGkAYwByAG8AcwBvAGYAdAAgAE8AZgBmAGkAYwBlACAAUAByAG8AagBlAGMAdAAgADIAMAAxADAALgBhAHAAcAB2ACIAIAB8ACAAUAB1AGIAbABpAHMAaAAtAEEAcABwAHYAQwBsAGkAZQBuAHQAUABhAGMAawBhAGcAZQAgAC0ARwBsAG8AYgBhAGwA}`
+`PowerShell.exe  -EncodedCommand {QQBkAGQALQBBAHAAcAB2AEMAbABpAGUAbgB0AFAAYQBjAGsAYQBnAGUAIAAtAFAAYQB0AGgAIAAiAFwAXABhAHAAcABzAFwAYQBwAHAALQB2ACQAXABNAGkAYwByAG8AcwBvAGYAdAAgAE8AZgBmAGkAYwBlACAAUAByAG8AagBlAGMAdAAgADIAMAAxADAAXABNAGkAYwByAG8AcwBvAGYAdAAgAE8AZgBmAGkAYwBlACAAUAByAG8AagBlAGMAdAAgADIAMAAxADAALgBhAHAAcAB2ACIAIAB8ACAAUAB1AGIAbABpAHMAaAAtAEEAcABwAHYAQwBsAGkAZQBuAHQAUABhAGMAawBhAGcAZQAgAC0ARwBsAG8AYgBhAGwA}`
 
 Not the most human-readable command, and it would be difficult to manage more than a few applications.
 
@@ -34,7 +34,7 @@ I got around this by writing up a script which would accept the **APPV **file pa
 
 ![Execution](/content/images/2016/01/Execution.png)
 
-This action is run under the **User** ÔÇô **Logon** node with a condition based on the user's AD group membership. All assigned App-V installations are run synchronously.
+This action is run under the **User**  - **Logon** node with a condition based on the user's AD group membership. All assigned App-V installations are run synchronously.
 
 As the user's logon no longer waits for the execution to complete, the applications can take around 5-10 seconds to become available after the user is presented with their desktop. The delivery is quick, silent, and easy to document for handover to the team members who will be doing the day-to-day application management.
 

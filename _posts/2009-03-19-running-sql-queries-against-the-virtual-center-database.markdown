@@ -7,7 +7,7 @@ date: '2009-03-19 11:37:17'
 
 In a [previous post](http://ben.neise.co.uk/index.php/guides/getting-started-with-powercli/), I mentioned that without the VI Toolkit there is no real way of extracting information from the VC database.
 
-This isn't *entirely* true. Before I discovered the toolkit, I was using SQL to query the Virtualcenter database directly.
+This isn't *entirely* true. Before I discovered the toolkit, I was using SQL to query the VirtualCenter database directly.
 
 ### List XP Machines and their RAM allocation
 

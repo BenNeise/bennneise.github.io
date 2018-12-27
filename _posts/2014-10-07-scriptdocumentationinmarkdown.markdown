@@ -8,8 +8,8 @@ date: '2014-10-07 18:43:34'
 ![Markdown](/content/images/2016/01/1664x1024-solid.png)
 I don't mind writing documentation for my scripts, but I find that most documentation writing exercises tends to suffers from two problems:-
 
-- **Duplicated effort** ÔÇô I tend to document my script inline, (so that `Get-Help` will work), why do I need to document the same details elsewhere?
-- **Keeping it up-to-date** ÔÇô The only thing worse than *no* documentation, is clearly outdated documentation.
+- **Duplicated effort**  - I tend to document my script inline, (so that `Get-Help` will work), why do I need to document the same details elsewhere?
+- **Keeping it up-to-date**  - The only thing worse than *no* documentation, is clearly outdated documentation.
 
 I had a folder full of PS1 scripts, each of which had the necessary headers. However, I needed to get this documentation into our repository of choice (a GitLab wiki).
 

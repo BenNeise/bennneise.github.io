@@ -20,6 +20,6 @@ The exam seemed no more difficult than the VCP on VI 3; I think they even reused
 
 Those sites also contain numerous links to other resources, so I'm sure you'll find something which will suit your revision style.
 
-Next on my to-do list is the [Microsoft 70-431 Microsoft SQL Server 2005 ÔÇô Implementation and Maintenance](http://www.microsoft.com/learning/en/us/exam.aspx?ID=70-431&locale=en-us).
+Next on my to-do list is the [Microsoft 70-431 Microsoft SQL Server 2005  - Implementation and Maintenance](http://www.microsoft.com/learning/en/us/exam.aspx?ID=70-431&locale=en-us).
 
 

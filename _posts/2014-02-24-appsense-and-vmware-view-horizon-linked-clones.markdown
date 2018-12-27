@@ -10,7 +10,7 @@ The move from persistent physical desktops, to non-persistent linked clones (wit
 
 We do the bulk of computer configuration via GPO. This includes things like removing unnecessary Windows Features, optimisation of machines for use as VDI hosts, and using Group Policy Preferences to configure local groups and accounts.
 
-Generic platform software (Java, Flash, Microsoft Office, the App-V Client, etc.) and Windows hotfixes are installed to the all of the Pool Masters via SCCM. Pool specific applications are also deployed to specific pool masters via manually configured SCCM Device Collections. This ensures consistency within pools and ÔÇô where possible ÔÇô between pools. Consistency is obviously important for the users and the people supporting them, but also helps with storage de-duplication.
+Generic platform software (Java, Flash, Microsoft Office, the App-V Client, etc.) and Windows hotfixes are installed to the all of the Pool Masters via SCCM. Pool specific applications are also deployed to specific pool masters via manually configured SCCM Device Collections. This ensures consistency within pools and  - where possible  - between pools. Consistency is obviously important for the users and the people supporting them, but also helps with storage de-duplication.
 
 This process effectively takes a vanilla Windows 7 machine as input, and outputs a configured corporate virtual machine desktop. This means that the majority of changes have been applied before AppSense gets involved.
 

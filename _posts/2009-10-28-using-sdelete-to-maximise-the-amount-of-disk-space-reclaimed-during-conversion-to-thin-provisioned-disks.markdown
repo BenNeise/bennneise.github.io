@@ -14,14 +14,14 @@ One of the reasons we were moving to vSphere was the ability to thin-provision (
 
 Essentially, as deleted files are not zeroed in Windows, and because VMware looks at the raw disk when "deallocating" space during conversion to think provisioned disks; deleted data are not reclaimed.  Running SDelete in the Windows guest before converting the disk to thin provisioned format zeroes the deleted data and should allow the maximum amount of space to be reclaimed.
 
-While I don't doubt that this is all correct, I wasn't sure how much extra space it would allow us to reclaim. The majority of our guests are relatively small windows clients, almost all of which have non-persistent hard drives; of course ÔÇô once they've been made non-persistent, the drive is effectively frozen, and subsequent use won't increase the amount of non-zeroed slack space.
+While I don't doubt that this is all correct, I wasn't sure how much extra space it would allow us to reclaim. The majority of our guests are relatively small windows clients, almost all of which have non-persistent hard drives; of course  - once they've been made non-persistent, the drive is effectively frozen, and subsequent use won't increase the amount of non-zeroed slack space.
 
 What's the best way to see whether this is worthwhile? Run an experiment of course!
 
 
 # Method
 
-I took one of our standard Windows XP guests which had been migrated to the new vSphere infrastructure. It had a 10GB hard drive, currently persistent, but which has been ÔÇô for the majority of it's 9 month existence ÔÇô non-persistent. I examined how much disk space it was using, this was the pre-TP "Control". I then cloned it without customization. One of the clones was converted to TP during a Storage vMotion operation. The other had slack space zeroed using SDelete (this process took around 3 minutes). It was then converted to Thin Provisioned disk format using Storage vMotion in the same way as the first machine.
+I took one of our standard Windows XP guests which had been migrated to the new vSphere infrastructure. It had a 10GB hard drive, currently persistent, but which has been  - for the majority of it's 9 month existence  - non-persistent. I examined how much disk space it was using, this was the pre-TP "Control". I then cloned it without customization. One of the clones was converted to TP during a Storage vMotion operation. The other had slack space zeroed using SDelete (this process took around 3 minutes). It was then converted to Thin Provisioned disk format using Storage vMotion in the same way as the first machine.
 
 
 # **Results**
