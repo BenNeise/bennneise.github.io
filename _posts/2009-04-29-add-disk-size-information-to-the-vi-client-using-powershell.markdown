@@ -15,6 +15,6 @@ Our users occasionally need larger machines created for packaging big applicatio
 
 We needed a new way for VIC users to easily see which were the larger machines, so I modified Hugo's script to add disk size as a custom attribute.
 
-<script src="https://gist.github.com/GuruAnt/7215113.js"></script>
+<script src="https://gist.github.com/BenNeise/7215113.js"></script>
 
 

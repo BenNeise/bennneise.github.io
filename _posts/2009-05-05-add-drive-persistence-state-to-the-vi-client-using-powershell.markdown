@@ -13,6 +13,6 @@ I've further adapted [Hugo's script](http://www.peetersonline.nl/index.php/vmwar
 
 The script also adds drive state information for templates as well as VM objects.
 
-<script src="https://gist.github.com/GuruAnt/7215254.js"></script>
+<script src="https://gist.github.com/BenNeise/7215254.js"></script>
 
 

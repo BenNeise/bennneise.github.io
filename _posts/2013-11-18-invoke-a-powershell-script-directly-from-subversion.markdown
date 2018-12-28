@@ -11,6 +11,6 @@ Our Subversion is set up for basic, rather than AD integrated, authentication, b
 
 The terrifying looking regex was based on [SqlChow](http://sqlchow.wordpress.com/2013/09/07/using-verbal-expressions-to-make-regex-easy-in-powershell/)ÔÇÿs example, with **PS1** appended to the end.
 
-<script src="https://gist.github.com/GuruAnt/7559974.js"></script>
+<script src="https://gist.github.com/BenNeise/7559974.js"></script>
 
 

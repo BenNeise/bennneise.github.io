@@ -49,6 +49,6 @@ I'm tentatively declaring this a huge success. Rather than the training environm
 
 Below is a script similar to the one I used to deploy the linked clones. The actual "meat", which deploys the machines was based on Hal Rottenberg's [New-LinkedClone.ps1](http://poshcode.org/1549) script. As far as possible, I've tried to strip out stuff that's specific to our environment (we use the Custom Attributes as an asset management database and to track which machines were deployed from which templates). There's probably going to be stuff in there that doesn't make much sense, but if you've got a bit of an understanding of PowerShell, you should be able to cut and keep the bits you want.
 
-<script src="https://gist.github.com/GuruAnt/7216369.js"></script>
+<script src="https://gist.github.com/BenNeise/7216369.js"></script>
 
 

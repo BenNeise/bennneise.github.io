@@ -15,7 +15,7 @@ I had a folder full of PS1 scripts, each of which had the necessary headers. How
 
 So, in order to save me duplicating some effort, I wrote up a quick function that'll read the inline documentation from all the PowerShell scripts in a folder, and output a markdown formatted document per script, as well as an index document which links to the others. This imports nicely into a GitLab wiki. At first I thought I'd be lucky, and someone would have created an `ConvertTo-Markdown` function, but of course a PowerShell object doesn't map to a document in the same way that it maps to a table, or a CSV.
 
-<script src="https://gist.github.com/GuruAnt/0eb1767ec2b0b5b37d00.js"></script>
+<script src="https://gist.github.com/BenNeise/0eb1767ec2b0b5b37d00.js"></script>
 
 The documentation generated looks something like [this](https://stackedit.io/viewer#!provider=gist&gistId=9cc7c75d1937de12f6a2&filename=TestPingDocumentation.markdown).
 

@@ -9,6 +9,6 @@ A lot of my scripts use Active Directory to create lists of servers. Unfortunate
 
 I wrote this quick function so that before running WMI queries against a server, we could do a quick check to see whether it was online.
 
-<script src="https://gist.github.com/GuruAnt/5434695.js"></script>
+<script src="https://gist.github.com/BenNeise/5434695.js"></script>
 
 

@@ -12,7 +12,7 @@ While I'm sure the SMLets are handy for ad-hoc reports by administrators, I want
 
 [Anton Gritsenko](http://blog.scsmsolutions.com/author/freemanru/)ÔÇÿs [mapping of the SMLets to their SCSM 2012 native commands](http://blog.scsmsolutions.com/2012/02/reference-between-smlets-and-scsm-2012-native-cmdlets/) was invaluable in the creation of this.
 
-<script src="https://gist.github.com/GuruAnt/8236374.js"></script>
+<script src="https://gist.github.com/BenNeise/8236374.js"></script>
 
 This script should work on any machine with PowerShell and SCSM Console installed. As with all PowerShell objects, this can then be output to HTML, CSV etc.
 

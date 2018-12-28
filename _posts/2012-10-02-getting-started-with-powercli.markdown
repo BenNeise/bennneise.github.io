@@ -136,11 +136,11 @@ Here are a couple of example scripts, showing what can be done. Copy into notepa
 
 ### Get information about a specific machine
 
-<script src="https://gist.github.com/GuruAnt/5442438.js" type="text/javascript"></script>This script asks the user for a machine name (using **Read-Host**), then gets the object representing the machine of that name. It then displays the machine object name (the name vSphere uses, the one you used to search) and the machine's power state. It then tries to get the object representing the VM guest, and from that object, it displays the hostname and IP address
+<script src="https://gist.github.com/BenNeise/5442438.js" type="text/javascript"></script>This script asks the user for a machine name (using **Read-Host**), then gets the object representing the machine of that name. It then displays the machine object name (the name vSphere uses, the one you used to search) and the machine's power state. It then tries to get the object representing the VM guest, and from that object, it displays the hostname and IP address
 
 ### Get all Windows XP machines with more than 2 GB of RAM
 
-<script src="https://gist.github.com/GuruAnt/5442585.js" type="text/javascript"></script>  
+<script src="https://gist.github.com/BenNeise/5442585.js" type="text/javascript"></script>  
  This script could easily be modified and used as a component to make modifications on machines fulfilling certain criteria.
 
 

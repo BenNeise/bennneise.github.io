@@ -11,6 +11,6 @@ As we're running a development lab, we use a lot of templates for machine deploy
 
 This script looks at your templates, and outputs a list of those with non-persistent drives.
 
-<script src="https://gist.github.com/GuruAnt/7213597.js"></script>
+<script src="https://gist.github.com/BenNeise/7213597.js"></script>
 
 

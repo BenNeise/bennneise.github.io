@@ -62,7 +62,7 @@ Now we need an Orchestrator workflow which runs the operation, waits for it to c
 3. The workflow needs a single scriptable task, the `REST:Operation` attribute named `generateCatFact` should be bound as an input. The script should be something like this.
 
 
-<script src="https://gist.github.com/GuruAnt/22a4650a5127fcbd15f4.js"></script>
+<script src="https://gist.github.com/BenNeise/22a4650a5127fcbd15f4.js"></script>
 
 1. When run, the output should look something like this:-
 ```
