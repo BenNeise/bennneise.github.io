@@ -81,31 +81,31 @@ Can display help on the various cmdlets. Running this as above shows the syntax 
 
 `Get-Command`
 
-Use to find out all the commands containing certain keywords. For exampleÔÇª
+Use to find out all the commands containing certain keywords. For example...
 
 `Get-Command *VM`
 
-ÔÇªuses the wildcard character (*) to show all commands that end with VM, this shows all the CMDlets that can be used to operate on virtual machines. Let's try a simple oneÔÇª
+...uses the wildcard character (*) to show all commands that end with VM, this shows all the CMDlets that can be used to operate on virtual machines. Let's try a simple one...
 
 `Get-VM`
 
-You should now get an error message saying `You are not currently connected to any servers. Please connect first using Connect-VIServer or one of its aliases.`. Let's do thatÔÇª
+You should now get an error message saying `You are not currently connected to any servers. Please connect first using Connect-VIServer or one of its aliases.`. Let's do that...
 
 `Connect-VIServer Name_of_your_vCenter_Server`
 
-This uses your current windows credentials to connects to the specified server (if you do not have permission, you will be prompted for alternate credentials). You need to connect before you run any VMware specific PowerShell commands. Now try this againÔÇª
+This uses your current windows credentials to connects to the specified server (if you do not have permission, you will be prompted for alternate credentials). You need to connect before you run any VMware specific PowerShell commands. Now try this again...
 
 `Get-VM`
 
-You should now be looking at a list of virtual machines managed by your vCenter server. You can reduce the scope by adding switches, for exampleÔÇª
+You should now be looking at a list of virtual machines managed by your vCenter server. You can reduce the scope by adding switches, for example...
 
 `Get-VM  -Name A*`
 
-ÔÇªgets all machines with names starting "A". For more information, try
+...gets all machines with names starting "A". For more information, try
 
 `Get-Help Get-VM -Detailed`
 
-Variables in PowerShell are always preceded by a $ symbol. You can set a variable to the result of any kind of PowerShell command, for example, you can store the results of a Get-VM in a variableÔÇª
+Variables in PowerShell are always preceded by a $ symbol. You can set a variable to the result of any kind of PowerShell command, for example, you can store the results of a Get-VM in a variable...
 
 `$objVMs = Get-VM`
 

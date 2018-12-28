@@ -5,7 +5,7 @@ date: '2013-02-07 14:48:28'
 ---
 
 
-![WebSphereMQLogo](/content/images/2016/01/WebSphereMQLogo.png)
+![WebSphereMQLogo](/assets/ibm-websphere.jpeg)
 
 I've been doing some work with IBM WebSphere MQ recently. Specifically I've been helping to create a (temporary) reporting and monitoring tool which will periodically check channel status and depth of certain queues. While the application has it's own command-line utility ([MQSC](http://publib.boulder.ibm.com/infocenter/wmqv6/v6r0/index.jsp?topic=%2Fcom.ibm.mq.amqzag.doc%2Ffa15950_.htm)) I've been trying to work using the [WebSphere MQ Windows PowerShell library](http://www-01.ibm.com/support/docview.wss?uid=swg24017698).
 

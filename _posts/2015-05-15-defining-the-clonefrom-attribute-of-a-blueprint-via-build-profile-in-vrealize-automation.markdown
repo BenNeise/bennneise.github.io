@@ -10,7 +10,7 @@ date: '2015-05-15 18:03:58'
 
 Using vRealize Automation (vRA) to allow your users to deploy their own infrastructure in minutes is great, but if the first thing they need to do is apply a bunch of patches, they're not going to be happy. It's essential that you keep your templates up to date.
 
-Doing so is fairly straightforward  - clone the existing template, convert it to a running machine, power it on, apply all updates., shut it down and convert it to a template again. You can create a vRealize Automation workflow to do this fairly easily. But once you've done that ÔÇª how do you go about updating your vRA blueprints to use the new template?
+Doing so is fairly straightforward  - clone the existing template, convert it to a running machine, power it on, apply all updates., shut it down and convert it to a template again. You can create a vRealize Automation workflow to do this fairly easily. But once you've done that ... how do you go about updating your vRA blueprints to use the new template?
 
 Normally you would click the browse button next to the **Clone from** box in the **Build Information** tab of the blueprint. This would present you with a list of templates on the attached compute. You would select the updated version of your template, and save your changes. If you're using the same parent template for multiple blueprints, then this means you could end up doing this on a large number of blueprints.
 

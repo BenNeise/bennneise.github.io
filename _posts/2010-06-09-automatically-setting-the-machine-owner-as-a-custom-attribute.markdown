@@ -13,9 +13,9 @@ The following script sorts this by finding machines where the custom attribute i
 
 It looks for three types of events:-
 
-- "DeployingÔÇª" covers machines which have been deployed from another template
-- "CreatingÔÇª" covers machines which have been imported via VMware Converter
-- "Clone ofÔÇª" covers machines cloned from existing machines
+- "Deploying..." covers machines which have been deployed from another template
+- "Creating..." covers machines which have been imported via VMware Converter
+- "Clone of..." covers machines cloned from existing machines
 
 This seems to cover everything on our environment. If you find something else, then it should be simple enough to add it.
 

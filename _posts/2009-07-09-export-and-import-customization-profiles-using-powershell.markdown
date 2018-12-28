@@ -11,8 +11,8 @@ As part of this process, I was just about to start writing  a script to export o
 
 [Export and import customization profiles using Powershell | Arnim van Lieshout](http://www.van-lieshout.com/2009/07/export-and-import-customization-profiles-using-powershell/).
 
-It failed on a couple of customisations, but by addingÔÇª
+It failed on a couple of customisations, but by adding...
 
 `Write-Host "Exporting $($CustomizationProfile.Name)"`
 
-ÔÇªafter the ForEach loop started, it was easy to see that it was customisations with `/` and `*` characters that were causing the errors. I fixed those manually, and it worked perfectly.
+...after the ForEach loop started, it was easy to see that it was customisations with `/` and `*` characters that were causing the errors. I fixed those manually, and it worked perfectly.

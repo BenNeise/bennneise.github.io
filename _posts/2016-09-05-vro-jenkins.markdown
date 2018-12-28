@@ -5,7 +5,7 @@ date: '2016-09-05 19:10:48'
 ---
 
 
-![jenkins](/content/images/2016/01/jenkins.png)
+![jenkins](/assets/jenkins.png)
 
 [VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). It's pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
 
