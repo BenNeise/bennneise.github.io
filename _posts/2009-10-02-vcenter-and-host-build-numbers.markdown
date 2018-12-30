@@ -5,7 +5,6 @@ date: '2009-10-02 09:53:07'
 tags:
 - script
 - vcenter
-- virtualisation
 ---
 
 

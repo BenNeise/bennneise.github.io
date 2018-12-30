@@ -19,7 +19,7 @@ It looks for three types of events:-
 
 This seems to cover everything on our environment. If you find something else, then it should be simple enough to add it.
 
-```
+```powershell
 # Name of the custom attribute which we are wanting to check/update $strCAInfrastructureConsultant = "Infrastructure Consultant"
 # Loop through all the machines
 ForEach ($objVM in (Get-VM | Sort-Object Name)){

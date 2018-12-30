@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: page
 title: Getting started with VMware PowerCLI
-date: '2012-10-02 13:08:12'
+permalink: /guides/getting-started-with-powercli
 tags:
-- powershell-2
+    - guide
 ---
 
 

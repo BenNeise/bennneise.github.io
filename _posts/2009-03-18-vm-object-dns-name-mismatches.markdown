@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Resolving Virtual Machine object name and DNS name mismatches
+title: Resolving Virtual Machine object name and DNS name mismatches using PowerCLI
 date: '2009-03-18 12:50:13'
+tags:
+    - script
 ---
 
 
