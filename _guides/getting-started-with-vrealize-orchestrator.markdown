@@ -5,11 +5,9 @@ title: Getting started with vRealize Orchestrator
 
 ## What is vRealize Orchestrator?
 
-[VMware vRealize Orchestrator](https://www.vmware.com/uk/products/vrealize-orchestrator.html) (vRO) is a an application which can help you automate a wide range of tasks. 
+[VMware vRealize Orchestrator](https://www.vmware.com/uk/products/vrealize-orchestrator.html) (vRO) is a a (mostly) GUI based application which can help you automate and orchestrate a wide range of tasks. Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, vRealize Orchestrator has since been included as part of vSphere and/or vRealize Automation entitlements. 
 
-Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, vRealize Orchestrator has since been included as part of vSphere and/or vRealize Automation entitlements. 
-
-It's interface is a little different to most other VMware products, and upon initially opening it, it can be a little intimidating. As with some other automation solutions, VMware also have a tough job selling it ("What can I do with it?" ... "Well, _anything_"). As such a lot of Administrators might be aware of it, but have probably been considering getting around to looking at it "some day".
+As it's interface is a little different to most other VMware products, it can be a little intimidating. Also, as with [other automation solutions](https://ifttt.com/), VMware also have a tough job selling it ("What can I do with it?" ... "Well, _anything_"). As such a lot of Administrators might be aware of it, but have probably been considering getting around to looking at it "some day".
 
 ## How can vRO help you?
 

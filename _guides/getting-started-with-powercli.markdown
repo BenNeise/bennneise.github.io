@@ -1,9 +1,6 @@
 ---
 layout: page
 title: Getting started with VMware PowerCLI
-permalink: /guides/getting-started-with-powercli
-tags:
-    - guide
 ---
 
 
