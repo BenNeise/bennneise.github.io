@@ -6,7 +6,7 @@ summary: How to create your first workflow
 
 ## What is vRealize Orchestrator?
 
-![vROLogo](/assets/vro_logo.png){: .center-image }
+![vROLogo](/assets/vro_logo.png)
 
 [VMware vRealize Orchestrator](https://www.vmware.com/uk/products/vrealize-orchestrator.html) (vRO) is a a (mostly) GUI based application which can help you automate and orchestrate a wide range of tasks. Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, vRealize Orchestrator has since been included as part of vSphere and/or vRealize Automation entitlements. 
 
