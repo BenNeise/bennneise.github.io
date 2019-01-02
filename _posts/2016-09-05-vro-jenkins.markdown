@@ -9,7 +9,7 @@ tags:
 
 ![jenkins](/assets/jenkins.png)
 
-[VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). It's pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
+[VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). <!--more--> It's pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
 
 ```
 urlObject = new URL(yourJobUrl);
