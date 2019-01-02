@@ -1,7 +1,6 @@
 ---
 layout: post
-title: Using SDelete to maximise the amount of disk space reclaimed during conversion
-  to thin-provisioned disks
+title: Using SDelete to maximise the amount of disk space reclaimed during conversion to thin-provisioned disks
 date: '2009-10-28 13:48:15'
 tags:
 - virtualisation
@@ -24,7 +23,7 @@ What's the best way to see whether this is worthwhile? Run an experiment of cour
 I took one of our standard Windows XP guests which had been migrated to the new vSphere infrastructure. It had a 10GB hard drive, currently persistent, but which has been  - for the majority of it's 9 month existence  - non-persistent. I examined how much disk space it was using, this was the pre-TP "Control". I then cloned it without customization. One of the clones was converted to TP during a Storage vMotion operation. The other had slack space zeroed using SDelete (this process took around 3 minutes). It was then converted to Thin Provisioned disk format using Storage vMotion in the same way as the first machine.
 
 
-# **Results**
+# Results
 
 Here's what happened
 
