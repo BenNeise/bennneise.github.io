@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Getting started with VMware PowerCLI
+summary: A simple introduction to using VMware's PowerShell command line tools.
 ---
 
 

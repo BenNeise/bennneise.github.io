@@ -10,4 +10,7 @@ permalink: /guides/
       {{ guide.title }}
     </a>
   </h2>
+  <p>
+    {{ guide.summary }}
+  </p>
 {% endfor %}

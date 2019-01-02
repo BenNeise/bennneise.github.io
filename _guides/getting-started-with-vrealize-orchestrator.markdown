@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting started with vRealize Orchestrator
+summary: How to create your first workflow
 ---
 
 ## What is vRealize Orchestrator?
