@@ -36,6 +36,8 @@ excerpt_separator: <!--more-->
 disqus:
   shortname: benneise
 
+paginate: 15
+
 collections:
   guides:
     output: true
