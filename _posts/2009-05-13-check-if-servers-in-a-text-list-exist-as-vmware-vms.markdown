@@ -8,7 +8,7 @@ tags:
 ---
 
 
-I got handed a list of around 1000 servers today, and asked if any of them were part of our VI environment.
+I got handed a list of around 1,000 servers today, and asked if any of them were part of our VI environment.
 
 Rather than work through it by hand, I wrote the following script:
 
