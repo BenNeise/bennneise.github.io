@@ -30,13 +30,15 @@ theme: minima
 plugins:
     - jekyll-feed
     - jekyll-seo-tag
+    - jekyll-paginate
 
+show_excerpts: true
 excerpt_separator: <!--more-->
 
 disqus:
   shortname: benneise
 
-paginate: 15
+paginate: 5
 
 collections:
   guides:
