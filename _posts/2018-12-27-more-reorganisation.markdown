@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: More re-organisation
 date: '2018-02-14 10:37:07'
 tags: site
