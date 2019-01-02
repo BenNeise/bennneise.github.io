@@ -5,11 +5,11 @@ permalink: /guides/
 ---
 
 {% for guide in site.guides %}
-  <h2>
+  <h3>
     <a href="{{ guide.url }}">
       {{ guide.title }}
     </a>
-  </h2>
+  </h3>
   <p>
     {{ guide.summary }}
   </p>
