@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Guides
 date: '2013-04-22 21:13:59'
 ---
