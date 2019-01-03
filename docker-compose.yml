@@ -1,7 +1,10 @@
 jekyll:
     image: jekyll/jekyll
-    command: jekyll serve --watch --incremental
+    environment:
+      - JEKYLL_ENV=docker
+    command: jekyll serve --watch --drafts --config _config.yml,_config.docker.yml
     ports:
         - 4000:4000
     volumes:
+#        - .:/
         - .:/srv/jekyll
