@@ -1,0 +1,11 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.tag {
+    font-size: smaller;
+    border: 1px solid#1756a9;
+    border-radius: 5px;
+    padding: 4px;
+}
