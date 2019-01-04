@@ -7,7 +7,7 @@ tags:
     - script
 ---
 
-![jenkins](/assets/jenkins.png)
+![jenkins](/assets/jenkins.png){: .center-image }
 
 [VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). <!--more--> It's pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
 
@@ -28,7 +28,8 @@ In this article, I'll describe how to set up and use a Jenkins REST host in vRO.
 2. Under the **Build triggers** section, make sure that **Trigger builds remotely (e.g., from scripts)** is set. You should also [create an authentication token](http://randomkeygen.com).
 3. **Build** the job in Jenkins to confirm that it works, the console output should look something like this:-
 
-```Started by user Neise, Ben
+```
+Started by user Neise, Ben
 Building remotely on ######## (#################################) in workspace #:\Resources\jenkins\workspace\###########\Generate Cat Fact
 [Generate Cat Fact] $ powershell.exe "& 'C:\Users\############\AppData\Local\Temp\#####################.ps1'"
 Cat families usually play best in even numbers. Cats and kittens should be acquired in pairs whenever possible.
@@ -63,8 +64,56 @@ Now we need an Orchestrator workflow which runs the operation, waits for it to c
 2. The workflow needs a single attribute of type `REST:RESTOperation`, this should be set to your REST operation. My operation is `Generate cat fact` and I named this attribute `generateCatFact`.
 3. The workflow needs a single scriptable task, the `REST:Operation` attribute named `generateCatFact` should be bound as an input. The script should be something like this.
 
+```javascript
+var jenkinsPollingIntervalMS = 1000;
+var buildURL = "";
+var buildResult = null;
 
-<script src="https://gist.github.com/BenNeise/22a4650a5127fcbd15f4.js"></script>
+/*
+    Create the request object. The two paramaters are:-
+     - An array of values for the URL template paramaters. We have none, so this is null
+     - Any content for POST or PUT operations. Ours is a GET, so this is also nulll
+*/
+var objRESTRequest = generateCatFact.createRequest(null,null);
+// Execute the REST operation
+var objRESTResponse = objRESTRequest.execute();
+System.debug("Status code: " + objRESTResponse.statusCode);
+// The location property gives us the URL of the queue item
+System.debug("Location: " + objRESTResponse.getAllHeaders().get("Location"));
+
+// Wait for job to be queued by looking for an "executable" property on the response
+while (buildURL === ""){
+    var url = objRESTResponse.getAllHeaders().get("Location") + "api/json";
+    var urlObject = new URL(url);
+    result = urlObject.getContent() ;
+    //System.debug(result);
+    var objResult = JSON.parse(result);
+    if (objResult.hasOwnProperty("executable")){
+        System.debug(objResult.executable.url);
+        buildURL = objResult.executable.url;
+    }
+    System.sleep(jenkinsPollingIntervalMS);
+}
+
+// Now that the job's queued, we need to wait for it to be completed
+while (buildResult === null){
+    url = buildURL + "api/json";
+    var urlObject = new URL(url);
+    var result = urlObject.getContent() ;
+    var objResult = JSON.parse(result);
+    System.debug(result);
+    System.debug("Build result:" + buildResult);
+    buildResult = objResult.result;
+    System.sleep(jenkinsPollingIntervalMS);
+}
+
+url = objResult.url + "consoleText";
+var urlObject = new URL(url);
+result = urlObject.getContent();
+// The result is the actual console output.
+System.log(result);
+System.debug("Build Result: " + buildResult);
+```
 
 1. When run, the output should look something like this:-
 ```

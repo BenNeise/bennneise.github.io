@@ -5,7 +5,7 @@ date: '2015-02-23 10:49:03'
 ---
 
 
-![SuperHub](/content/images/2016/01/er_photo_141727.jpg)
+![SuperHub](/assets/er_photo_141727.jpg){: .center-image]}
 
 **Update 23/03/15  - Looks like there's been [an update](http://community.virginmedia.com/t5/Set-up/Super-Hub-1-amp-Super-Hub-2ac-New-Firmware/td-p/2777016) to the SuperHub which broke the [original version ](https://gist.github.com/BenNeise/6bff34ad037275723969/d2555a9265baaf1b735d2a6b2aaeadb12a63d2b3) of the script. It has now been updated.**
 
@@ -13,7 +13,76 @@ Sometimes, after a week or so of uptime, I find that wireless access through my 
 
 To save this occasional annoyance, I wanted to schedule a restart for the router each morning when I'm unlikely to be using it. So, over the weekend, I wrote up this little PowerShell function to restart the router remotely using the web interface.
 
-<script src="https://gist.github.com/BenNeise/6bff34ad037275723969.js"></script>
+```powershell
+function Restart-VirginRouter {
+    <#
+    .Synopsis
+    Restarts a Virgin Media Suberhub.
+
+    .Description
+    Restarts a Virgin Media Suberhub using the web interface.
+    
+    .Parameter RouterIP 
+    The IP address of the router.
+
+    .Parameter Username
+    The username used to log into the web interface.
+
+    .Parameter Password,
+    The password used to log into the web interface.
+
+    .Example
+    Restart-VirginRouter -RouterIP "192.168.0.1" -Username "admin" -Password "hunter2"
+
+    Restarts the router using the specified credentials.
+
+    .Notes
+    Ben Neise 23/02/15
+
+    #>
+    param (
+    
+    [Parameter(
+        Mandatory = $true,
+        Position = 1
+    )]
+    [string]    
+        $RouterIP,
+    
+    [Parameter(
+        Mandatory = $true,
+        Position = 2
+    )]
+    [string]    
+        $Username,
+
+    [Parameter(
+        Mandatory = $true,
+        Position = 3
+    )]
+    [string]    
+        $Password
+    )
+
+    # Login
+    $loginParams = @{
+        VmLoginUsername = $username;
+        VmLoginPassword = $password;
+        VmLoginErrorCode = 0;
+        VmChangePasswordHint = 0
+    }
+    $r1 = Invoke-WebRequest -Uri ("http://" + $routerIP + "/") -SessionVariable "Session" -Verbose
+    Invoke-WebRequest -Uri ("http://" + $routerIP + $r1.forms[0].action) -Method "POST" -Body $loginParams -WebSession $Session -Verbose
+
+    # Restart
+    $restartParams = @{
+        VmDeviceRestore = 0;
+        VmDeviceReboot = 1
+    }
+    $r2 = Invoke-WebRequest -Uri ("http://" + $routerIP + "/VmRgRebootRestoreDevice.asp") -WebSession $Session -Verbose
+    Invoke-WebRequest -Uri ("http://" + $routerIP + $r2.forms[0].action) -Method "POST" -Body $restartParams -WebSession $Session -Verbose
+}
+```
 
 I've integrated this function into a script, and set it as a scheduled task to run every morning at 5am. (I figure that if I'm awake and on the internet at 5am, then I could probably do with a break anyway.)
 

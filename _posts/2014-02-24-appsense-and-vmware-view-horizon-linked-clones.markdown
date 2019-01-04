@@ -29,7 +29,7 @@ User configuration is done via AppSense on the linked clones themselves.
 
 As the Environment Manager Configuration is modified at a greater frequency than the pool masters are updated, we don't want it installed on the pool master prior to deployment. Rather we want the machines to download the newest configuration as it becomes available. AppSense allows us to deliver the latest version of the configuration.
 
-![AppSense Configuration Schedule](/content/images/2016/01/AppSense-Configuration-Schedule.png)
+![AppSense Configuration Schedule](/assets/AppSense-Configuration-Schedule.png)
 
 Remember, that as we've already applied computer settings via GPO, we don't need to worry about restarting the computer after the AppSense configuration has been installed (which we would need to do in order to apply AppSense start-up actions). We've also pre-deployed the agents (Environment and Client Communication), which means that the installation of the configuration should proceed fairly quickly.
 

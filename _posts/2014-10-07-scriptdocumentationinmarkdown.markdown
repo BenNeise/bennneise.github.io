@@ -5,7 +5,8 @@ date: '2014-10-07 18:43:34'
 ---
 
 
-![Markdown](/content/images/2016/01/1664x1024-solid.png)
+![Markdown](/assets/1664x1024-solid.png){: .center-image}
+
 I don't mind writing documentation for my scripts, but I find that most documentation writing exercises tends to suffers from two problems:-
 
 - **Duplicated effort**  - I tend to document my script inline, (so that `Get-Help` will work), why do I need to document the same details elsewhere?

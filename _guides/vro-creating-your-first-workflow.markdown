@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Getting started with vRealize Orchestrator
-summary: How to create your first workflow
+title: vRealize Orchestrator - Creating your first workflow
+summary: How to create your first workflow using VMware vRealize Orchestrator
 ---
 
 ## What is vRealize Orchestrator?
 
-![vROLogo](/assets/vro_logo.png)
+![vROLogo](/assets/vro_logo.png){: .center-image}
 
 [VMware vRealize Orchestrator](https://www.vmware.com/uk/products/vrealize-orchestrator.html) (vRO) is a a (mostly) GUI based application which can help you automate and orchestrate a wide range of tasks. Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, vRealize Orchestrator has since been included as part of vSphere and/or vRealize Automation entitlements. 
 
@@ -30,6 +30,7 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 ## Your first workflow
 
 1. Using the drop-down to the right of the **VMware vRealize Orchestrator** logo, switch to **Design view**
+![vRO Design View](/assets/vro_design_view.png)
 1. Let's create a folder for your new work. In the left-panel, right-click on the top element (yourname @ your server), and select **New Folder**. Give it a name, and click OK. 
 1. Now we'll create a workflow inside that folder. Right-click the folder and select **New Workflow**. Call it **Hello World**, and click **Ok**.
 1. The workflow will now be opened for editing. On the **General** tab. you can see (among some other things) the **Name** and **Description**
@@ -40,7 +41,7 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 1. Click the green **Run** arrow above the editing panel
 1. Run it after saving
 1. Save and close
-1. In the navigator, you'll see an execution under the workflwo
+1. In the navigator, you'll see an execution under the workflow
 1. Right-click and run, you'll see a new exection
 
 ## Adding inputs
@@ -50,7 +51,7 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 1. Select the **Inputs** tab
 1. Add a paramater by clicking the yellow arrow, a new item should appear in the panel below
 1. Click the default name `arg_in_0` and change the name to `name`
-1. Click the **Schema** tab again, right click on the Scriptable Task and select Edit
+1. Click the **Schema** tab again, right click on the Scriptable Task and select **Edit**
 1. Switch to the **In** tab, and click the button **Bind to workflow parameter / attribute**. Check the box next to `name`.
 1. Switch to the Scripting tab, update your script to the following: `System.log("Hello " + name);`. You'll see that name is in pink 
 1. Run the workflow by clicking on the **Run** button in the **Schema** view, you should see it output your name in the **Logs** pane.

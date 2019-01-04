@@ -12,11 +12,11 @@ While App-V integrates with SCCM, user-targeted applications can take a couple o
 
 We needed a way to deliver applications to users, based on their AD group membership during logon. AppSense (which we already had deployed) seemed ideal. AppSense has wizard-based integration for App-V, but the dialog only allows you to select App-V 4's **SFT **files, not the new **APPV **files created by version 5.
 
-![App-VDialog](/content/images/2016/01/App-VDialog.png)
+![App-VDialog](/assets/App-VDialog.png)
 
 I started by running a custom (PowerShell) script, using the [new CMDLets](http://blogs.technet.com/b/appv/archive/2012/12/03/app-v-5-0-client-powershell-deep-dive.aspx "App-V 5.0 Client PowerShell Deep Dive"). The script itself is pretty straightforward, checking to see if the CMDLets are loaded (and loading if necessary), adding the client-package from the file, and publishing it. We need to set the `-Global` paramater on the `Publish-AppvClientPackage` as we're running the script under **System **context, and we want it to be visible to the user.
 
-![CustomAction](/content/images/2016/01/CustomAction.png)
+![CustomAction](/assets/CustomAction.png)
 
 The problem was that AppSense would wait until the script executed before completing the logon. With some of the larger applications, this resulted in a delay of 10-15 seconds before the desktop was usable.
 
@@ -32,7 +32,7 @@ Not the most human-readable command, and it would be difficult to manage more th
 
 I got around this by writing up a script which would accept the **APPV **file path as an argument. I converted it to an EXE (using [PowerShell Studio](http://www.sapien.com/software/powershell_studio "PowerShell Studio 2012")) and put it on a share. Conversion to EXE avoided changing the [security policy](http://technet.microsoft.com/en-us/library/ee176961.aspx "Using the Set-ExecutionPolicy Cmdlet") to **Bypass****from **RemoteSigned **(or the requirement to deploy a certificate), and also simplified the command-line used in AppSense. The result looks like this:-
 
-![Execution](/content/images/2016/01/Execution.png)
+![Execution](/assets/Execution.png)
 
 This action is run under the **User**  - **Logon** node with a condition based on the user's AD group membership. All assigned App-V installations are run synchronously.
 
