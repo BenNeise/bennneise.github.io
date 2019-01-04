@@ -4,7 +4,6 @@ title: Guides
 permalink: /guides/
 ---
 
-<p>Some guides I've written</p>
 
 {% for guide in site.guides %}
   <h3>
