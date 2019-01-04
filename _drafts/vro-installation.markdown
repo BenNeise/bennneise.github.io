@@ -40,57 +40,69 @@ Orchestrator is distributed as an OVA appliance. This means there’s little you
 
 Regarding licensing, you’re free to use vRO as long as you have a valid vCenter Server license.
 
-#### Sort networking
+#### Get some details ready
 
-While it's downloading sot networking. Get an IP address, netmask, etc. Create DNS A & PTR records.
+While that's downloading, you should get some details ready.
 
+* Decide on a name for the appliance
+* Unless you're planning on using DHCP, you should get an IP address, netmask, and gateway server details for the network you plan on deploying to.
+* You should also create DNS A & PTR records for the appliance name.
 
 ### Deploying and configuring the OVA
 
 1. Log into the web interface of the vSphere server on which you wish to deploy your vRealize Orchestrator appliance. Note: that this does not necessarily have to be the vCenter Server you want to orchestrate.
 1. Using the **Deploy OVF Template** option, locate the downloaded OVA file using the **Browse** button and click **Next**.
 ![DeployOVA](/assets/deployOva.png)
-1. Review the details, click *8Next**
-1. Accept the EULA, click **Next**
+1. Review the details, click **Next**
 1. Specify a location where you want the appliance installed. Press **Next**.
-1. Specify the host and resource pool to which the appliance will be deployed. Press Next.
-1. Review the provisioning settings and accept the license agreement. Press Next in both cases.
-1. Select the virtual disk format (thin or thick) and the datastore where the appliance is created. Press Next.
-1. Select the network you want the appliance connected to. Press Next.
-1. This is where the bulk of the settings are specified. Type in the hostname you want to be assigned to the appliance making sure you have a corresponding DNS A record created for it. It’s best to use static IP addressing meaning you’ll need to set the appliance’s IP address, gateway address, DNS server, and subnet mask. Finally, type in a password for the root account and the domain name; this must match the name of the DNS zone under which you created the A record. Press Next.
-1. Review the settings one last time and press Finish to kick the OVA deployment process.
-1. Once the appliance has finished deploying, proceed to power it up as you would with any other
+1. Specify the host and resource pool to which the appliance will be deployed. Press **Next**.
+1. Select the virtual disk format (thin or thick) and the datastore where the appliance is created. Press **Next**.
+1. Select the network you want the appliance connected to. Press **Next**.
+1. The next page is where the bulk of the settings for the OVA are defined
+ - Type in the hostname you want to be assigned to the appliance.
+ - Enter the IP details from earlier
+ - Enter a password for the root account
+ - Enter the domain name. this should be the same as the zone under which you created the DNS record.
+ - Once you've done that, press **Next**.
+1. Check the settings are all okay, and press **Finish** to start deploying the OVA.
+1. Once the appliance has finished deploying, you can switch it on, and access console.
 
 ### Configuring the vRealize Orchestrator application
-Configuring vRO is a multi-faceted affair. As you can see from the appliance’s console screenshot, there are a number of links to various components of vRO these being Orchestrator Control Center, Orchestrator Server, and Appliance Configuration.
+You should now be looking at a screen like this
+
+![vroConsole](/assets/vroConsole.png)
 
 #### Orchestrator Control Center
-To begin with, decide if you want to deploy a standalone or clustered setup of Orchestrator. For simplicity’s sake, let’s go for a standalone setup. In addition, decide on whether you want to use vRO authentication or vSphere SSO. I’ve chosen the latter since SSO is better suited to managing user accounts and permissions. We’ll use Control Center to do this is as follows:
+Because this is a tutorial, I'm going to set up a standalone vRO server (rather than a cluster), and I'm going to use **vSphere** authentication.
 
-1. Navigate to `https://your_orchestrator_server_IP_or_DNS_name:8283/vco-controlcenter`. Log in as root.
-1. Using the deployment type drop-down box, select **Standalone Orchestrator**. Make sure that the hostname and port number are correct. Press **Next**.
-1. Select **vSphere** from the **Configure the authentication provider** drop-down box. Type in the FQDN of the vCenter Server you want to orchestrate and press **Connect**.
+1. Navigate to `https://<your_orchestrator_server_IP_or_DNS_name>:8283/vco-controlcenter`. Log in as `root`.
+1. Make sure that the hostname and port number are correct. Press **Next**.
+1. Select **vSphere** from the **Configure the authentication provider** drop-down box. Type in the FQDN of your vCenter Server press **Connect**.
 1. Press **Accept Certificate** to accept the SSL certificate retrieved from vCenter. Make sure that the common name matches the FQDN specified for vCenter.
-1. Type in the credentials for a vCenter administrative account such as `administrator@vsphere.local` and press Register.
-1. In the Admin Group field, type in `vsphere.local\Administrators` and click on the Search button to ensure the group exists. Press Save Changes when done.
-1. If the changes are successfully committed, you are redirected back to Control Center’s homepage. Before proceeding, you must first sign out and log back in using an SSO account. Go to the far upper right corner of the screen, click on the cog wheel and sign out. Log back in as administrator@vsphere.local.
-1. From the home screen, hit the Validate Configuration option to make sure vRO is properly configured.
-1. If a server restart is required, you’ll need to reboot the appliance. To do this, navigate to https://your_orchestrator_server_IP_or_DNS_name:5480 and log in as root – use the password set during installation. Hit the Reboot button from the default page as shown next.
-
-IMPORTANT: If you configured vRO to use vSphere authentication as per this post and the hostname specified for the vCenter Server does not match that specified in the SSL certificate (common name), you will not be able to connect to Control Center after rebooting the appliance. This KB article, which I tried, fixes the problem, however, note that you’ll have to go back and re-configure vRO from scratch.
+1. Type in the credentials for a vCenter administrative account such as `administrator@vsphere.local` and press **Register**.
+1. In the **Admin Group** field, type in `vsphere.local\Administrators` and click on the **Search** button to ensure the group exists. Press **Save Changes** when complete.
+1. If the changes are successfull you will be redirected back to the Control Center homepage.
+![homepage](/assets/vroconfig.png)
+1. From the home screen, hit the `Validate Configuration` option to make sure everything is set-up correctly.
+1. If a server restart is required, you’ll need to reboot the appliance. To do this, navigate to the Virtual Appliance Management Interface (VAMI) at `https://<your_orchestrator_server_IP_or_DNS_name>:5480` and log in as `root` using the password set during installation. Hit the **Reboot** button from the default page.
+![Rebooting using the VAMI](/assets/rebootFromVami.png)
 
 ### Integrating vRO with vCenter Server
-The next part of the configuration process will register vCenter Server with vRO to enable orchestration. This is a two-part process where we first add the vCenter Server instance to vRO and then register vRO as a vCenter Server extension. To do this, we need to use the standalone vRO client which can be downloaded from the vRO Server page. The client is what enables us to execute workflows against vCenter. Here’s how.
+The next part of the configuration process will register vCenter Server with vRO to enable orchestration. This is a two-part process where we first add the vCenter Server instance to vRO and then register vRO as a vCenter Server extension. To do this, we need to use the standalone vRO client which can be downloaded from the vRO Server page. The client is what enables us to execute workflows against vCenter.
 
-1. Download the Orchestrator client for the relevant OS (Windows, Linux and Mac) from https://your_orchestrator_server_IP_or_DNS_name:8281/vco/.
-1. Unzip the archived contents to a folder. Execute vROWorkflowDesigner.exe if you’re running this on Windows. Once you do, type in the vRO’s IP address or hostname and the SSO credentials; the ones you usually use to log in vCenter.
-1. Click on the Workflow tab and expand Configuration under the vCenter branch. Select the Add a vCenter Server instance workflow and hit the Play button.
-1. Type in the FQDN of the vCenter Server you want to add and make to answer Yes to the Will you orchestrate this instance option. You can choose to ignore any SSL warnings. Press Next.
-1. Leave the session option set to Yes and type in the SSO credentials. Leave the domain value blank. Press Submit.
-1. Check that there’s nothing wrong with the endpoint names – ex. incorrect FQDN – and press Submit.
+1. Download the Orchestrator client for the relevant OS (Windows, Linux and Mac) from `https://<your_orchestrator_server_IP_or_DNS_name>:8281/vco/`.
+1. Unzip the archived contents to a folder. And run the platform-appropriate file. Once you do, you should be able to log in using credentials beloning to the admin group you specified earlier.
+![login window](/assets/loginWindow.png)
+1. Click on the **Workflows** tab and navigate to **Library > vCenter > Configuration > Add a vCenter Server instance**. Right-click and press the **Start Workflow**.
+![Adding a vcenter server](/assets/addAvcenterServer.png)
+1. Type in the FQDN of the vCenter Server you want to add
+ - For **Will you orchestrate this instance option**, select **Yes**
+ - Choose if you want to ignore any SSL warnings.
+ - Press **Next**.
+1. Leave the session option set to **Yes** and type in the SSO credentials. Leave the domain value blank. Press **Next**.
+1. Leave the **Additional Endpoint** values as default, and click **Submit**
 
-If the details provided were correct, the workflow should complete successfully
-
+If the details provided were correct, the workflow should complete successfully. Also, when on the **Inventory** tab, you should see the name of your vCenter under **vSphere vCenter Plug-in**. Repeat the above process for all vCenters you wish to manage.
 
 #### Registering vRO as a vCenter Server extension
 Next, we need to register vRO as an extension in vCenter. To do this, we simply execute a second workflow from the same workflow branch as before.
