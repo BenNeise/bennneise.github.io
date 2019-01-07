@@ -5,7 +5,8 @@ date: '2015-05-29 13:24:49'
 ---
 
 
-![vcologo](/content/images/2016/01/vcologo.png)
+![vcologo](/assets/vro_logo.png){: .center-image }
+
 We're soon going to be implementing multiple [vRealize Orchestrator](http://www.vmware.com/uk/products/vrealize-orchestrator) (vRO) servers in our [vRealize Automation ](http://www.vmware.com/uk/products/vrealize-automation)(vRA) development environment to allow people to choose different endpoints. Essentially if someone's working on a workflow, that shouldn't affect a different developer who is testing a template. So I wanted a way of allowing customers (in this case, developers) to choose from a list of Orchestrator endpoints.
 
 This might be useful in the following cases:
@@ -62,7 +63,7 @@ What we've done so far will create an empty text box on one or more blueprints, 
 8. Set the **Value** to be a comma-seperated list of your Orchestrator endpoint names (copy and paste so that you know you're getting them right!)
 9. Click the green checkmark to save your changes, then click **OK**
 
-![SelectTheOrchestratorServer](/content/images/2016/01/SelectTheOrchestratorServer.png)
+![SelectTheOrchestratorServer](/assets/SelectTheOrchestratorServer.png)
 
 Now, test out a catalog request it should give you a drop-down list like this
 

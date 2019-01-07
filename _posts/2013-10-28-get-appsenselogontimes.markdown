@@ -11,11 +11,11 @@ I'm doing logon tuning just now for non-persistent VDI desktops  - seeing long i
 
 Example output, sorted and piped to Out-Gridview
 
-![Get-AppSenseLogonTimes_ExampleOutput](/content/images/2016/01/Get-AppSenseLogonTimes_ExampleOutput.png)
+![Get-AppSenseLogonTimes_ExampleOutput](/assets/Get-AppSenseLogonTimes_ExampleOutput.png)
 
 You need to have **Send events to the AppSense event log** set to **Yes**.
 
-![AppSenseEvents](/content/images/2016/01/AppSenseEvents.png)
+![AppSenseEvents](/assets/AppSenseEvents.png)
 
 If you're using persistent desktops, the function might not be as useful as-is unless you clear the AppSense log at log-off, or parse the results in some way that you only get events for a single logon.
 
