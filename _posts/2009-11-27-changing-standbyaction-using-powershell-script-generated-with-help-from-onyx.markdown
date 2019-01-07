@@ -17,11 +17,9 @@ We're currently having some issues caused by the [convergence of vSphere 4.0, In
 
 To do this the machines need to be powered down. We had an imminent maintenance window, but it wouldn't allow us the time to make this change manually (even if we wanted to), this necessitated some automation. Unfortunately I had no idea how to go about editing this setting using the PowerCLI, even after a little search through the [VMware PowerCLI community](http://communities.vmware.com/community/vmtn/vsphere/automationtools/windows_toolkit).
 
-This seemed like the perfect opportunity to try out [Project Onyx](http://ben.neise.co.uk/index.php/2009/11/alpha-build-of-project-onyx/).
+This seemed like the perfect opportunity to try out [Project Onyx](https://labs.vmware.com/flings/onyx).
 
 [Carter Shanklin's video](http://blogs.vmware.com/vipowershell/2009/11/project-onyx-is-here.html) does a good job of explaining how to Onyx up and running, and it worked exactly as described (even on my Windows 7 machine).
-
-![OnyxWindow](/content/images/2016/01/OnyxWindow.PNG)
 
 1. [Download the Onyx files](http://bit.ly/vmwOnyx15) and extract to a folder
 2. Run the Onyx executable
@@ -31,7 +29,7 @@ This seemed like the perfect opportunity to try out [Project Onyx](http://ben.ne
 6. Click the **Start **button on Onyx
 7. In vSphere client make whatever changes it is that you're wanting to record.
 8. Click the **Pause** button on Onyx, and you'll see in the window a script has been created.
-9. Copy this into [your favourite PowerShell editor](http://thevesi.org/index.jspa), and modify until it's suitable for your purposes.
+9. Copy this into your favourite PowerShell editor, and modify until it's suitable for your purposes.
 
 
 The original capture from the Onyx Window
