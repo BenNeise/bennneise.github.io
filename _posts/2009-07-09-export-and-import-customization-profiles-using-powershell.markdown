@@ -9,7 +9,7 @@ I'm in the middle of preparing for a migration from VI3 to vSphere 4 just now (h
 
 As part of this process, I was just about to start writing  a script to export our customisation specifications, when Arnim van Lieshout's post appeared in my [VMware Planet V12N](http://www.vmware.com/vmtn/planet/v12n/) RSS feed.
 
-[Export and import customization profiles using Powershell | Arnim van Lieshout](http://www.van-lieshout.com/2009/07/export-and-import-customization-profiles-using-powershell/).
+[Export and import customization profiles using Powershell](http://www.van-lieshout.com/2009/07/export-and-import-customization-profiles-using-powershell/).
 
 It failed on a couple of customisations, but by adding...
 
