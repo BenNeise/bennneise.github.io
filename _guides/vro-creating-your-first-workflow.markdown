@@ -34,14 +34,19 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 1. Let's create a folder for your new work. In the left-panel, right-click on the top element (yourname @ your server), and select **New Folder**. Give it a name, and click OK. 
 1. Now we'll create a workflow inside that folder. Right-click the folder and select **New Workflow**. Call it **Hello World**, and click **Ok**.
 1. The workflow will now be opened for editing. On the **General** tab. you can see (among some other things) the **Name** and **Description**
+![vRO Design View](/assets/generalTab.png)
 1. Select the **Schema** tab. You should see a **Scriptable Task** in the left pane (if not, search for it). Drag it from that window into the blue line between the green start arrow and the end target
+![vRO Design View](/assets/scriptableTask.png)
 1. Right-click the **Scriptable Task**, and select **Edit**
 1. Select the **Scripting** pane, enter the following: `System.log("Hello, world!");`, click **Close**
+![vRO Design View](/assets/scriptPane.png)
 1. Click **Close**
 1. Click the green **Run** arrow above the editing panel
 1. Run it after saving
+![vRO Design View](/assets/logOutput.png)
 1. Save and close
 1. In the navigator, you'll see an execution under the workflow
+![vRO Design View](/assets/executionOutput.png)
 1. Right-click and run, you'll see a new exection
 
 ## Adding inputs
@@ -53,7 +58,9 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 1. Click the default name `arg_in_0` and change the name to `name`
 1. Click the **Schema** tab again, right click on the Scriptable Task and select **Edit**
 1. Switch to the **In** tab, and click the button **Bind to workflow parameter / attribute**. Check the box next to `name`.
+![vRO Design View](/assets/vroInput.png)
 1. Switch to the Scripting tab, update your script to the following: `System.log("Hello " + name);`. You'll see that name is in pink 
+![vRO Design View](/assets/helloName.png)
 1. Run the workflow by clicking on the **Run** button in the **Schema** view, you should see it output your name in the **Logs** pane.
 
 ## Next steps
