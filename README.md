@@ -1,0 +1,1 @@
+Replaces the old [Ghost blog]( https://ghost-azure7647.azurewebsites.net)

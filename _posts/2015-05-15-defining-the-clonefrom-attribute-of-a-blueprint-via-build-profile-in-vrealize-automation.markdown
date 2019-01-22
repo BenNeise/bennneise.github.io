@@ -6,7 +6,7 @@ date: '2015-05-15 18:03:58'
 ---
 
 
-![vRealize Automation](/content/images/2016/01/vRA-Product-Icon-Mac_0.png)
+![vRealize Automation](/assets/vRA-Product-Icon-Mac_0.png){: .center-image}
 
 Using vRealize Automation (vRA) to allow your users to deploy their own infrastructure in minutes is great, but if the first thing they need to do is apply a bunch of patches, they're not going to be happy. It's essential that you keep your templates up to date.
 
