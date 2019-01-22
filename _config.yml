@@ -40,6 +40,8 @@ disqus:
 
 paginate: 5
 
+include: [".well-known"]
+
 collections:
   guides:
     output: true
