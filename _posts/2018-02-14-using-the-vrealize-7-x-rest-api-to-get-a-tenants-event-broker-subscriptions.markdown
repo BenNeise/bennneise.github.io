@@ -44,7 +44,7 @@ The documentation _does_ make some reference to per-tenant scoping:-
 
 So. on a hunch, I tried scoping the query, in much the same way as the other XaaS (Advanced Service Designer) queries:-
 
-`GET https://<vraServer>/advanced-designer-service/api/tenants/\{\{tenantId\}\}/event-broker/subscriptions/`
+`GET https://<vraServer>/advanced-designer-service/api/tenants/<tenantId>/event-broker/subscriptions/`
 
 In this case, as I was using the default tenant, the `tenantId` was simply `vsphere.local`. This worked perfectly, allowing me to GET the JSON.
 
