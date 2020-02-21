@@ -14,7 +14,7 @@ As this was the first subscription we've created, we had none of this available,
 
 The [documentation](https://code.vmware.com/apis/164/vra-advanced-designer#!/get45operation/get_api_event_broker_subscriptions) suggested that I should be able to run the following operation:-
 
-`GET https://{{vraServer}}/advanced-designer-service/api/event-broker/subscriptions`
+`GET https://<vraServer>/advanced-designer-service/api/event-broker/subscriptions`
 
 However, when I tried this, in [Postman](https://www.getpostman.com/) using a Tenant Administrator account, I got the following response:-
 
@@ -44,7 +44,7 @@ The documentation _does_ make some reference to per-tenant scoping:-
 
 So. on a hunch, I tried scoping the query, in much the same way as the other XaaS (Advanced Service Designer) queries:-
 
-`GET https://{{vraServer}}/advanced-designer-service/api/tenants/{{tenantId}}/event-broker/subscriptions/`
+`GET https://<vraServer>/advanced-designer-service/api/tenants/\{\{tenantId\}\}/event-broker/subscriptions/`
 
 In this case, as I was using the default tenant, the `tenantId` was simply `vsphere.local`. This worked perfectly, allowing me to GET the JSON.
 
