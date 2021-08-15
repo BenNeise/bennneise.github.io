@@ -34,7 +34,9 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 1. Let's create a folder for your new work. In the left-panel, right-click on the top element (yourname @ your server), and select **New Folder**. Give it a name, and click OK. 
 1. Now we'll create a workflow inside that folder. Right-click the folder and select **New Workflow**. Call it **Hello World**, and click **Ok**.
 1. The workflow will now be opened for editing. On the **General** tab. you can see (among some other things) the **Name** and **Description**
+
 ![vRO Design View](/assets/generalTab.png)
+
 1. Select the **Schema** tab. You should see a **Scriptable Task** in the left pane (if not, search for it). Drag it from that window into the blue line between the green start arrow and the end target
 ![vRO Design View](/assets/scriptableTask.png)
 1. Right-click the **Scriptable Task**, and select **Edit**
