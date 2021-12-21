@@ -7,7 +7,6 @@ tags:
 - vmware-horizon-view
 ---
 
-
 I was at a training course last week and  it was mentioned briefly on one of the slides that PCOIP session statistics were available via WMI. After a quick Google, I found [MyVirtualCloud's page](http://myvirtualcloud.net/?p=2069), which details the class, and property names.
 
 The following is a PowerShell function, which pulls this information from WMI, appends the names and descriptions, and returns an object. You could, for example, export the returned object to an HTML page. Or use the function against a range of machines to look for outliers.

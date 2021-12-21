@@ -21,7 +21,7 @@ As per [Microsoft's KB article](http://support.microsoft.com/kb/154501/), this c
 Set the key shown below to **Enabled**  
 [![](http://ben.neise.co.uk/wp-content/uploads/2010/01/GPO.png "GPO")](http://ben.neise.co.uk/wp-content/uploads/2010/01/GPO.png)
 
-## Using REGEDIT
+# Using REGEDIT
 
 Set the below value to **1**  
 [![](http://ben.neise.co.uk/wp-content/uploads/2010/01/Regedit.png "Regedit")](http://ben.neise.co.uk/wp-content/uploads/2010/01/Regedit.png)

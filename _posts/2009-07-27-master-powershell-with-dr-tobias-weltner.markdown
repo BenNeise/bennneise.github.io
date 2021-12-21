@@ -5,8 +5,6 @@ date: '2009-07-27 15:19:46'
 ---
 
 
-Dr Tobias Weltner has released a free [comprehensive eBook on PowerShell](http://powershell.com/cs/blogs/ebook/).
+Dr Tobias Weltner has released a free [comprehensive eBook on PowerShell](https://community.idera.com/database-tools/powershell/powertips/b/ebookv2).
 
 Something to put on your eBook reader.
-
-

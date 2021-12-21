@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm Gemfile.lock
+
 # Install the version of Bundler.
 if [ -f Gemfile.lock ] && grep "BUNDLED WITH" Gemfile.lock > /dev/null; then
     cat Gemfile.lock | tail -n 2 | grep -C2 "BUNDLED WITH" | tail -n 1 | xargs gem install bundler -v
@@ -11,4 +13,5 @@ if [ -f Gemfile ]; then
     bundle install
 fi
 
-jekyll serve --watch --drafts --config _config.yml
+git config --global user.email "ben@neise.co.uk"
+git config --global user.name "Ben Neise"

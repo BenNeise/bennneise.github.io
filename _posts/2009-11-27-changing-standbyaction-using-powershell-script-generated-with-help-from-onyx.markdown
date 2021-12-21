@@ -3,7 +3,6 @@ layout: post
 title: Changing StandByAction using PowerShell script created with help from Onyx
 date: '2009-11-27 11:09:33'
 tags:
-- onyx
 - powercli
 - script
 - virtualisation
