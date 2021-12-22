@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
+![jenkins](/assets/ben_profile_pic.jpg) 
 
 My name is Ben Neise, and I work for European broadcaster [Sky](https://www.skygroup.sky/). I specialise in automation, deployment and [XaaS](http://simple.wikipedia.org/wiki/Everything_as_a_service).
 
