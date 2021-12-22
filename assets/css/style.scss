@@ -26,3 +26,33 @@ h1 {
 .post-content h4 {
     font-size: .83em
 }
+div.info, div.success, div.warning, div.error {
+    border: none;
+    margin: 10px 0px;
+    padding:15px 15px;
+    border-radius: 15px;
+}
+ 
+div.info {
+    background-color: #bde5f8;
+}
+div.info:before {
+    content: "\f05a";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    padding-right: 5px;
+}
+ 
+div.success {
+    color: #4f8a10;
+    background-color: #dff2bf;
+}
+ 
+div.warning {
+    color: #9f6000;
+    background-color: #FEEFB3;
+}
+ 
+div.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+}
