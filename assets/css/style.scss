@@ -5,26 +5,48 @@
 
 .tag {
     font-size: smaller;
-    border: 1px solid#1756a9;
+    border: 0px;
     border-radius: 5px;
-    padding: 4px;
+    padding: 4px 12px 4px 12px;
+    background-color: #594C25;
+    color: #ffffff;
 }
-.center-image
-{
+
+.center-image {
     margin: 0 auto;
     display: block;
 }
-h1 {
-   color: #1756a9;
+
+ /* Override the background color for code highlighting */
+.highlighter-rouge .highlight {
+    background: #ffffff;
 }
+pre code {
+    background: #ffffff;
+}
+
+
+h1 {
+   color: #374017;
+}
+a {
+    color: #374017;
+}
+a:visited {
+    color: #525559;
+}
+
 .post-content h2 {
     font-size: 1.17em;
+    color: #374017;
 }
 .post-content h3 {
-    font-size: 1em
+    font-size: 1em;
+    color: #374017;
 }
 .post-content h4 {
-    font-size: .83em
+    font-size: .83em;
+    color: #374017;
 }
 div.info, div.success, div.warning, div.error {
     border: none;
@@ -34,25 +56,10 @@ div.info, div.success, div.warning, div.error {
 }
  
 div.info {
-    background-color: #bde5f8;
+    background-color: #9CC1D9;
 }
 div.info:before {
     content: "\f05a";  /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     padding-right: 5px;
-}
- 
-div.success {
-    color: #4f8a10;
-    background-color: #dff2bf;
-}
- 
-div.warning {
-    color: #9f6000;
-    background-color: #FEEFB3;
-}
- 
-div.error {
-    color: #D8000C;
-    background-color: #FFBABA;
 }
