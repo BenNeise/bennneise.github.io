@@ -19,7 +19,7 @@ The benefits achieved via the implementation of Linked Clones in this project re
 
 We deployed twenty-five machines each, of  the three different builds used in a project. All were Windows XP virtual machines
 
-The three machines being used as the parents had their [slack space on the drives was cleaned](http://ben.neise.co.uk/index.php/2009/10/using-sdelete-to-maximise-the-amount-of-disk-space-reclaimed-during-conversion-to-thin-provisioned-disks/) using [SDelete](http://technet.microsoft.com/en-us/sysinternals/bb897443.aspx), then the machine was converted to Thin Provisioned using Storage vMotion. It was switched off, and a snapshot was created. This snapshot will form the base for the parent's clones.
+The three machines being used as the parents had their [slack space on the drives was cleaned](http://ben.neise.co.uk/2009/10/28/using-sdelete-to-maximise-the-amount-of-disk-space-reclaimed-during-conversion-to-thin-provisioned-disks.html) using [SDelete](http://technet.microsoft.com/en-us/sysinternals/bb897443.aspx), then the machine was converted to Thin Provisioned using Storage vMotion. It was switched off, and a snapshot was created. This snapshot will form the base for the parent's clones.
 
 The machines were deployed using the a script similar to the one at the bottom of this post, and it took just over an hour to deploy and customize all 75 machines. This was considerably faster than the time it would have taken to deploy 75 machines using the normal "Deploy from template"  method.
 
