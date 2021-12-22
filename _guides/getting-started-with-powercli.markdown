@@ -46,11 +46,11 @@ In order to use PowerShell, you need to import the PowerCLI commands using
 
 Running the VMware vSphere PowerCLI shortcut created when you install the application does this on launch.
 
-![PowerCLI_Shortcut](/content/images/2016/01/PowerCLI_Shortcut.GIF)
+![PowerCLI_Shortcut](/assets/PowerCLI_Shortcut.GIF)
 
 Running the standard PowerShell shortcut does not.
 
-![PowerShell_Icon](/content/images/2016/01/PowerShell_Icon.png)
+![PowerShell_Icon](/assets/PowerShell_Icon.png)
 
 You can however add it to your [PowerShell profile](http://www.howtogeek.com/50236/customizing-your-powershell-profile/), which will enable it in all PowerShell sessions, no matter which shortcut you use to launch them.
 
