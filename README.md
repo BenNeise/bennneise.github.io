@@ -13,3 +13,6 @@ Khaki: #594C25
 # Favicons
 
 Generated using [this site](https://favicon.io/favicon-converter/)
+
+sudo apt install pip
+pip install beautifulsoup4
