@@ -11,6 +11,5 @@ My name is Ben Neise, and I work for European broadcaster [Sky](https://www.skyg
 You can also find me on:
 
 - [LinkedIn](http://uk.linkedin.com/in/benneise)
-- [Twitter](http://twitter.com/BenNeise)
 
 The views and opinions published on this site are my own and not approved or endorsed by my employer.
