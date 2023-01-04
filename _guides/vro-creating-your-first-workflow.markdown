@@ -4,6 +4,9 @@ title: vRealize Orchestrator - Creating your first workflow
 summary: How to create your first workflow using VMware vRealize Orchestrator
 ---
 
+* TOC
+{:toc}
+
 ## What is vRealize Orchestrator?
 
 ![vROLogo](/assets/vro_logo.png){: .center-image}

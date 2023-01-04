@@ -4,6 +4,9 @@ title: Getting started with VMware PowerCLI
 summary: A simple introduction to using VMware's PowerShell command line tools.
 ---
 
+* TOC
+{:toc}
+
 # Introduction
 
 Way back in 2007, I moved from working as an application packager - responsible for a handful of (VMware Workstation) virtual machines, to a new role supporting a consolidated infrastructure for over 200 packagers who required over 1,000 virtual machines on VMware vSphere (at that point still called Virtual Infrastructure).
