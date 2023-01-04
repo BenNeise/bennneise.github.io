@@ -2,10 +2,6 @@
 layout: post
 title: Changing drive letter assignments after deploying a virtual machine from a template
 date: '2010-01-22 13:36:31'
-tags:
-- powercli
-- script
-- virtualisation
 ---
 
 

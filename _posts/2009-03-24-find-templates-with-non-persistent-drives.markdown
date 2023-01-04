@@ -2,8 +2,6 @@
 layout: post
 title: Find vSphere templates with non-persistent disks
 date: '2009-03-24 11:41:00'
-tags:
-- script
 ---
 
 

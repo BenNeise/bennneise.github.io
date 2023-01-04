@@ -2,9 +2,6 @@
 layout: post
 title: Get VDI Capacity Information from the Horizon View ADAM Database
 date: '2014-05-09 08:08:41'
-tags:
-    - vmware-horizon-view
-    - script
 ---
 
 

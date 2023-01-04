@@ -2,9 +2,6 @@
 layout: post
 title: Getting PCOIP statistics via WMI using PowerShell
 date: '2012-10-09 11:30:20'
-tags:
-- script
-- vmware-horizon-view
 ---
 
 I was at a training course last week and  it was mentioned briefly on one of the slides that PCOIP session statistics were available via WMI. After a quick Google, I found [MyVirtualCloud's page](http://myvirtualcloud.net/?p=2069), which details the class, and property names.

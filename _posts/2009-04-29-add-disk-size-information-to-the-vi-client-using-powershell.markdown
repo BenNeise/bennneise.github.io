@@ -2,10 +2,6 @@
 layout: post
 title: Add disk size information to the VI Client using PowerShell
 date: '2009-04-29 11:41:47'
-tags:
-- powercli
-- script
-- virtualisation
 ---
 
 

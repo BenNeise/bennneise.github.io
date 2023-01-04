@@ -2,10 +2,7 @@
 layout: post
 title: Understanding memory resource management in VMware ESX
 date: '2009-09-15 13:23:28'
-tags:
-- memory
-- virtualisation
-- vsphere
+
 ---
 
 VMware have published an excellent [white paper on memory management](http://www.vmware.com/files/pdf/perf-vsphere-memory_management.pdf) [pdf].

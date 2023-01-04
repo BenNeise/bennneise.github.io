@@ -2,9 +2,6 @@
 layout: post
 title: Check if servers in a text list exist as VMware VMs
 date: '2009-05-13 12:30:15'
-tags:
-- script
-- virtualisation
 ---
 
 

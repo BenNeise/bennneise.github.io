@@ -2,9 +2,6 @@
 layout: post
 title: Virtual machine BSoD detector
 date: '2009-05-15 14:27:26'
-tags:
-- powercli
-- script
 ---
 
 

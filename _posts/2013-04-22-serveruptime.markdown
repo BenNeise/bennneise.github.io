@@ -2,8 +2,6 @@
 layout: post
 title: Server Uptime (2013 Scripting Games practice)
 date: '2013-04-22 08:50:23'
-tags:
-- script
 ---
 
 

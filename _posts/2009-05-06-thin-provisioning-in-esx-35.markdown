@@ -2,11 +2,6 @@
 layout: post
 title: Thin Provisioning in ESX 3.5
 date: '2009-05-06 11:45:57'
-tags:
-- script
-- vcenter
-- virtualisation
-- vsphere
 ---
 
 

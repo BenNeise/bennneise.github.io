@@ -2,11 +2,6 @@
 layout: post
 title: Script to add a hash table full of virtual port groups to vSphere hosts
 date: '2009-09-17 11:45:27'
-tags:
-- hash-tables
-- script
-- vcenter
-- vsphere
 ---
 
 

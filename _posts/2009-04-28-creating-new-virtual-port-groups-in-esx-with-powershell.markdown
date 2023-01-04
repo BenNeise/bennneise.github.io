@@ -2,8 +2,6 @@
 layout: post
 title: Creating new Virtual Port Groups in ESX with PowerShell
 date: '2009-04-28 12:18:34'
-tags:
-- script
 ---
 
 

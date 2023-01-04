@@ -2,9 +2,6 @@
 layout: post
 title: Automatically converting machines to thin provisioned format
 date: '2010-03-18 10:19:06'
-tags:
-- script
-- virtualisation
 ---
 
 

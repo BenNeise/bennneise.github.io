@@ -2,10 +2,6 @@
 layout: post
 title: Manually creating linked clones in vSphere
 date: '2010-01-13 16:18:57'
-tags:
-- script
-- virtualisation
-- vsphere
 ---
 
 

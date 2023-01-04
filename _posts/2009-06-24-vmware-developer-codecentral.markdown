@@ -2,11 +2,6 @@
 layout: post
 title: VMware Developer CodeCentral
 date: '2009-06-24 08:50:47'
-tags:
-- powercli
-- script
-- virtualisation
-- vsphere
 ---
 
 
