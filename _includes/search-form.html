@@ -1,18 +1,21 @@
 <!-- HTML search field -->
 <div id="search-container">
-  <input type="text" id="search-input" placeholder="Type your search here..." autofocus>
-  <ul id="results-container"></ul>
+    <p>
+        <input type="text" id="search-input" placeholder="Type your search here..." autofocus>
+    </p>
+    <h2>Search results</h2>
+    <ul id="results-container"></ul>
 
-  <!-- Grab search-script.js -->
-  <script src="/assets/js/search-script.js" type="text/javascript"></script>
+    <!-- Grab search-script.js -->
+    <script src="/assets/js/search-script.js" type="text/javascript"></script>
 
-  <!-- Configuration -->
-  <script>
-    SimpleJekyllSearch({
-      searchInput: document.getElementById('search-input'),
-      resultsContainer: document.getElementById('results-container'),
-      json: '/search.json',
-      searchResultTemplate: '<li><a href="{url}">{title}</a><br><span class="post-meta">{date}</span></li>'
-    })
-  </script>
+    <!-- Configuration -->
+    <script>
+        SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json',
+            searchResultTemplate: '<h3><a href="{url}">{title}</a><h3><p><span class="post-meta">{date}</span></p>'
+        })
+    </script>
 </div>
