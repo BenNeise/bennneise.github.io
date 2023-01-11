@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: About me
+permalink: /about-me/
 ---
 ![jenkins](/assets/ben_profile_pic.jpg) 
 
