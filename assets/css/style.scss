@@ -52,18 +52,49 @@ a:visited {
     font-size: .83em;
     color: #374017;
 }
-div.info, div.success, div.warning, div.error {
+div.info, div.note, div.warning, div.tip {
     border: none;
     margin: 10px 0px;
     padding:15px 15px;
     border-radius: 15px;
 }
- 
+
+/* Info */
 div.info {
     background-color: #9CC1D9;
 }
 div.info:before {
     content: "\f05a";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    padding-right: 5px;
+}
+
+/* Note  */
+div.note {
+    background-color: #ffeaae;
+}
+div.note:before {
+    content: "\f071";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    padding-right: 5px;
+}
+
+/* Tip */
+div.tip {
+    background-color: #91c89c;
+}
+div.tip:before {
+    content: "\f058";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    padding-right: 5px;
+}
+
+/* Warning */
+div.warning {
+    background-color: #cc564b;
+}
+div.warning:before {
+    content: "\f06a";  /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     padding-right: 5px;
 }
