@@ -61,7 +61,7 @@ In vSphere client, all you need to do is create a new machine named **UseCustomP
 1. Log into vCAC
 2. Go to **Infrastructure** > **Blueprints** > **Build Profiles**
 3. Edit the build profile for the template which you wish to update
-4. Under **Custom Properties**, modify the **CloneFrom **property, setting the new value to be the name of your updated template.
+4. Under **Custom Properties**, modify the **CloneFrom** property, setting the new value to be the name of your updated template.
 5. Save your changes  - remember to click the little green check-mark, before clicking **Ok**!
 
 
