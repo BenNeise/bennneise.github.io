@@ -9,8 +9,7 @@ In this post, I'll go through some of the things I've found useful when writing 
 
 I'm not a Confluence expert, but these are things that I've found to be a ggood starting point for those looking to improve documentation. 
 
-This article is mainly targetted at developers who have been asked to write some documents in Confluence, or create a new wiki, or maybe to tame and organise an existing one. 
-
+This article is mainly targetted at developers who have been asked to write some documents in Confluence. Or they've maybe been asked to to create a new wiki, or maybe to tame and organise an existing one. 
 
 
 # Structure

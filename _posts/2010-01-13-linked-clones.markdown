@@ -45,6 +45,137 @@ I'm tentatively declaring this a huge success. Rather than the training environm
 
 Below is a script similar to the one I used to deploy the linked clones. The actual "meat", which deploys the machines was based on Hal Rottenberg's [New-LinkedClone.ps1](http://poshcode.org/1549) script. As far as possible, I've tried to strip out stuff that's specific to our environment (we use the Custom Attributes as an asset management database and to track which machines were deployed from which templates). There's probably going to be stuff in there that doesn't make much sense, but if you've got a bit of an understanding of PowerShell, you should be able to cut and keep the bits you want.
 
-<script src="https://gist.github.com/BenNeise/7216369.js"></script>
+```powershell
+# Script to deploy linked clones
+
+# List of custom attributes which you're wanting to copy from the template or parent to the newly created machine
+# (Machines deployed from templates no longer inherit CAs in vSphere 4.0)
+# These help us track provenance, and provide information to the user
+$arrStrAttributesToCopy = @(
+    "AD Object Location",
+    "Customisation",
+    "Infrastructure Consultant",
+    "Logon Administrator Name",
+    "Logon Administrator Password",
+    "Logon User Name",
+    "Logon User Password",
+    "Mobilisation Consultant",
+    "Project",
+    "Role",
+)
+
+# Name of the Custom Attribute on the parent which contains the name of the customisation to use
+$CustomFieldName = "Customisation"
+
+  Function DeployLinkedClone ($strSourceVM, $intToBeDeployed, $intStartDeployingAtNumber, $CustomFieldName){
+  # Bases the name of the machine on the second part of the string split by spaces. This assumes that the template follows the standard naming convention of "Tmpl [Name] x.x"
+  $strMachinePrefix = ($strSourceVM.split(' ')[1])
+  $objVM = Get-VM $strSourceVM
+  $viewVM = $objVM | Get-View
+  $objCustomization = Get-OSCustomizationSpec ($objVM.CustomFields.Item($CustomFieldName))
+  # Ensure that the machines does not have a non persistent HD
+  If ($objVM | Get-HardDisk | Where-Object {$_.Persistence -like "IndependentNonPersistent"}){
+  Write-Host $objTemplate has a non-persistent HD!
+  }
+  # If the customisation, as specified in the parent's custom attribute does not exist, then quit.
+  If (!$objCustomization){
+    Write-Host Customisation ($objVM.CustomFields.Item($CustomFieldName)) not found. Exiting.
+    Break
+  }
+  $i = 1
+  Do {
+  # Convert the single digit integer (i.e., "1") into a double digit (i.e., "01")
+  $strMachineNumber = ("{0:0#}" -f $intStartDeployingAtNumber)
+  # Concatenate the machine name prefix (from the template name) with the double-digit integer, which is incrememted on each loop
+  $strMachineBeingDeployed = $strMachinePrefix+$strMachineNumber
+  # Check that the machine doesn't already exist
+  If ((Get-VM -Name $strMachineBeingDeployed -ErrorAction SilentlyContinue)){
+    Write-Host "Machine $strMachineBeingDeployed already exists!"
+    Break
+  }
+  # Let the user know what's going on
+  Write-Host ""
+  Write-Host "Deploying new linked-clone " -NoNewline
+  Write-Host $strMachineBeingDeployed -ForegroundColor Blue -NoNewline
+  Write-Host ", from template " -NoNewline
+  Write-Host $strSourceVM -ForegroundColor Blue -NoNewline
+  Write-Host ", using customisation " -NoNewline
+  Write-Host $objCustomization -ForegroundColor Blue -NoNewline
+  Write-Host ", on the same Host as the parent" -NoNewline
+  Write-Host ""
+  # Create the new machine using all these variables
+  $objFolder = $viewVM.parent
+  $specClone = New-Object Vmware.Vim.VirtualMachineCloneSpec
+  # Get the most recent snapshot attached to the machine
+  $specClone.Snapshot = $viewVM.Snapshot.CurrentSnapshot
+  # Create an object to represent the location of the clone
+  $specClone.Location = New-Object Vmware.Vim.VirtualMachineRelocateSpec
+  # This is the move-type that specifies the new disk backing (which is the bit that makes a linked clone)
+  $specClone.Location.DiskMoveType = "createNewChildDiskBacking"
+  # Run the task with the specified parameters
+  $task = $viewVM.CloneVM_Task($objFolder, $strMachineBeingDeployed, $specClone)
+  Get-VIObjectByVIView $task | Wait-Task | Out-Null
+  # Get the object for the machine which was just deployed
+  $objTargetVM = Get-VM $strMachineBeingDeployed
+  # Apply the customisation specification to the newly created clone
+  Set-VM -VM $objTargetVM -OSCustomizationSpec $objCustomization -Confirm:$false
+  # Start the clone
+  Start-VM -VM $objTargetVM
+  # Get the view (needed for writing custom attributes)
+  $viewTarget = $objTargetVM | Get-View
+  # Loop through each of the custom attributes which are to be copied
+  ForEach ($arrStrAttributeToCopy in $arrStrAttributesToCopy){
+    # Read the attribute from the source template
+    $objAttribute = $objVM.CustomFields.Item($arrStrAttributeToCopy)
+    # Apply the attribute to the machine object
+    $viewTarget.setCustomValue($arrStrAttributeToCopy,$objAttribute)
+  }
+  # Set the "Template" custom attribute to the parent templates
+  $arrStrAttributeToCopy = "Template"
+  $viewTarget.setCustomValue($arrStrAttributeToCopy,$strSourceTemplate)
+  # Increment the number used for naming the machines
+  $intStartDeployingAtNumber ++
+  # Increment the number used to count the number of machines deployed
+  $i ++
+  }
+  # Continue to loop while the number of machines deployed is less than the number required
+  While ($i -le $intToBeDeployed)
+}
+
+# Get the current time (for timing how long the script took to run)
+$dteStart = Get-Date
+
+# Name of source VM, should be persistent, should have a snapshot and the customisation specified in the nominated custom attribute
+$strSourceVM = "Tmpl Capture 1.0"
+# Number to be deployed
+$intToBeDeployed = 25
+# Number to start deploying from
+$intStartDeployingAtNumber = 1
+DeployLinkedClone $strSourceVM $intToBeDeployed $intStartDeployingAtNumber $CustomFieldName
+
+# Name of source VM, should be persistent, should have a snapshot and the customisation specified in the nominated custom attribute
+$strSourceVM = "Tmpl Packaging 1.0"
+# Number to be deployed
+$intToBeDeployed = 25
+# Number to start deploying from
+$intStartDeployingAtNumber = 1
+DeployLinkedClone $strSourceVM $intToBeDeployed $intStartDeployingAtNumber $CustomFieldName
+
+# Name of source VM, should be persistent, should have a snapshot and the customisation specified in the nominated custom attribute
+$strSourceVM = "Tmpl Verification 1.0"
+# Number to be deployed
+$intToBeDeployed = 25
+# Number to start deploying from
+$intStartDeployingAtNumber = 1
+DeployLinkedClone $strSourceVM $intToBeDeployed $intStartDeployingAtNumber $CustomFieldName
+
+$dteEnd = Get-Date
+$dteDiff = New-TimeSpan $dteStart $dteEnd
+$timeTaken = [math]::round($dteDiff.totalMinutes, 2)
+Write-Host ""
+Write-Host "It took" $timeTaken "minutes for these machines to deploy"
+
+# End of script
+```
 
 

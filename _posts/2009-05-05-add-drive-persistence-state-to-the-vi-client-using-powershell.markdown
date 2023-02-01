@@ -9,6 +9,60 @@ I've further adapted [Hugo's script](http://www.peetersonline.nl/index.php/vmwar
 
 The script also adds drive state information for templates as well as VM objects.
 
-<script src="https://gist.github.com/BenNeise/7215254.js"></script>
+```powershell
+$VCServerName = "MyVCServer"
+$VC = Connect-VIServer $VCServerName
+$SI = Get-View ServiceInstance
+$CFM = Get-View $SI.Content.CustomFieldsManager
 
+# Variables
+$CustomFieldName = "HD Persistence"
+$ManagedObjectType = "VirtualMachine"
 
+# Check if the custom field already exists
+$myCustomField = $CFM.Field | Where {$_.Name -eq $CustomFieldName}
+If (!$myCustomField){
+	# Create Custom Field
+	$FieldCopy = $CFM.Field[0]
+	$CFM.AddCustomFieldDef($CustomFieldName, $ManagedObjectType, $FieldCopy.FieldDefPrivileges, $FieldCopy.FieldInstancePrivileges)
+}
+
+# Get the machine objects
+$objVMs = (Get-VM) + (Get-Template)
+# Loop through each of the machine objects
+ForEach ($objVM in $objVMs){
+	$strPersistence = ""
+	$objHardDisks = $objVM | Get-HardDisk
+	# Count the number of hard drives
+	$intHardDisks = ($objHardDisks | Measure-Object).count
+	# Loop through each of the hard disks
+	ForEach ($objHardDisk in $objHardDisks){
+		# Replace default persisstence states with initials for brevity
+		Switch ($objHardDisk.Persistence) {
+			Persistent {
+				$strPersistenceInitial = "P"
+			}
+			IndependentPersistent {
+				$strPersistenceInitial = "IP"
+			}
+			IndependentNonPersistent {
+				$strPersistenceInitial = "INP"
+			}
+		}
+		# Concatenate the initial onto the persistence string
+		$strPersistence = "$strPersistence" + $strPersistenceInitial
+		# If there are more hard drives to add
+		If ($intHardDisks -gt 1) {
+			# Append a comma and a space (there may be a more elegant way of doing this)
+			$strPersistence = "$strPersistence" + ", "
+			# Count down the number of hard drives
+			$intHardDisks -= 1
+		}
+	}
+	# Add the $strPersistence to custom attribute $CustomFieldName (HD Persistence)
+	If ($strPersistence){
+		$VMView = $objVM | Get-View
+		$VMView.setCustomValue($CustomFieldName,$strPersistence)
+	}
+}
+```

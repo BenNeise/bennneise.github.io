@@ -13,7 +13,37 @@ While I'm sure the SMLets are handy for ad-hoc reports by administrators, I want
 
 [Anton Gritsenko](http://blog.scsmsolutions.com/author/freemanru/)ÔÇÿs [mapping of the SMLets to their SCSM 2012 native commands](http://blog.scsmsolutions.com/2012/02/reference-between-smlets-and-scsm-2012-native-cmdlets/) was invaluable in the creation of this.
 
-<script src="https://gist.github.com/BenNeise/8236374.js"></script>
+```powershell
+# Import the SCSM Native CMDLets
+Import-Module "C:\Program Files\Microsoft System Center 2012\Service Manager\Powershell\System.Center.Service.Manager.psd1"
+
+# Name of your SCSM Server
+$strSCSMServer = "YourSCSMServer"
+
+New-SCSMManagementGroupConnection -ComputerName $strSCSMServer
+
+$objRelationshipAssignedToUser = Get-SCSMRelationship -Name "System.WorkItemAssignedToUser"
+$objRelationshipAffectedUser = Get-SCSMRelationship -Name "System.WorkItemAffectedUser"
+
+# Get an object containing all open incidents 
+$objIncidentsOpen = (Get-SCClassInstance -Class (Get-SCClass -Name "System.WorkItem.Incident")) | Where-Object {
+    $_.Status.ToString() -ne "IncidentStatusEnum.Closed" -and $_.Status.ToString() -ne "IncidentStatusEnum.Resolved"
+}
+
+# Format the object with calculated properties to display the required information
+$objIncidentsOpen | Select-Object `
+	Id,
+    Title,
+    @{Name="Source";Expression={$_.Source.DisplayName}},
+    CreatedDate,
+    Priority,
+    @{Name="Affected User";Expression={$_.GetRelatedObjectsWhereSource($objRelationshipAffectedUser)}},
+    @{Name="Status";Expression={$_.Status.DisplayName}},
+    @{Name="SupportGroup";Expression={$_.TierQueue.DisplayName}},
+    @{Name="Assigned To";Expression={$_.GetRelatedObjectsWhereSource($objRelationshipAssignedToUser)}} 
+
+# End of script
+```
 
 This script should work on any machine with PowerShell and SCSM Console installed. As with all PowerShell objects, this can then be output to HTML, CSV etc.
 
