@@ -41,6 +41,4 @@ ForEach ($objVM in $objVMs){
 $arrFoundServers
 ```
 
-If your VM object names do not match the DNS names on the list, then this won't work, but I suppose you could combine this with some logic from the [script I wrote to find mismatches](http://ben.neise.co.uk/index.php/2009/03/vm-object-dns-name-mismatches/).
-
-
+If your VM object names do not match the DNS names on the list, then this won't work, but I suppose you could combine this with some logic from the [script I wrote to find mismatches](https://ben.neise.co.uk/2009/03/18/vm-object-dns-name-mismatches.html).
