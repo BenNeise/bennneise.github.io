@@ -7,7 +7,7 @@ date: '2009-11-27 11:09:33'
 
 We're currently having some issues caused by the [convergence of vSphere 4.0, IndependentNonPersistent drives, StandBy and DRS](http://communities.vmware.com/thread/244259?tstart=0) (I'll post more on that later).  As a workaround, we needed to modify 228 machines so that they did not go into hibernation. You can do this though the vSphere Client by right clicking the virtual machine, click **Edit Settings**, go to the **Options Tab**, then select **Power Management**, and changing the radio button. We were wanting to change from "Suspend the virtual machine" to "Put the guest OS into standby mode and leave the virtual machine powered on".
 
-![PowerSettings](/content/images/2016/01/PowerSettings.PNG)
+![PowerSettings](/assets/PowerSettings.PNG)
 
 To do this the machines need to be powered down. We had an imminent maintenance window, but it wouldn't allow us the time to make this change manually (even if we wanted to), this necessitated some automation. Unfortunately I had no idea how to go about editing this setting using the PowerCLI, even after a little search through the [VMware PowerCLI community](http://communities.vmware.com/community/vmtn/vsphere/automationtools/windows_toolkit).
 
