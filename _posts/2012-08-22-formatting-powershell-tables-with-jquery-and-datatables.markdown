@@ -16,7 +16,8 @@ For example, say we want to get a list of VMware services running on the current
 `Get-Service -Name VMware* | Select-Object Name,Status | ConvertTo-HTML -Fragment`
 
 By looking at the output generated, we can see that, although valid HTML, it doesn't have the THEAD and TBODY sections required by DataTables.
-```
+
+```html
 <table>
     <colgroup>
         <col/><col/>
@@ -27,18 +28,28 @@ By looking at the output generated, we can see that, although valid HTML, it doe
     <tr><td>vmware-converter-worker</td><td>Running</td></tr>
 </table>
 ```
+
 The following jScript, added to the HEAD section of the document dynamically changes all the incorrectly formatted tables on the page, and allows them to be displayed as DataTables.
-```
+
+```html
 <script type="text/javascript">
     $(document).ready(function(){
         $('table').each(function(){
             // Grab the contents of the first TR element and save them to a variable
             var tHead = $(this).find('tr:first').html();
-// Remove the first COLGROUP element $(this).find('colgroup').remove(); // Remove the first TR element $(this).find('tr:first').remove();
-// Add a new THEAD element before the TBODY element, with the contents of the first TR element which we saved earlier. $(this).find('tbody').before('<thead>' + tHead + '</thead>'); });
-// Apply the DataTables jScript to all tables on the page $('table').dataTable( {
-// Put your datatable options here } ); }); </script>
+            // Remove the first COLGROUP element
+            $(this).find('colgroup').remove();
+            // Remove the first TR element
+            $(this).find('tr:first').remove();
+            // Add a new THEAD element before the TBODY element, with the contents of the first TR element which we saved earlier.
+            $(this).find('tbody').before('<thead>' + tHead + '</thead>');
+        });
+        // Apply the DataTables jScript to all tables on the page
+        $('table').dataTable( {
+            // Put your datatable options here
+        });
+    });
+</script>
 ```
+
 It may not be the most elegant use of jScript, as I was learning as I went along, but hopefully it might save someone else some time.
-
-
