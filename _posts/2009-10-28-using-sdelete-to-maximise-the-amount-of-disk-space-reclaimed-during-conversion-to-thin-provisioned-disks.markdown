@@ -24,7 +24,7 @@ I took one of our standard Windows XP guests which had been migrated to the new 
 
 Here's what happened
 
-![](/content/images/2016/01/DiskSpaceUsed1.png)
+![](/assets/DiskSpaceUsed1.png)
 
 ## Normal (Thick) Disk
 
