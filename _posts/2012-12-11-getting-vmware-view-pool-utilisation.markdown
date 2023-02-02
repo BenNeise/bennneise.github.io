@@ -5,6 +5,7 @@ date: '2012-12-11 15:36:28'
 ---
 
 
+
 We needed a way to keep track of how many users had been granted permission on a pool to ensure that there were plenty of provisioned desktops.
 
 Knowing that it's possible to list the number of machines in a pool, and the entitled users and groups using View CMDLets on a connection server via a PSRemote session, and knowing that it's possible to enumerate the total number of users in a group (including indirect membership); it's then just a case of combining the numbers into a single report  - minimum provisioned machines vs maximum number of users.

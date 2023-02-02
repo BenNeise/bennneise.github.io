@@ -18,5 +18,3 @@ $ObjVDICapacityData | Format-Table -Auto
 ```
 
 The version I'm using here (which is a little too specific to our environment to be posted here), also counts the number of people in the entitlement groups and appends that as a column.
-
-
