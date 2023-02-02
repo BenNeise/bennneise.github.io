@@ -18,7 +18,7 @@ The [documentation](https://code.vmware.com/apis/164/vra-advanced-designer#!/get
 
 However, when I tried this, in [Postman](https://www.getpostman.com/) using a Tenant Administrator account, I got the following response:-
 
-```
+```javascript
 {
     "errors": [
         {

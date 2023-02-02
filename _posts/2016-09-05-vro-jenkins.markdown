@@ -8,7 +8,7 @@ date: '2016-09-05 19:10:48'
 
 [VMware vRealize Orchestrator](http://www.vmware.com/products/vrealize-orchestrator.html) (vRO) is pretty flexible, but there are times when you still need to execute a job on [Jenkins](https://jenkins.io/). <!--more--> It's pretty easy to [create a Jenkins job which you can run by hitting a specific URL](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API) and vRO can do this in a couple of lines of JavaScript:-
 
-```
+```javascript
 urlObject = new URL(yourJobUrl);
 urlObject.getContent();
 ```
