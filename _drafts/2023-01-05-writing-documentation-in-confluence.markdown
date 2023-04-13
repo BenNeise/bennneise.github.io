@@ -14,9 +14,11 @@ This article is mainly targetted at developers who have been asked to write some
 
 # Structure
 
+The first thing we need to think about is the structure of your wiki.
+
 ## Multiple wikis?
 
-Per page permissions on Confluence are a bit complex to maintain. Permissions are permissive, so to give someone permission on a specific page, you would have to give them permission on the whole wiki. If they shouldn't see anything else, then you'd need to restrict all other pages. This isn't feasible. 
+Per page permissions on Confluence are a bit complex to maintain. Permissions are permissive, so to give someone permission on a specific page, you would have to give them permission on the whole wiki. If they shouldn't see anything else, then you'd need to restrict all other pages. This isn't really a feasible long-term strategy.
 
 ## Structure within the wiki
 
