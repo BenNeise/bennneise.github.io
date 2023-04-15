@@ -4,6 +4,9 @@ comments: true
 title: The Bacon Test
 date: '2022-04-14 12:55:00'
 ---
+![bacon](/assets/michelle-shelly-captures-it-TJzhTJ2U8Jo-unsplash.jpg)
+Photo by <a href="https://unsplash.com/@newlayer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Michelle @Shelly Captures It</a> on <a href="https://unsplash.com/photos/TJzhTJ2U8Jo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
 
 It's fair to say that the primary toolset used by our private-cloud engineers (vRealize Automation and vRealize Orchestrator) are not widely used, and we historically have not had have a large pool of experienced local talent from which to draw. We therefore tended to hire general IT people with a knack for solving technical problems. These people tend to be infrastructure engineers with a flair for automation. 
 
@@ -17,23 +20,22 @@ To solve this problem, we came up with *The Bacon Test*. This is a take-home tes
 
 The lack of instructions gives people a lot of scope for answering the question. Someone at the start of their career, may provide a simple bash script. Someone with slightly more experience, a more comprehensive Python script. Someone more senior might provide an elegant, modular solution alongside some design documentation. 
 
-We've found that this has worked very well for us
+We've found that this has worked very well for us. It's quick enough that people are more inclined to do it. It's also obviously _not_ real work that we're trying to get done for free (we're not [Brewdog](https://www.edinburghlive.co.uk/news/edinburgh-news/brewdog-accused-stealing-marketing-ideas-16289137)!).
 
-- It's quick enough that people are more inclined to do it
-- It's obviously not real work that we're trying to get done for free. We're not [Brewdog](https://www.edinburghlive.co.uk/news/edinburgh-news/brewdog-accused-stealing-marketing-ideas-16289137). Some people may even describe it as fun.
+Reviewing the submission is more of an art than a science, and generally gives us some good discussion points for the second interview. 
 
-Reviewing is more of an art than a science, and generally gives us some good discussion points for the second interview. 
+If they supplied code
+* Did it work?
+* Is it commented?
+* Is it of sufficient quality?
+* How did they approach the problem?
+* Which tools did they choose to solve the problem?
 
-* If they supplied code
-  * Did it work?
-  * Is it commented?
-  * Is it of sufficient quality?
-  * How did they approach the problem? Some people fire out a quick bash script. Some people write design documentation. Some people create elaborate modules.
-  * Which tool(s) did they choose to solve the problem?
-* How did they submit the response?
-  * Shared via their GitHub profile?
-  * E-mailed as an attachment?
-  * Pasted into the e-mail?
+Also, how did they submit the response?
+* Was it shared via their GitHub profile?
+* E-mailed as an attachment?
+* Pasted into the e-mail?
+
 * Did they over-engineer the solution? Or under-engineer?
 * Most importantly ... did they enjoy it? This is after all a flavour of the work they will be required to do most days!
 
