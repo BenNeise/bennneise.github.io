@@ -5,11 +5,12 @@ title: Platform Engineering - The Fundamentals of Developer Experience
 date: '2023-11-29 14:00:00'
 ---
 
-![A developer wearing builders clothes and a hard hat, sitting at a desk in front of a computer](/assets/platform-engineer.png)
+![A developer wearing builders clothes and a hard hat, sitting at a desk in front of a computer](/assets/platform-engineer.png){: .center-image }
 
-# Introduction
 
 Many new internal developer platforms fall into the trap of launching technically-advanced solutions, using cutting edge tooling, but forgetting to think much about usability from the customer perspective. I believe this is typically because these platforms been built by engineers who have inevitably been immersed in those specific technologies for so long that they've forgotten what it's like to approach it for the first time. 
+
+<!--more-->
 
 Having a complicated product that developers don't see value in using, can result in low uptake, and - if left unfixed - may result in shadow IT, competing platforms or numerous bespoke "tactical solutions". Sadly, once a platform has been labeled as _broken_, it's very difficult to recover from. 
 
