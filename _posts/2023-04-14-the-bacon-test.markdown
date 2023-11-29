@@ -4,7 +4,7 @@ comments: true
 title: The Bacon Test
 date: '2022-04-14 12:55:00'
 ---
-![bacon](/assets/michelle-shelly-captures-it-TJzhTJ2U8Jo-unsplash.jpg)
+![bacon](/assets/michelle-shelly-captures-it-TJzhTJ2U8Jo-unsplash.jpg){: .center-image }
 Photo by <a href="https://unsplash.com/@newlayer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Michelle @Shelly Captures It</a> on <a href="https://unsplash.com/photos/TJzhTJ2U8Jo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 
