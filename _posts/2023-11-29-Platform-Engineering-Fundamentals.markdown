@@ -2,42 +2,44 @@
 layout: post
 comments: true
 title: Platform Engineering - The Fundamentals of Developer Experience
-date: '2023-11-29 14:00:00'
+date: '2023-11-29 15:30:00'
 ---
 
 ![A developer wearing builders clothes and a hard hat, sitting at a desk in front of a computer](/assets/platform-engineer.png){: .center-image }
-
 
 Many new internal developer platforms fall into the trap of launching technically-advanced solutions, using cutting edge tooling, but forgetting to think much about usability from the customer perspective. I believe this is typically because these platforms been built by engineers who have inevitably been immersed in those specific technologies for so long that they've forgotten what it's like to approach it for the first time. 
 
 <!--more-->
 
-Having a complicated product that developers don't see value in using, can result in low uptake, and - if left unfixed - may result in shadow IT, competing platforms or numerous bespoke "tactical solutions". Sadly, once a platform has been labeled as _broken_, it's very difficult to recover from. 
+Having a complicated product that developers don't see value in using, can result in low uptake, and - if left unfixed - may result in [shadow IT](https://en.wikipedia.org/wiki/Shadow_IT), competing platforms or numerous bespoke "tactical solutions". Sadly, once a platform has been labeled by it's users as _broken_, it can be a difficult message to change.
 
-Fortunately, there are some really easy ways that you can help avoid these pitfalls.  
+Fortunately, there are some straightforward, fundamental things that you can help avoid this pitfall.
 
-If you’ve been working in Platform Engineering for a while, then hopefully this advice will echo what you are already doing. But, if you’re just getting started, or if you’ve built a platform and you’re struggling to gain users, these tips might help you create a great platform that developers love.
+If you’ve been working in Platform Engineering for a while, then hopefully this may just help describe you are already doing. But, if you’re just getting started, or if you’ve built something and you’re struggling to gain traction, these tips might help you create a great platform that developers love.
 
 # Branding & communication
 
-In almost all companies, developers will have some degree of choice about which platform to use. Like it or not, people will make judgements about your platform based on little more than your landing page. Or worse, they will not be aware of your platform at all. This is why it's essential to have a cohesive brand. 
+In almost all companies, developers will have some degree of choice about which platform to use. As well as the public cloud staples, there might be different internal platforms, maybe some legacy thing that should have decommissioned long ago. There may be incentives to get them to use something particular, but smart engineers will always be able to find a reason to use their tool of choice. 
+
+Like it or not, those users will frequently judge your platform based on little more than your landing page. Or worse, they may not be aware of your platform at all. This is why it's essential to have a cohesive, well publicised brand.
 
 Human beings will attribute personality to anything (even a [pencil](https://www.youtube.com/watch?v=uAwSVOlOgH8&t=5s)). This is why companies like [Monzo focus so much on the language used to communicate with customers](https://monzo.com/tone-of-voice/).  Your users **will** attribute a personality to your platform, and it is within your power to help define this.
 
 - Your platform should have a good name. You should use this name consistently in internal documentation and communications. 
-- Your platform should also have a recognisable logo. 
+- Your platform should also have a recognisable logo. Consider having vinyl stickers made. People love stickers, and it's a great way of getting your platform noticed. 
 - It should be possible to find your platform easily, using it's name, on your corporate intranet. You should have a landing page describing your product in clear terms. The landing page should also link to the customer-facing documentation
 - You should engage with your customers. Your pipeline will depend on your specific organisation, but reaching out to Product Managers, Project Managers, Architects and other engineering teams will help you
-- Speaking the same language as your customer, in the same forums, helps you to understand their problems better, and encourages them to see you as a trusted partner, rather than a reluctant provider. 
+- Speaking the same language as your customer, in the same forums, helps you to understand their problems better, and encourages them to see you as a trusted partner, rather than a reluctant provider.
+- Publicise your long-term roadmap, acknowledging any common functionality gaps and helping people to identify when those features should be available
 
 # Simplify onboarding
 
-Do people need to jump through hoops to use your platform? How easy is it for people to go from having an idea, to getting their application up-and-running?
+Do people need to jump through multiple administrative hoops to use your platform? Do they need to spend ages configuring tools and environments? How easy is it for people to go from having an idea, to getting their application up-and-running?
 
-- Dont rely on humans for (most) onboarding. Having your engineers hand-hold people is fine when you're just starting out, but will soon become a bottleneck to adoption. Focus on being hands-off for as much of the process as possible.
+- Don't rely on humans for (most) onboarding. Having your engineers hand-hold people is fine when you're just starting out, but will soon become a bottleneck to adoption. Focus on being hands-off for as much of the process as possible.
 - Use your organisation's existing tooling for onboarding. Do you use SharePoint? ServiceNow? Can you integrate your onboarding into those existing mechanisms? That makes the process more discoverable for your users. Delegating this may also allow you to use their existing authentication, approval and attestation/auditing tooling. 
 - During the automated onboarding, don’t ask questions that you don’t need the answers to. It’s easy to fall into a trap of requesting a lot of information from a customer up-front "just in case", but every question you ask increases the complexity of accessing your platform. Instead of asking for the customer's e-mail address, cost center or is this maybe something that you can get from other sources like Active Directory? 
-- Similarly don't request approvals with no real benefit. Approvals shouldn't be used for visibility, and if you find yourself regularly approving requests from new customers without performing any real due-dilligence, then it's likely you are just adding delay to a process that doesn't require it.
+- Similarly don't request approvals with no real benefit. Approvals shouldn't be used for visibility, and if you find yourself regularly approving requests from new customers without performing any real due-diligence, then it's likely you are just adding delay to a process that doesn't require it.
 - Hide complex processes, especially those that can’t yet be automated. Perhaps your platform needs to integrate with a legacy system for which there is no practical API. You could instead raise a ticket to the appropriate team on behalf of your user. I've seen this called [Flintstoning](https://stackingthebricks.com/the-fine-art-of-flintstoning/).
 
 # Focus on customer service
