@@ -2,7 +2,7 @@
 layout: post
 comments: true
 title: Platform Engineering - The Fundamentals of Developer Experience
-date: '2023-11-29 15:00:00'
+date: '2023-11-29 14:00:00'
 ---
 
 ![A developer wearing builders clothes and a hard hat, sitting at a desk in front of a computer](/assets/platform-engineer.png)
