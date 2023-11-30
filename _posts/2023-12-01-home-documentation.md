@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Home Documentation
+title: Documenting your Household
 date: '2023-12-1 09:00:00'
 tags: personal
 ---
