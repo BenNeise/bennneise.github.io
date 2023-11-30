@@ -3,21 +3,26 @@ email: ben@neise.co.uk
 description: Scripting, automation and cloud.
 baseurl: ""
 url: "https://ben.neise.co.uk"
-github_username: benneise
-linkedin_username: benneise
+
+
+timezone: Europe/London
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
+
 show_excerpts: true
 excerpt_separator: <!--more-->
 disqus:
   shortname: benneise
 paginate: 5
 include: [".well-known"]
+
+github_username: benneise
+linkedin_username: benneise
+
 collections:
   guides:
     output: true
-timezone: Europe/London
