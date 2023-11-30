@@ -4,7 +4,9 @@ title: Tags
 permalink: /tags/
 ---
 
-{% for tag in site.tags %}
+{%  assign sortedTags = site.tags | sort %}
+
+{% for tag in sortedTags %}
 <ul>
 <li>
     <a href="#{{ tag[0] }}">{{ tag[0] }}</a>
@@ -12,7 +14,7 @@ permalink: /tags/
 </ul>
 {% endfor %}
 
-{% for tag in site.tags %}
+{% for tag in sortedTags %}
 <h1 id="{{ tag[0] }}">{{ tag[0] }}</h1>
 <ul>
     {% for post in tag[1] %}
