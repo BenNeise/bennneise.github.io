@@ -5,7 +5,7 @@ date: '2014-10-07 18:43:34'
 ---
 
 
-![Markdown](/assets/1664x1024-solid.png){: .center-image}
+![Markdown logo](/assets/post-images/2014-10-07-scriptdocumentationinmarkdown.png){: .center-image} 
 
 I don't mind writing documentation for my scripts, but I find that most documentation writing exercises tends to suffers from two problems:-
 
