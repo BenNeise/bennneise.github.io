@@ -63,15 +63,19 @@ h1 {
    color: #374017;
    size: x-large;
 }
-h1,h2 {
+h1 {
     padding-top: 30px;
 }
+h2 {
+    padding-top: 20px;
+}
+
 
 a {
-    color: #374017;
+    color: #cc564b;
 }
 a:visited {
-    color: #525559;
+    color: #83342d;
 }
 
 .post-content h2 {
