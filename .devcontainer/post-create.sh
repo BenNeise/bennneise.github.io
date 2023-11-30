@@ -19,16 +19,16 @@ if [ -f Gemfile ]; then
 fi
 
 # Download the Microsoft repository GPG keys
-wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
+#wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
 
 # Register the Microsoft repository GPG keys
-sudo dpkg -i packages-microsoft-prod.deb
+#sudo dpkg -i packages-microsoft-prod.deb
 
 # Update the list of products
-sudo apt-get update
+#sudo apt-get update
 
 # Install PowerShell
-sudo apt-get install -y powershell
+#sudo apt-get install -y powershell
 
 # Start PowerShell
 #pwsh
