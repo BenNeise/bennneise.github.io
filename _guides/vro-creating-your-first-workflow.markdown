@@ -9,33 +9,33 @@ summary: How to create your first workflow using VMware Aria Automation Orchestr
 * TOC
 {:toc}
 
-## What is VMware Aria Automation Orchestrator?
+# What is VMware Aria Automation Orchestrator?
 
 ![vROLogo](/assets/vro_logo.png){: .center-image}
 
 [VMware Aria Automation Orchestrator](https://www.vmware.com/products/aria-automation-orchestrator.html) (vRO) is a a (mostly) GUI based application which can help you automate and orchestrate a wide range of tasks. Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, Orchestrator has since been included as part of vSphere and/or Aria Automation entitlements.
 
 
-## How can vRO help you?
+# How can vRO help you?
 
 vRO is an automation and Orchestration solution. You write Workflows which can then be executed. There are a number of pre-canned workflows which can be dragged-and dropped onto a new workflow to execute in sequence. Workflows can have multiple inputs, and you can make some reasonably presentable and simple to use forms.
 
 From simple tasks ("Snapshot a machine") to more complex, layered solutions with a number of external dependencies. Being VMware, it excels at managing vSphere machines, but it also provides a number of other integrations.
 
 
-## What can I automate with vRealize Orchestrator?
+# What can I automate with vRealize Orchestrator?
 
 Out of the box vRO offers functionality to integrate with a number of VMware Products (vSphere, vRealize Automation, NSX) as well as Active Directory. There are also a number of plugins available for other vendor's products (such as F5 and InfoBlox).
 
 If you can't find a plugin for your exact requirements, RO also has the ability to execute PowerShell and SSH on hosts, as well as making SOAP/REST calls to anything with an API.
 
 
-## Assumptions
+# Assumptions
 
 I'm going to assume you've got as far as having a working vRO server, and you can get logged-in.
 
 
-## Your first workflow
+# Your first workflow
 
 1. After logging in, you should be on the dashboard. This shows an overview of the various workflows running on your system.
 1. On the panel to the right, select **Workflows**
@@ -82,7 +82,6 @@ I'm going to assume you've got as far as having a working vRO server, and you ca
 
 <div class="tip">If you're using a shared environment, remember to remove your workflows!</div>
 
-## Next steps
-
+# Next steps
 
 I'll add another post soon where you can get the workflow to do something more interesting/useful.
