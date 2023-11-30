@@ -33,9 +33,22 @@ body {
     display: block;
 }
 
+.post-image {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    display: block;
+    filter:drop-shadow(5px 5px 5px gray); 
+}
+
+li:not(:last-child) { 
+    margin-bottom: 10px;  
+ }
+
  /* Override the background color for code highlighting */
 .highlighter-rouge .highlight {
     background: #ffffff;
+    padding-top: 10px;
+    /*padding-bottom: 10px;*/
 }
 pre code {
     background: #ffffff;
