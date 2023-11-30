@@ -2,7 +2,7 @@
 layout: post
 title: Add disk size information to the VI Client using PowerShell
 date: '2009-04-29 11:41:47'
-tags: vmware-vpshere powershell
+tags: vmware-vsphere powershell
 ---
 
 

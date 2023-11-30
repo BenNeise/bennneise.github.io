@@ -2,7 +2,7 @@
 layout: post
 title: Add disk persistence information to the VI Client using PowerShell
 date: '2009-05-05 12:02:40'
-tags: vmware-vpshere powershell
+tags: vmware-vsphere powershell
 ---
 
 
