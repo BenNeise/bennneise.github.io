@@ -2,6 +2,7 @@
 layout: post
 title: Get the last user to power down a VM
 date: '2009-10-12 08:07:40'
+tags: vmware-vsphere powershell
 ---
 
 

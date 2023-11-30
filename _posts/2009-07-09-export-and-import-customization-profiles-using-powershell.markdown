@@ -2,6 +2,7 @@
 layout: post
 title: Export and import vSphere customization specifications using PowerShell
 date: '2009-07-09 15:02:58'
+tags: vmware-vsphere powershell
 ---
 
 

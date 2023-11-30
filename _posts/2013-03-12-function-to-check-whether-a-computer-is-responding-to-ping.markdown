@@ -2,6 +2,7 @@
 layout: post
 title: Function to check whether a computer is responding to Ping
 date: '2013-03-12 12:20:17'
+tags: powershell
 ---
 
 

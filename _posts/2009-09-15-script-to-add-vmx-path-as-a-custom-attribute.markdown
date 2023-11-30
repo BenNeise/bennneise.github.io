@@ -2,6 +2,7 @@
 layout: post
 title: Script to add VMX path to vSphere Client as a custom attribute
 date: '2009-09-15 14:51:28'
+tags: powershell vmware-vsphere
 ---
 
 

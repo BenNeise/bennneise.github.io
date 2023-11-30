@@ -2,6 +2,7 @@
 layout: post
 title: Using VMware vRealize Orchestrator to run a Jenkins job and get the results
 date: '2016-09-05 19:10:48'
+tags: vmware-aria-automation-orchestrator
 ---
 
 ![jenkins](/assets/jenkins.png){: .center-image }

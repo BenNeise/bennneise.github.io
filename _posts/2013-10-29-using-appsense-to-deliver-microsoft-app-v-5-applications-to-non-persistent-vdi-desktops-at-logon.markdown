@@ -3,6 +3,7 @@ layout: post
 title: Using AppSense to deliver Microsoft App-V 5 applications to non-persistent
   VDI desktops at logon
 date: '2013-10-29 13:37:13'
+tags: vmware-horizon-view
 ---
 
 

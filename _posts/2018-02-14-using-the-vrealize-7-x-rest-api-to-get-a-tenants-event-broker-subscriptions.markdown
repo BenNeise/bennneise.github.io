@@ -2,6 +2,7 @@
 layout: post
 title: Using the vRealize 7.x REST API to get a tenant's Event Broker subscriptions
 date: '2018-02-14 10:37:07'
+tags: vmware-aria-automation
 ---
 
 After migrating from vRealize Automation (vRA) 6.2, we've recently started the long-overdue work of investigating the new functionality introduced with the event broker. We're still using the state-change triggered workflows for machine life-cycle integration between vRA and vRealize Orchestration (vRO), and that's going to be a big-job to change; but I thought I could maybe look at one of our other requirements which was to ensure that changes to blueprints made using the GUI get stored in source control.

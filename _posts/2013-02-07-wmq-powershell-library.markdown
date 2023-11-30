@@ -2,6 +2,7 @@
 layout: post
 title: Using the WebSphere MQ PowerShell library
 date: '2013-02-07 14:48:28'
+tags: powershell
 ---
 
 

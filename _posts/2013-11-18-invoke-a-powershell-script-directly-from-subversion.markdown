@@ -2,6 +2,8 @@
 layout: post
 title: Invoke a PowerShell script directly from Subversion
 date: '2013-11-18 16:30:54'
+tags: powershell
+
 ---
 
 

@@ -2,6 +2,7 @@
 layout: post
 title: AppSense and VMware View Horizon Linked Clones
 date: '2014-02-24 13:36:47'
+tags: vmware-horizon-view
 ---
 
 The move from persistent physical desktops, to non-persistent linked clones (with a separate user personalisation layer) requires rethinking the way in which machines are configured and software is deployed. The challenge is to deliver a consistent, highly available platform with the maximum efficiency. In this case efficiency means utilising Horizon View's ability to dynamically provision just enough desktops, while ensuring that the necessary configuration changes are delivered by AppSense.

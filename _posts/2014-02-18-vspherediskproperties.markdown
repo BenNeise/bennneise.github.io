@@ -2,6 +2,8 @@
 layout: post
 title: Displaying vSphere disk properties (including provisioning & persistence)
 date: '2014-02-18 13:29:33'
+tags: vmware-vsphere powershell
+
 ---
 
 

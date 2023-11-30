@@ -2,6 +2,7 @@
 layout: post
 title: vRealize Automation - Setting the Orchestrator Server using Custom Properties
 date: '2015-05-29 13:24:49'
+tags: vmware-aria-automation-orchestrator vmware-aria-automation
 ---
 
 

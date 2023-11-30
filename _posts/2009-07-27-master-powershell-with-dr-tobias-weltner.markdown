@@ -2,6 +2,7 @@
 layout: post
 title: Master-PowerShell With Dr. Tobias Weltner
 date: '2009-07-27 15:19:46'
+tags: powershell
 ---
 
 

@@ -2,6 +2,8 @@
 layout: post
 title: Thin Provisioning in ESX 3.5
 date: '2009-05-06 11:45:57'
+tags: vmware-vsphere
+
 ---
 
 
@@ -13,9 +15,9 @@ I soon discovered that we already used TP disks in a very limited way. One of th
 
 After only a little more digging, my dream of being lauded for increasing our free space overnight came to an end. In an article on [Virtual Future](http://virtualfuture.info/2008/12/vmware-esx-35-and-thinprovisioning/), Sven Huisman wrote:
 
-> Apparently, when you move a VM with a thinprovisioned disk from vCenter server, it converts to a thick-disk. This is because thinprovisioned disks is not integrated with vCenter server yet.
+> Apparently, when you move a VM with a thin-provisioned disk from vCenter server, it converts to a thick-disk. This is because thin-provisioned disks is not integrated with vCenter server yet.
 > 
-> Also, when you deploy from a template with a thinprovisioned disk, the new VM will get a thick-disk.
+> Also, when you deploy from a template with a thin-provisioned disk, the new VM will get a thick-disk.
 
 I imagine this is what they mean by "unsupported", and this is why the TP functionality in VI 3.5 is largely undocumented.
 

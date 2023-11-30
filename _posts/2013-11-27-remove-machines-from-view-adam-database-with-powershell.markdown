@@ -2,6 +2,7 @@
 layout: post
 title: Remove machine objects from VMWare View's ADAM database with PowerShell
 date: '2013-11-27 16:45:16'
+tags: vmware-horizon-view powershell
 ---
 
 <div class="info">26/02/14  -  I've updated this script to accept pipeline input and work a little more efficiently when removing multiple machines.</div>

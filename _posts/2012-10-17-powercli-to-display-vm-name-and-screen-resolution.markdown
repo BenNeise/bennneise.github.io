@@ -2,6 +2,7 @@
 layout: post
 title: PowerCLI to display VM name and screen resolution
 date: '2012-10-17 11:14:28'
+tags: vmware-vsphere powershell
 ---
 
 

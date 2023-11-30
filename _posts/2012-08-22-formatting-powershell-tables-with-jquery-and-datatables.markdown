@@ -2,6 +2,7 @@
 layout: post
 title: Formatting PowerShell tables with jQuery and DataTables
 date: '2012-08-22 11:09:55'
+tags: powershell
 ---
 
 

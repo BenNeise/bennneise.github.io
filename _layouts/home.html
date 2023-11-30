@@ -4,16 +4,16 @@ layout: default
 
 <div class="home">
     {%- if page.title -%}
-        <h1 class="page-heading">{{ page.title }}</h1>
+    <h1 class="page-heading">{{ page.title }}</h1>
     {%- endif -%}
 
     {{ content }}
 
     {%- if site.posts.size > 0 -%}
-        <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-        <ul class="post-list">
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
         {%- for post in site.posts -%}
-            <li>
+        <li>
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
             <span class="post-meta">{{ post.date | date: date_format }}</span>
             <h3>
@@ -21,11 +21,24 @@ layout: default
                     {{ post.title | escape }}
                 </a>
             </h3>
+            <div class="post-tags">
+                {% if post %}
+                {% assign tags = post.tags %}
+                {% else %}
+                {% assign tags = page.tags %}
+                {% endif %}
+                {% for tag in tags %}
+                <a href="{{site.baseurl}}/tags/#{{tag|slugize}}" class="tag">{{tag}}</a>
+                {% unless forloop.last %}
+                &nbsp;
+                {% endunless %}
+                {% endfor %}
+            </div>
             {%- if site.show_excerpts -%}
-                {{ post.content | strip_html | truncatewords:75 }}
+            {{ post.content | strip_html | truncatewords:75 }}
             {%- endif -%}
-            </li>
+        </li>
         {%- endfor -%}
-        </ul>
+    </ul>
     {%- endif -%}
 </div>

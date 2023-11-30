@@ -2,6 +2,7 @@
 layout: post
 title: Auto-generating PowerShell documentation in MarkDown
 date: '2014-10-07 18:43:34'
+tags: powershell
 ---
 
 

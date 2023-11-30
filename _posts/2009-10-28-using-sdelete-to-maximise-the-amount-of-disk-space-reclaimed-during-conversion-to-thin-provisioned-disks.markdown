@@ -2,6 +2,7 @@
 layout: post
 title: Using SDelete to maximise the amount of disk space reclaimed during conversion to thin-provisioned disks
 date: '2009-10-28 13:48:15'
+tags: vmware-vsphere
 ---
 
 We're currently neck-deep in migration at the moment, but despite the workload, it's always worth considering what we can do now, that might save us some time and effort later on.

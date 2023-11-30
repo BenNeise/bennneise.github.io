@@ -2,6 +2,7 @@
 layout: post
 title: Cleaning up VM template names
 date: '2009-05-28 13:45:02'
+tags: vmware-vsphere powershell
 ---
 
 

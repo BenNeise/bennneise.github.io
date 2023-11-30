@@ -2,6 +2,7 @@
 layout: post
 title: Creating shortcuts to PowerShell Scripts
 date: '2011-07-27 10:09:40'
+tags: powershell microsoft-windows
 ---
 
 

@@ -15,9 +15,13 @@ body {
 .tag {
     font-size: smaller;
     border: 0px;
+    border-color: #374017;
     border-radius: 5px;
     padding: 4px 12px 4px 12px;
     background-color: #BFBFBF;
+}
+.post-tags {
+    padding-bottom: 20px;
 }
 .site-title {
     padding-top: 25px;

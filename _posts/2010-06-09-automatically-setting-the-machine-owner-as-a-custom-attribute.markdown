@@ -2,6 +2,7 @@
 layout: post
 title: Automatically setting the machine owner as a custom attribute
 date: '2010-06-09 08:49:58'
+tags: vmware-vsphere powershell
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title: Using an Ubuntu CrashPlan appliance to backup a NAS
 image: "/content/images/2016/01/download.png"
 date: '2014-07-24 09:59:37'
+tags: home
 ---
 
 I've recently upgraded some of my home setup; instead of [Windows Home Server 2011](http://windows.microsoft.com/en-gb/windows/windows-home-server) managing everything, I'm now using a [NetGear ReadyNAS 104](http://www.netgear.co.uk/home/products/connected-storage/RN10400.aspx#tab-techspecs), to serve files and using Windows Server 2012 R2 for the other functions.

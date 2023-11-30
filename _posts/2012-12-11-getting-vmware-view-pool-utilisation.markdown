@@ -2,6 +2,7 @@
 layout: post
 title: Getting VMWare View pool utilisation
 date: '2012-12-11 15:36:28'
+tags: vmware-horizon-view powershell
 ---
 
 

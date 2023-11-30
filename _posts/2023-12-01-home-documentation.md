@@ -3,6 +3,7 @@ layout: post
 comments: true
 title: Home Documentation
 date: '2023-12-1 09:00:00'
+tags: personal
 ---
 
 ![Interior of house, covered in sticky labels](/assets/post-images/2023-12-01-home-documentation.png)

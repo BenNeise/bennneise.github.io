@@ -2,6 +2,7 @@
 layout: post
 title: Accessing SCSM 2012 using PowerShell (without SMLets)
 date: '2014-01-03 11:48:11'
+tags: powershell microsoft-windows
 ---
 
 
