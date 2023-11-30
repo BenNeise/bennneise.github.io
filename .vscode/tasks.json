@@ -6,7 +6,7 @@
         {
             "label": "Serve",
             "type": "shell",
-            "command": "bundle exec jekyll serve --livereload --drafts --future",
+            "command": "bundle exec jekyll serve --livereload --drafts --future --force-polling",
             "group": {
                 "kind": "build",
                 "isDefault": true
