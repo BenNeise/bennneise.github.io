@@ -8,11 +8,11 @@ tags: platform-engineering
 
 ![A developer wearing builders clothes and a hard hat, sitting at a desk in front of a computer](/assets/platform-engineer.png){: .center-image }
 
-Many new internal developer platforms fall into the trap of launching technically-advanced solutions, using cutting edge tooling, but forgetting to think much about usability from the customer perspective. I believe this is typically because these platforms been built by engineers who have inevitably been immersed in those specific technologies for so long that they've forgotten what it's like to approach it for the first time. 
+Teams launching new internal developer platforms often fall into the trap of creating technically-advanced solutions, using cutting edge tooling, but forgetting to think much about usability from the customer perspective. I think this is typically because these platforms been built by engineers who have inevitably been immersed in those specific technologies for so long that they've forgotten what it's like to approach it for the first time.
 
 <!--more-->
 
-Having a complicated product that developers don't see value in using, can result in low uptake, and - if left unfixed - may result in [shadow IT](https://en.wikipedia.org/wiki/Shadow_IT), competing platforms or numerous bespoke "tactical solutions". Sadly, once a platform has been labeled by it's users as _broken_, it can be a difficult message to change.
+Having a complicated, clunky product that developers don't see value in using, can result in low uptake, and - if left unfixed - may result in [shadow IT](https://en.wikipedia.org/wiki/Shadow_IT), competing platforms with similar functionality, or numerous "tactical solutions". Sadly, once a platform has been labeled by it's users as _broken_, it can be a difficult message to change.
 
 Fortunately, there are some straightforward, fundamental things that you can help avoid this pitfall.
 
