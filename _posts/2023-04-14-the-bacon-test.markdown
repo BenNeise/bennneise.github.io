@@ -36,7 +36,6 @@ Also, how did they submit the response?
 * Was it shared via their GitHub profile?
 * E-mailed as an attachment?
 * Pasted into the e-mail?
-
 * Did they over-engineer the solution? Or under-engineer?
 * Most importantly ... did they enjoy it? This is after all a flavour of the work they will be required to do most days!
 
