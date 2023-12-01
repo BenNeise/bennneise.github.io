@@ -79,7 +79,7 @@ Like a lot of people that work in IT. I like playing around with various solutio
 - Plant care instructions, indoor & outdoor. Saves hanging onto those little plastic tags that tell you when [it likes to feed](https://www.youtube.com/watch?v=QETfA9_b7wM). 
 
 
-# What shouldn't be stored
+# What is not being documented?
 
 - **Passwords**. With all of that juicy personally-identifiable-data, the document is probably already a fairly big liability if it were to be compromised, but I think the advantages of having all of this in one place outweigh the risks. Besides, I was part of the [Equifax breach](https://www.equifax.co.uk/incident.html) ... all of this information is probably on the dark web anyway.
 - **Scanned documents & PDF files**. Simply because I've not yet found a good way to embed them in Microsoft Loop. There's probably something I can do with linking to OneDrive, but I've not yet worked it out. I tend to keep a OneDrive folder with scanned correspondence, and PDF files for things like the instruction manual for the dishwasher. 
