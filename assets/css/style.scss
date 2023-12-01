@@ -8,26 +8,47 @@
     src: url("../fonts/Quicksand-Regular.ttf");
 }
 
+/* Standard Formatting */
+
 body {
     font-family: "Quicksand";
 }
+h1 {
+    color: #374017;
+    size: x-large;
+}
+h1 {
+    padding-top: 30px;
+}
+h2 {
+    padding-top: 20px;
+}
+a {
+    color: #B3443E;
+}
+a:visited {
+    color: #D47144;
+}
 
+/* Tags */
 .tag {
     font-size: smaller;
-    border: 0px;
-    border-color: #374017;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B3443E;
     border-radius: 5px;
     padding: 4px 12px 4px 12px;
-    background-color: #BFBFBF;
+    /* background-color: #E5BC5B; */
 }
 .post-tags {
     padding-bottom: 20px;
 }
-.site-title {
+.site-title, .site-title:visited{
     padding-top: 25px;
     padding-bottom: 25px;
     font-size: xx-large;
     text-decoration: none;
+    color: #B3443E;
 }
 .site-title:hover {
     text-decoration: none;
@@ -36,7 +57,6 @@ body {
     margin: 0 auto;
     display: block;
 }
-
 .post-image {
     padding-top: 20px;
     padding-bottom: 15px;
@@ -61,27 +81,6 @@ li:not(:last-child) {
 pre code {
     background: #ffffff;
 }
-
-
-h1 {
-   color: #374017;
-   size: x-large;
-}
-h1 {
-    padding-top: 30px;
-}
-h2 {
-    padding-top: 20px;
-}
-
-
-a {
-    color: #cc564b;
-}
-a:visited {
-    color: #83342d;
-}
-
 .post-content h2 {
     font-size: 1.17em;
     color: #374017;
@@ -106,7 +105,7 @@ div.info {
     background-color: #9CC1D9;
 }
 div.info:before {
-    content: "\f05a";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f05a";
     font-family: FontAwesome;
     padding-right: 5px;
 }
@@ -116,7 +115,7 @@ div.note {
     background-color: #ffeaae;
 }
 div.note:before {
-    content: "\f071";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f071";
     font-family: FontAwesome;
     padding-right: 5px;
 }
@@ -126,7 +125,7 @@ div.tip {
     background-color: #91c89c;
 }
 div.tip:before {
-    content: "\f058";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f058";
     font-family: FontAwesome;
     padding-right: 5px;
 }
@@ -136,7 +135,7 @@ div.warning {
     background-color: #cc564b;
 }
 div.warning:before {
-    content: "\f06a";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f06a";
     font-family: FontAwesome;
     padding-right: 5px;
 }
