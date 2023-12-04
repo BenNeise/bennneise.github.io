@@ -16,5 +16,5 @@ Ben's personal web site, hosted using Git Hub pages using [Jekyll](https://docs.
 - `<div class="note"></div>`
 - `<div class="tip"></div>`
 - `<div class="warning"></div>`
-`<!--more-->`
+- `<!--more-->`
 
