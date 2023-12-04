@@ -9,7 +9,9 @@ tags: team-management
 Photo by <a href="https://unsplash.com/@newlayer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Michelle @Shelly Captures It</a> on <a href="https://unsplash.com/photos/TJzhTJ2U8Jo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 
-It's fair to say that the primary toolset used by our private-cloud engineers (vRealize Automation and vRealize Orchestrator) are not widely used, and we historically have not had have a large pool of experienced local talent from which to draw. We therefore tended to hire general IT people with a knack for solving technical problems. These people tend to be infrastructure engineers with a flair for automation. 
+It's fair to say that the primary toolset used by our private-cloud engineers (vRealize Automation and vRealize Orchestrator) are not widely used, and we historically have not had have a large pool of experienced local talent from which to draw. We therefore tended to hire general IT people with a knack for solving technical problems. These people tend to be infrastructure engineers with a flair for automation.
+
+<!--more-->
 
 This gave us a problem when it came to designing a technical test which would allow us to fairly judge a candidate's potential competence on a piece of software which they were unlikely to have had any prior experience.
 

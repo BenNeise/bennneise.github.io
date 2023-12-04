@@ -11,6 +11,8 @@ tags: home powershell
 
 Sometimes, after a week or so of uptime, I find that wireless access through my Virgin Media SuperHub gets very slow (wired access is fine). Like most IT issues, the issue can be fixed with a restart, but as it's a wireless issue, restarting the router [via the web interface](http://help.virginmedia.com/system/selfservice.controller?CMD=VIEW_ARTICLE&ARTICLE_ID=138977&CURRENT_CMD=SEARCH&CONFIGURATION=1001&PARTITION_ID=1&USERTYPE=1&LANGUAGE=en&COUNTY=us&VM_CUSTOMER_TYPE=Cable) is sometimes out of the question. I usually end up having to go next door and restart the router manually.
 
+<!--more-->
+
 To save this occasional annoyance, I wanted to schedule a restart for the router each morning when I'm unlikely to be using it. So, over the weekend, I wrote up this little PowerShell function to restart the router remotely using the web interface.
 
 ```powershell
