@@ -6,7 +6,9 @@ tags: vmware-vsphere powershell
 ---
 
 
-As part of the migration I'm working on, we needed to add a whole bunch of Virtual Port Groups with associated VLANs to the servers. The following script could do this in a few minutes (although Host Profiles would accomplish much the same thing, we're not running Enterprise)
+As part of the migration I'm working on, we needed to add a whole bunch of Virtual Port Groups with associated VLANs to the servers. The following script could do this in a few minutes (although Host Profiles would accomplish much the same thing, we're not running Enterprise).
+
+<!--more-->
 
 ```powershell
 # Sets up virtual port groups on all hosts connected to a specific vCenter Server

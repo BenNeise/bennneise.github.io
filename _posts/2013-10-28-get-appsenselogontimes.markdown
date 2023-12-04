@@ -8,6 +8,8 @@ tags: powershell
 
 I'm doing logon tuning just now for non-persistent VDI desktops  - seeing long it takes to deploy App-V packages on a per-user basis to a generic desktop based on AD group membership. To assist with the tuning, I thought it would be useful to write a quick PowerShell function to gather information from the AppSense event logs in a way that allowed easy sorting, display, recording and comparison.
 
+<!--more-->
+
 ```powershell
 Function Get-AppSenseLogonTimes {
 	<#

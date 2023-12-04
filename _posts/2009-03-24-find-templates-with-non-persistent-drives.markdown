@@ -10,6 +10,8 @@ As we're running a development lab, we use a lot of templates for machine deploy
 
 This script looks at your templates, and outputs a list of those with non-persistent drives.
 
+<!--more-->
+
 ```powershell
 # Set up an empty array
 $arrTemplatesWithPersistentDrives = @()

@@ -8,6 +8,8 @@ tags: vmware-vsphere powershell
 
 We frequently need to create new virtual port groups on our ESX hosts with VLAN tags which correspond to pre-assigned DHCP scopes. I wrote this PowerShell script to create the new VPG across all hosts.
 
+<!--more-->
+
 ```powershell
 $strNewVPG = "newVirtualPortGroup"
 $strNewVlanTag = "123"

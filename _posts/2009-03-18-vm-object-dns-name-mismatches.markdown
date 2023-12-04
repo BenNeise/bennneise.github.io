@@ -8,6 +8,8 @@ tags: powershell vmware-vsphere
 
 We were working recently to align our guest virtual machine object names (the ones shown in vSphere) with their DNS names. As we have over 800 guests, this would have taken us a while to compile by hand. In order to make the process a little easier, I wrote the following PowerShell script to flag machines where the hostname differs from the object name.
 
+<!--more-->
+
 ```powershell
 # Get all of the VMs as an object
 $virtualMachines = Get-VM

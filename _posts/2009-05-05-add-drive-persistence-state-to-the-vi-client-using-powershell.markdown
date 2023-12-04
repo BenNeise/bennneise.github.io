@@ -8,6 +8,8 @@ tags: vmware-vsphere powershell
 
 I've further adapted [Hugo's script](http://www.peetersonline.nl/index.php/vmware/add-snapshot-information-to-the-vi-client-using-powershell/) to add a custom attribute which shows the drive persistence state(s) when the script was run.
 
+<!--more-->
+
 The script also adds drive state information for templates as well as VM objects.
 
 ```powershell

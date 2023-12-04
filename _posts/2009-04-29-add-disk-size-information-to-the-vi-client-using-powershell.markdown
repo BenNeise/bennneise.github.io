@@ -12,6 +12,8 @@ Our users occasionally need larger machines created for packaging big applicatio
 
 We needed a new way for VIC users to easily see which were the larger machines, so I modified Hugo's script to add disk size as a custom attribute.
 
+<!--more-->
+
 ```powershell
 $VCServerName = "MYVCSERVER"
 $VC = Connect-VIServer -Server $VCServerName

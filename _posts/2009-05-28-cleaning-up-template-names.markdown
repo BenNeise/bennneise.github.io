@@ -8,6 +8,8 @@ tags: vmware-vsphere powershell
 
 I wrote this today to remove occurrences of the string "Tmpl" anywhere in the name of the template, and then to re-name the template with "Tmpl" as a prefix. It had a higher purpose than keeping everything nice and neat, but it's rather specific to our environment so I won't bother going into the details.
 
+<!--more-->
+
 ```powershell
 # Get all templates
 $objTemplates = Get-Template
