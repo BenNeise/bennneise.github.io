@@ -18,17 +18,10 @@ if [ -f Gemfile ]; then
     bundle install
 fi
 
-# Download the Microsoft repository GPG keys
-#wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
+sudo apt update
+sudo apt install python3-full -y
+sudo apt install python3-pip -y
 
-# Register the Microsoft repository GPG keys
-#sudo dpkg -i packages-microsoft-prod.deb
-
-# Update the list of products
-#sudo apt-get update
-
-# Install PowerShell
-#sudo apt-get install -y powershell
-
-# Start PowerShell
-#pwsh
+#python3 -m venv venv-utility
+#source venv-utility/bin/activate
+#pip install beautifulsoup4
