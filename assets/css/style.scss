@@ -92,8 +92,10 @@ pre code {
     font-size: .83em;
     color: #374017;
 }
+
+
 div.info, div.note, div.warning, div.tip {
-    border: none;
+    /*border: none;*/
     margin: 10px 0px;
     padding:15px 15px;
     border-radius: 15px;
@@ -101,40 +103,48 @@ div.info, div.note, div.warning, div.tip {
 
 /* Info */
 div.info {
-    background-color: #9CC1D9;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9CC1D9;
 }
 div.info:before {
     content: "\f05a";
     font-family: FontAwesome;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 /* Note  */
 div.note {
-    background-color: #ffeaae;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffeaae;
 }
 div.note:before {
     content: "\f071";
     font-family: FontAwesome;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 /* Tip */
 div.tip {
-    background-color: #91c89c;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #91c89c;
 }
 div.tip:before {
     content: "\f058";
     font-family: FontAwesome;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 /* Warning */
 div.warning {
-    background-color: #cc564b;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #cc564b;
 }
 div.warning:before {
     content: "\f06a";
     font-family: FontAwesome;
-    padding-right: 5px;
+    padding-right: 8px;
 }
