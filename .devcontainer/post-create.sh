@@ -22,6 +22,6 @@ sudo apt update
 sudo apt install python3-full -y
 sudo apt install python3-pip -y
 
-#python3 -m venv venv-utility
+python3 -m venv venv-utility
 #source venv-utility/bin/activate
-#pip install beautifulsoup4
+./venv-utility/bin/pip install beautifulsoup4
