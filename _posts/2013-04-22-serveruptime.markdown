@@ -8,6 +8,8 @@ tags: powershell microsoft-windows
 
 I'm not sure yet if I'll take part in the [2013 Scripting Games](http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/17/2013-scripting-games-competitor-s-guide.aspx); but as the the [practice exercise](http://blogs.technet.com/b/heyscriptingguy/archive/2013/04/18/advanced-practice-for-2013-scripting-games.aspx) dovetailed nicely with a requirement I had, I thought I'd give it a shot.
 
+<!--more-->
+
 ```powershell
 Function Get-Uptime {
     <#

@@ -8,7 +8,9 @@ tags: vmware-vsphere powershell
 
 I got handed a list of around 1,000 servers today, and asked if any of them were part of our VI environment.
 
-Rather than work through it by hand, I wrote the following script:
+Rather than work through it by hand, I wrote the following script.
+
+<!--more-->
 
 ```powershell
 # Check if Servers on Text List exist on VMware

@@ -4,7 +4,6 @@ description: Scripting, automation and cloud.
 baseurl: ""
 url: "https://ben.neise.co.uk"
 
-
 timezone: Europe/London
 markdown: kramdown
 theme: minima
@@ -12,6 +11,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
 
 show_excerpts: true
 excerpt_separator: <!--more-->

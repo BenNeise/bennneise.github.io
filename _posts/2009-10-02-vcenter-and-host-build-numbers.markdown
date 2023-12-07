@@ -10,6 +10,8 @@ This is based on [Carter Shanklin's PowerShell snippets to query VC and ESX buil
 
 This script loops through the list of vCenter servers, and gets their version and build info, as well as the version and build info for it's connected hosts.
 
+<!--more-->
+
 ```powershell
 # Script to connect to a list of vCenter Servers, and get their version numbers, as well as the version numbers of their hosts
 # Ben Neise

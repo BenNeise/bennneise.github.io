@@ -5,8 +5,8 @@ date: '2014-05-09 08:08:41'
 tags: vmware-horizon-view powershell
 ---
 
-
 Quick script to assist with capacity planning.
+<!--more-->
 
 ```powershell
 Connect-QADService -Service "YourConnectionServer"

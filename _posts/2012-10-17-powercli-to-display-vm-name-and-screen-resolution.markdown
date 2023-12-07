@@ -8,6 +8,8 @@ tags: vmware-vsphere powershell
 
 One-liner PowerCLI to output a list of machine names and screen resolutions.
 
+<!--more-->
+
 `Get-VM | Where-Object {$_.Folder.Name -ne "VMwareViewComposerReplicaFolder"} | Select-Object Name,@{Name="Resolution";Expression={($_.Guest.ExtensionData.Screen.Width.ToString() + "x" + $_.Guest.ExtensionData.Screen.Height.ToString())}}`
 
 Handy for checking that VDI desktops are not set to less than 1024x768 which can cause issues with PCOIP, hence the exclusion of View replicas via the `Folder.Name` property (which would otherwise pollute the results when running against a View vCenter).

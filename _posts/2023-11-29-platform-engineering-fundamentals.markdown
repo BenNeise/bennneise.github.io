@@ -4,6 +4,8 @@ comments: true
 title: Platform Engineering - The Fundamentals of Developer Experience
 date: '2023-11-29 15:30:00'
 tags: platform-engineering
+redirect_from:
+  - /2023/11/29/Platform-Engineering-Fundamentals.html
 ---
 
 ![A developer wearing builders clothes and a hard hat, sitting at a desk in front of a computer](/assets/platform-engineer.png){: .center-image }
@@ -41,7 +43,7 @@ Do people need to jump through multiple administrative hoops to use your platfor
 - Use your organisation's existing tooling for onboarding. Do you use SharePoint? ServiceNow? Can you integrate your onboarding into those existing mechanisms? That makes the process more discoverable for your users. Delegating this may also allow you to use their existing authentication, approval and attestation/auditing tooling. 
 - During the automated onboarding, don’t ask questions that you don’t need the answers to. It’s easy to fall into a trap of requesting a lot of information from a customer up-front "just in case", but every question you ask increases the complexity of accessing your platform. Instead of asking for the customer's e-mail address, cost center or is this maybe something that you can get from other sources like Active Directory? 
 - Similarly don't request approvals with no real benefit. Approvals shouldn't be used for visibility, and if you find yourself regularly approving requests from new customers without performing any real due-diligence, then it's likely you are just adding delay to a process that doesn't require it.
-- Hide complex processes, especially those that can’t yet be automated. Perhaps your platform needs to integrate with a legacy system for which there is no practical API. You could instead raise a ticket to the appropriate team on behalf of your user. I've seen this called [Flintstoning](https://stackingthebricks.com/the-fine-art-of-flintstoning/).
+- Hide complex processes, especially those that can’t yet be automated. Perhaps your platform needs to integrate with a legacy system for which there is no practical API. You could instead raise a ticket to the appropriate team on behalf of your user. I've seen this called [Flintstoning](https://stackingthebricks.com/the-fine-art-of-flintstoning/) or [Do-nothing scripting](https://blog.danslimmon.com/2019/07/15/do-nothing-scripting-the-key-to-gradual-automation/).
 
 # Focus on customer service
 
