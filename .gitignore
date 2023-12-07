@@ -1,9 +1,12 @@
-_site
-.sass-cache
-.jekyll-metadata
-Gemfile.lock
-packages-microsoft-prod.deb
+# macOS Junk
 .DS_Store
-._.DS_Store
 **/.DS_Store
-**/._.DS_Store
+
+# Build files
+_site
+#.jekyll-metadata
+#.sass-cache
+Gemfile.lock
+
+# Python venv (WIP)
+venv-utility
