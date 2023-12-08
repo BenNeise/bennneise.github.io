@@ -3,148 +3,180 @@
 
 @import "{{ site.theme }}";
 
-@font-face {
-    font-family: "Quicksand";
-    src: url("../fonts/Quicksand-Regular.ttf");
+@font-face
+{
+	font-family:"Quicksand";
+	src:url("../fonts/Quicksand-Regular.ttf");
 }
 
-/* Standard Formatting */
-
-body {
-    font-family: "Quicksand";
-}
-h1 {
-    color: #374017;
-    size: x-large;
-}
-h1 {
-    padding-top: 30px;
-}
-h2 {
-    padding-top: 20px;
-}
-a {
-    color: #B3443E;
-}
-a:visited {
-    color: #D47144;
+a
+{
+	color:#B3443E;
 }
 
-/* Tags */
-.tag {
-    font-size: smaller;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #B3443E;
-    border-radius: 5px;
-    padding: 4px 12px 4px 12px;
-    /* background-color: #E5BC5B; */
-}
-.post-tags {
-    padding-bottom: 20px;
-}
-.site-title, .site-title:visited{
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-size: xx-large;
-    text-decoration: none;
-    color: #B3443E;
-}
-.site-title:hover {
-    text-decoration: none;
-}
-.center-image {
-    margin: 0 auto;
-    display: block;
-}
-.post-image {
-    padding-top: 20px;
-    padding-bottom: 15px;
-    display: block;
-    filter:drop-shadow(5px 5px 5px gray); 
+a:visited
+{
+	color:#D47144;
 }
 
-li:not(:last-child) { 
-    margin-bottom: 10px;  
+body
+{
+	font-family:"Quicksand";
 }
 
-.post-list li:not(:first-child) {
-    margin-top: 70px; 
+div.info
+{
+	border-color:#9CC1D9;
+	border-style:solid;
+	border-width:2px;
 }
 
- /* Override the background color for code highlighting */
-.highlighter-rouge .highlight {
-    background: #ffffff;
-    padding-top: 10px;
-}
-pre code {
-    background: #ffffff;
-}
-.post-content h2 {
-    font-size: 1.17em;
-    color: #374017;
-}
-.post-content h3 {
-    font-size: 1em;
-    color: #374017;
-}
-.post-content h4 {
-    font-size: .83em;
-    color: #374017;
+div.info,div.note,div.warning,div.tip
+{
+	border-radius:15px;
+	margin:10px 0;
+	padding:15px;
 }
 
-
-div.info, div.note, div.warning, div.tip {
-    /*border: none;*/
-    margin: 10px 0px;
-    padding:15px 15px;
-    border-radius: 15px;
+div.info:before
+{
+	content:"\\f05a";
+	font-family:FontAwesome;
+	padding-right:8px;
 }
 
-/* Info */
-div.info {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #9CC1D9;
-}
-div.info:before {
-    content: "\f05a";
-    font-family: FontAwesome;
-    padding-right: 8px;
+div.note
+{
+	border-color:#ffeaae;
+	border-style:solid;
+	border-width:2px;
 }
 
-/* Note  */
-div.note {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #ffeaae;
-}
-div.note:before {
-    content: "\f071";
-    font-family: FontAwesome;
-    padding-right: 8px;
+div.note:before
+{
+	content:"\\f071";
+	font-family:FontAwesome;
+	padding-right:8px;
 }
 
-/* Tip */
-div.tip {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #91c89c;
-}
-div.tip:before {
-    content: "\f058";
-    font-family: FontAwesome;
-    padding-right: 8px;
+div.tip
+{
+	border-color:#91c89c;
+	border-style:solid;
+	border-width:2px;
 }
 
-/* Warning */
-div.warning {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #cc564b;
+div.tip:before
+{
+	content:"\\f058";
+	font-family:FontAwesome;
+	padding-right:8px;
 }
-div.warning:before {
-    content: "\f06a";
-    font-family: FontAwesome;
-    padding-right: 8px;
+
+div.warning
+{
+	border-color:#cc564b;
+	border-style:solid;
+	border-width:2px;
+}
+
+div.warning:before
+{
+	content:"\\f06a";
+	font-family:FontAwesome;
+	padding-right:8px;
+}
+
+h1
+{
+	color:#374017;
+	padding-top:30px;
+	size:x-large;
+}
+
+h2
+{
+	padding-top:20px;
+}
+
+li:not(:last-child)
+{
+	margin-bottom:10px;
+}
+
+pre code
+{
+	background:#fff;
+}
+
+.center-image
+{
+	display:block;
+	margin:0 auto;
+}
+
+.highlighter-rouge .highlight
+{
+	background:#fff;
+	padding-top:10px;
+}
+
+.post-content h2
+{
+	color:#374017;
+	font-size:1.17em;
+}
+
+.post-content h3
+{
+	color:#374017;
+	font-size:1em;
+}
+
+.post-content h4
+{
+	color:#374017;
+	font-size:.83em;
+}
+
+.post-image
+{
+	display:block;
+	filter:drop-shadow(5px5px5pxgray);
+	padding-bottom:15px;
+	padding-top:20px;
+}
+
+.post-list li:not(:first-child)
+{
+	margin-top:70px;
+}
+
+.post-tags
+{
+	padding-bottom:20px;
+}
+
+.site-title,.site-title:visited
+{
+	color:#B3443E;
+	font-size:xx-large;
+	padding-bottom:25px;
+	padding-top:25px;
+	text-decoration:none;
+}
+
+.site-title:hover
+{
+	text-decoration:none;
+}
+
+.tag
+{
+	border-color:#B3443E;
+	border-radius:5px;
+	border-style:solid;
+	border-width:1px;
+	font-size:smaller;
+	padding:4px 12px;
 }
