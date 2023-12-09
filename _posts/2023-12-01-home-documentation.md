@@ -6,7 +6,7 @@ date: '2023-12-1 09:00:00'
 tags: home
 ---
 
-![Interior of house, covered in sticky labels](/assets/post-images/2023-12-01-home-documentation.png)
+![Interior of house, covered in sticky labels](/assets/post-images/2023-12-01-home-documentation.png){: .center-image }
 
 While reading through my RSS feeds last week, I came across a [HackerNews post](https://news.ycombinator.com/item?id=38444577) about [Home Documentation](https://luke.hsiao.dev/blog/housing-documentation/).
 

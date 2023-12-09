@@ -13,21 +13,21 @@ I wrote this quick function so that before running WMI queries against a server,
 ```powershell
 function IsPingable {
     <#
-    .Synopsis
+    .SYNOPSIS
     Pings a server and returns TRUE or FALSE.
      
-    .Description
+    .DESCRIPTION
     Uses WMI to ping a server, and returns TRUE if a status code of 0 is returned, otherwise returns FALSE. Useful for quick checks to see if a server exists and is online.
      
-    .Parameter Computer
+    .PARAMETER Computer
     The computer's Hostname, FQDN, or IP to be pinged.
  
-    .Example
+    .EXAMPLE
     IsPingable -Computer "SERVER01"
  
     Pings SERVER01
      
-    .Notes
+    .NOTES
     Ben Neise 12/03/13
      
     #>

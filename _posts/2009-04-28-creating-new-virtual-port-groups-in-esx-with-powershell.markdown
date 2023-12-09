@@ -18,7 +18,7 @@ $ObjAllHosts = Get-VMHost | Sort-Object -Property Name
 
 foreach($objHost in $ObjAllHosts){
     $strVSwitch = Get-Virtualswitch -VMHost (Get-VMHost $objHost) | Where-Object { $_.Name -like "VMswitch" }
-    Write-Host "Adding Virtual Port Group $strNewVPG with VLAN Tag $strNewVlanTag to $objHost"
+    Write-Output -InputObject "Adding Virtual Port Group $strNewVPG with VLAN Tag $strNewVlanTag to $objHost"
     New-VirtualPortGroup -Name $strNewVPG -VirtualSwitch $strVSwitch -VLanId $strNewVlanTag
 }
 ```
@@ -32,12 +32,12 @@ $strOldVPG = "OldVPGName"
 $strNewVPG = "NewVPGName"
 $ObjAllHosts = (Get-VMHost | Sort-Object -Property Name)
 foreach($objHost in $ObjAllHosts){
-    Write-Host "Changing Virtual Port Group Settings on" $objHost
+    Write-Output -InputObject "Changing Virtual Port Group Settings on" $objHost
     $strVSwitch = Get-Virtualswitch -VMHost (Get-VMHost -Name $objHost) | Where-Object { $_.Name -match "VMswitch" }
     $objOldVPG = Get-VirtualPortGroup (Get-VMHost -Name $objHost) | Where-Object { $_.Name -match $strOldVPG }
-    Write-Host "Removing Virtual Port Group" $objOldVPG
+    Write-Output -InputObject "Removing Virtual Port Group" $objOldVPG
     Remove-VirtualPortGroup -VirtualPortGroup $objOldVPG -Confirm:$false -WhatIf
-    Write-Host "Adding Virtual Port Group" $strNewVPG "with VLAN Tag" $objOldVPG.VLanID
+    Write-Output -InputObject "Adding Virtual Port Group" $strNewVPG "with VLAN Tag" $objOldVPG.VLanID
     New-VirtualPortGroup -Name $strNewVPG -VirtualSwitch $strVSwitch -VLanId $objOldVPG.VLanID -Confirm:$false -WhatIf
 }
 ```

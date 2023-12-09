@@ -13,23 +13,23 @@ I'm doing logon tuning just now for non-persistent VDI desktops  - seeing long i
 ```powershell
 function Get-AppSenseLogonTimes {
 	<#
-	.Synopsis
+	.SYNOPSIS
 	Returns information about AppSense logon events as recorded by the AppSense event log 
 	
-	.Description
+	.DESCRIPTION
 	Returns, via the AppSense Event log, the Logon Time, Node Name, Action, Start Time and Duration of AppSense logon actions.
 	Useful for tuning and optimising AppSense logons.
 	The Policy Configuration item "Send events to the Appsense event log" should be enabled for this to work.
 	
-	.Parameter ComputerName
+	.PARAMETER ComputerName
 	The target computer name.
 
-	.Example
+	.EXAMPLE
 	Gets AppSense Logon times from Server1
 	
 	Get-AppSenseLogonTimes -ComputerName "Server1"
 	
-	.Notes
+	.NOTES
 	Ben Neise 28/10/2013
 	
 	#>
@@ -37,7 +37,7 @@ function Get-AppSenseLogonTimes {
 		[String]
 		$ComputerName = $env:localhost
 	)
-	Try {
+	try {
 		Get-Eventlog -ComputerName $ComputerName -LogName AppSense | Select-Object `
 	    @{Name="Logon Time";Expression={@($_.ReplacementStrings[0])}},
 	    @{Name="Node Name";Expression={@($_.ReplacementStrings[1])}},
@@ -45,7 +45,7 @@ function Get-AppSenseLogonTimes {
 	    @{Name="Start Time";Expression={@($_.ReplacementStrings[3])}},
 	    @{Name="Duration";Expression={[int]$_.ReplacementStrings[4]}} 
 	}
-	Catch {
+	catch {
 		Write-Error "Can't get AppSense logs from $ComputerName"
 	}
 }

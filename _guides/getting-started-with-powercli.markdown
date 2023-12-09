@@ -141,10 +141,10 @@ $virtualMachineObject = Get-VM -Name $virtualMachineName -ErrorAction "SilentlyC
 if ($virtualMachineObject) {
 
     # Display the machine object name on screen
-    Write-Host -Object "Machine object name: $($virtualMachineObject.Name)"
+    Write-Output -InputObject "Machine object name: $($virtualMachineObject.Name)"
 
     # Display the power state on screen
-    Write-Host -Object "Power State: $($virtualMachineObject.PowerState)"
+    Write-Output -InputObject "Power State: $($virtualMachineObject.PowerState)"
 
     # Attempt to get the object representing the  virtual machine's guest
     $virtualMachineGuest = Get-VMGuest -VM $virtualMachineObject -ErrorAction "SilentlyContinue"
@@ -153,13 +153,13 @@ if ($virtualMachineObject) {
     if ($virtualMachineGuest){
 
         # Display the guest hostname on screen
-        Write-Host -Object "Hostname: $($virtualMachineGuest.Hostname)"
+        Write-Output -InputObject "Hostname: $($virtualMachineGuest.Hostname)"
 
         # Get the IP address(es), and write them to screen
         $virtualMachineGuest.IPAddress | foreach-Object {
             
             # If more than one IP address is found, this will write each one to screen on a seperate line
-            Write-Host -Object "IP Address: $($_)"
+            Write-Output -InputObject "IP Address: $($_)"
         }
     }
 }

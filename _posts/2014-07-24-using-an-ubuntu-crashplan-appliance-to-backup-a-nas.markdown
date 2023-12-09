@@ -37,5 +37,3 @@ I decided that the best solution would be to use an Ubuntu agent, running as a H
 14. Now, on the client machine, open the CrashPlan GUI, and select the mount points which you wish to be backed-up.
 
 This is now working well  - although the change in method means that I need to send all of my data up to CrashPlan again, I was hoping that it'd be able to map the previously uploaded files to the same files on their new paths.
-
-

@@ -34,7 +34,7 @@ Here are the data:-
 
 And in graph-format, for extra impact:-
 
-![Graph showing disk space used](/assets/post-images/2010-01-13-disk-space-used.png)
+![Graph showing disk space used](/assets/post-images/2010-01-13-disk-space-used.png){: .center-image }
 
 All size estimates are based on the machines in a powered-down state. When powered on, a swap file (equal to the size of the assigned RAM) is created, and (assuming the machines are non-persistent) REDO files are created on all types of machines.
 
@@ -74,11 +74,11 @@ $CustomFieldName = "Customisation"
   $objCustomization = Get-OSCustomizationSpec ($objVM.CustomFields.Item($CustomFieldName))
   # Ensure that the machines does not have a non persistent HD
   if ($objVM | Get-HardDisk | Where-Object {$_.Persistence -like "IndependentNonPersistent"}){
-  Write-Host $objTemplate has a non-persistent HD!
+  Write-Output -InputObject $objTemplate has a non-persistent HD!
   }
   # If the customisation, as specified in the parent's custom attribute does not exist, then quit.
   if (!$objCustomization){
-    Write-Host Customisation ($objVM.CustomFields.Item($CustomFieldName)) not found. Exiting.
+    Write-Output -InputObject Customisation ($objVM.CustomFields.Item($CustomFieldName)) not found. Exiting.
     Break
   }
   $i = 1
@@ -89,19 +89,19 @@ $CustomFieldName = "Customisation"
   $strMachineBeingDeployed = $strMachinePrefix+$strMachineNumber
   # Check that the machine doesn't already exist
   if ((Get-VM -Name $strMachineBeingDeployed -ErrorAction SilentlyContinue)){
-    Write-Host "Machine $strMachineBeingDeployed already exists!"
+    Write-Output -InputObject "Machine $strMachineBeingDeployed already exists!"
     Break
   }
   # Let the user know what's going on
-  Write-Host ""
-  Write-Host "Deploying new linked-clone " -NoNewline
-  Write-Host $strMachineBeingDeployed -ForegroundColor Blue -NoNewline
-  Write-Host ", from template " -NoNewline
-  Write-Host $strSourceVM -ForegroundColor Blue -NoNewline
-  Write-Host ", using customisation " -NoNewline
-  Write-Host $objCustomization -ForegroundColor Blue -NoNewline
-  Write-Host ", on the same Host as the parent" -NoNewline
-  Write-Host ""
+  Write-Output -InputObject ""
+  Write-Output -InputObject "Deploying new linked-clone " -NoNewline
+  Write-Output -InputObject $strMachineBeingDeployed -ForegroundColor Blue -NoNewline
+  Write-Output -InputObject ", from template " -NoNewline
+  Write-Output -InputObject $strSourceVM -ForegroundColor Blue -NoNewline
+  Write-Output -InputObject ", using customisation " -NoNewline
+  Write-Output -InputObject $objCustomization -ForegroundColor Blue -NoNewline
+  Write-Output -InputObject ", on the same Host as the parent" -NoNewline
+  Write-Output -InputObject ""
   # Create the new machine using all these variables
   $objFolder = $viewVM.parent
   $specClone = New-Object Vmware.Vim.VirtualMachineCloneSpec
@@ -171,8 +171,8 @@ DeployLinkedClone $strSourceVM $intToBeDeployed $intStartDeployingAtNumber $Cust
 $dteEnd = Get-Date
 $dteDiff = New-TimeSpan $dteStart $dteEnd
 $timeTaken = [math]::round($dteDiff.totalMinutes, 2)
-Write-Host ""
-Write-Host "It took" $timeTaken "minutes for these machines to deploy"
+Write-Output -InputObject ""
+Write-Output -InputObject "It took" $timeTaken "minutes for these machines to deploy"
 
 # End of script
 ```

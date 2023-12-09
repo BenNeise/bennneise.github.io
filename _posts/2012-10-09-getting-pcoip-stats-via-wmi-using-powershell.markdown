@@ -10,7 +10,7 @@ I was at a training course last week and  it was mentioned briefly on one of the
 The following is a PowerShell function, which pulls this information from WMI, appends the names and descriptions, and returns an object. You could, for example, export the returned object to an HTML page. Or use the function against a range of machines to look for outliers.
 
 ```powershell
-function Get-PCOIPStatsViaWMI($objComputerName = (Throw "Please use with a computer name")){
+function Get-PCOIPStatsViaWMI($objComputerName = (throw "Please use with a computer name")){
     $arrResults = @()
     $objWMIPCoIPSessionGeneralStatistics = Get-WMIObject -Class Win32_PerfRawData_TeradiciPerf_PCoIPSessionGeneralStatistics -ComputerName $objComputerName
     $objSessionDurationSeconds = New-Object PSObject $objSessionDurationSeconds | Add-Member -Name "Name" -MemberType NoteProperty -Value "Session Duration Seconds"

@@ -34,7 +34,7 @@ foreach($objVLAN in ($ArrVLANs.Keys | Sort-Object)){
 		# Remove the "-WhatIf" tag from the end of the following line to "arm" the script
 		New-VirtualPortGroup -Name $strNewVPG -VirtualSwitch (Get-Virtualswitch -VMHost $objHost | Where-Object { $_.Name -match "VMswitch" }) -VLanId $strNewVlanTag
 		# Write what we've just done to screen
-		Write-Host ("Adding Virtual Port Group $($ArrVLANs[$objVLAN]) with VLAN Tag $objVLAN to $objHost")
+		Write-Output -InputObject ("Adding Virtual Port Group $($ArrVLANs[$objVLAN]) with VLAN Tag $objVLAN to $objHost")
 	}
 }
 # Disconnect the session from the host

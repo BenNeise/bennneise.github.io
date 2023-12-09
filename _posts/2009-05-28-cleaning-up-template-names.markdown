@@ -23,7 +23,7 @@ foreach ($objTemplate in $objTemplates){
 	# And also remove trailing spaces from the start, or the end of the string
 	$StrInterimTemplateName = $StrInterimTemplateName.Trim()
 	# Display on screen what we're doing (as the "Set-Template" with -WhatIf isn't very clear
-	Write-Host Changing `[($objTemplate.Name)`] to `[ Tmpl $StrInterimTemplateName `]
+	Write-Output -InputObject Changing `[($objTemplate.Name)`] to `[ Tmpl $StrInterimTemplateName `]
 	# Change the Template Name to the $StrInterimTemplateName variable preceeded by "Tmpl", uncomment the #-WhatIf if testing
 	Set-Template -Template $objTemplate -Name "Tmpl $StrInterimTemplateName" #-WhatIf
 }

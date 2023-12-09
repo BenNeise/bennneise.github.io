@@ -5,7 +5,7 @@ date: '2012-08-22 11:09:55'
 tags: powershell
 ---
 
-One of the great things about PowerShell is its ability to easily export objects to HTML, which  - with a little CSS  - makes it straightforward to create great-looking reports. But static lists of data aren't enough anymore, people demand interactivity.
+One of the great things about PowerShell is its ability to easily export objects to HTML, which  - with a little CSS  - makes it straightforward to create great-looking reports. But static lists of data aren't enough any more, the people _demand_ interactivity.
 
 <!--more-->
 

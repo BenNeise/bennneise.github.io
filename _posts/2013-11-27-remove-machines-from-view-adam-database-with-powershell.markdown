@@ -14,35 +14,35 @@ It's one of those things that shouldn't happen, but which inevitable does. Someo
  
 function Remove-StuckVDIMachineFromAdamDatabase {
     <#
-    .Synopsis
+    .SYNOPSIS
     Removes an object from View's ADAM database
     
-    .Description
+    .DESCRIPTION
     Finds a computer object in View's ADAM database which represents a machine.
     Probably one stuck in a Deleting "(Missing)" state. Deletes it (with confirmation)
  
-    .Parameter Computer
+    .PARAMETER Computer
     The name of the computer to search for.
  
-    .Parameter ConnectionServer
+    .PARAMETER ConnectionServer
     The connection server. Is set by default to "yourconnectionserver".
  
-    .Example
+    .EXAMPLE
     Removes a desktop called "Desktop01"
     
     Remove-StuckVDIMachineFromAdamDatabase -Computer "Desktop01"    
 
-    .Example
+    .EXAMPLE
     Removes each of an array of computernames passed as an argument
 
     Remove-StuckVDIMachineFromAdamDatabase $arrRogueEntries
 
-    .Example
+    .EXAMPLE
     Uses the pipeline to remove each of an array of stuck machines
 
     $arrPipeline | Remove-StuckVDIMachineFromAdamDatabase 
     
-    .Notes
+    .NOTES
     Ben Neise 26/02/2014
     
     #>
@@ -63,16 +63,16 @@ function Remove-StuckVDIMachineFromAdamDatabase {
         [String]
         $ConnectionServer = "MyConnectionServer"
     )
-    Begin {
-        Try {
+    begin {
+        try {
             Connect-QADService -Service $ConnectionServer -ErrorAction "Stop" | Out-Null
         }
-        Catch {
+        catch {
             Write-Error "Can't connect to QADService on $ConnectionServer"
         }
         $objAdamDB = Get-QADObject -IncludeAllProperties -SizeLimit 0 -SearchRoot "OU=Servers,DC=vdi,DC=vmware,DC=int"
     }
-    Process {
+    process {
         foreach ($comp in $Computer){
             $objAdamDB | Where-Object {$_."pae-DisplayName" -eq $comp} | foreach-Object {
                 Write-Output ("Found ADAM record: " + $_."pae-DisplayName")
@@ -80,7 +80,7 @@ function Remove-StuckVDIMachineFromAdamDatabase {
             }
         }
     }
-    End {
+    end {
         Disconnect-QADService -Service $ConnectionServer
     }
 }

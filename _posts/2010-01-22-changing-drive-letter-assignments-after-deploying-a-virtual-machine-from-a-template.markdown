@@ -10,7 +10,7 @@ We've had an ongoing problem with "Sequencing" machines for [Microsoft Applicati
 
 At first, we manually changed these assignments using the Disk Management MMC before setting the drives to non-persistent. Lately, I've been using a DISKPART script, which speeds up the process, but still requires logging into each machine.
 
-I saw Arnim [van Lieshout's post on **Invoke-VMScript** yesterday](http://www.van-lieshout.com/2010/01/powercli-get-wmi-info-from-isolated-guests/), and realised that this could be used to run the DISKPART script on multiple machines. In order to get the TXT file used by DISKPART onto the machine, I'm also using the **Copy-VMGuestFile** command found in [PowerCLI 4.0 Update 1](http://www.vmware.com/support/developer/windowstoolkit/wintk40u1/windowstoolkit40U1-200911-releasenotes.html).
+I saw [Arnim van Lieshout's post on **Invoke-VMScript** yesterday](http://www.van-lieshout.com/2010/01/powercli-get-wmi-info-from-isolated-guests/), and realised that this could be used to run the DISKPART script on multiple machines. In order to get the TXT file used by DISKPART onto the machine, I'm also using the **Copy-VMGuestFile** command found in [PowerCLI 4.0 Update 1](http://www.vmware.com/support/developer/windowstoolkit/wintk40u1/windowstoolkit40U1-200911-releasenotes.html).
 
 ```powershell
 # Change drive letter assignment from D to Q

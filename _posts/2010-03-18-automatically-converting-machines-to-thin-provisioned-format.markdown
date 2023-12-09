@@ -18,24 +18,24 @@ The conversion process is fairly simple: a new option during a storage vMotion. 
 # Ben Neise 16/03/10
 # Create an empty array
 $arrMachinesToBeConverted = @()
-Write-Host "Getting virtual machine objects" -ForegroundColor Blue
-Write-Host ""
+Write-Output -InputObject "Getting virtual machine objects" -ForegroundColor Blue
+Write-Output -InputObject ""
 # Select the broad category of VMs we're looking at, for example all the machines in a specific blue folder
-$objVMs = Get-Folder "Projects" | Get-VM | Sort-Object Write-Host "Generating list of candidates" -ForegroundColor Blue
-Write-Host ""
+$objVMs = Get-Folder "Projects" | Get-VM | Sort-Object Write-Output -InputObject "Generating list of candidates" -ForegroundColor Blue
+Write-Output -InputObject ""
 # Loop through all the virtual machines selected
 foreach ($objVM in $objVMs){
-    Write-Host "Investigating " -NoNewline Write-Host $objVM -ForegroundColor Blue -NoNewline
+    Write-Output -InputObject "Investigating " -NoNewline Write-Output -InputObject $objVM -ForegroundColor Blue -NoNewline
     # Skip the rest of the loop if the machine is thin provisioned
     if ($objVM | Get-HardDisk | Where-Object {$_.StorageFormat -like "Thin"}){
-        Write-Host " - disks are already thin provisioned" -ForegroundColor DarkGray continue
+        Write-Output -InputObject " - disks are already thin provisioned" -ForegroundColor DarkGray continue
     } # Skip the rest of the loop is the machine is switched on and non-persistent
     if ($objVM | Where-Object {$_.PowerState -ne "PoweredOff"} | Get-HardDisk | Where-Object {$_.Persistence -notlike "IndependentPersistent"}){
-        Write-Host " - switched on and non-persistent" -ForegroundColor DarkGray continue
+        Write-Output -InputObject " - switched on and non-persistent" -ForegroundColor DarkGray continue
     }
     # Skip the rest of the loop if the machine is powered-on, and has snapshots
     if ($objVM | Where-Object {$_.PowerState -ne "PoweredOff" -and ($objVM | Get-Snapshot)}) {
-        Write-Host " - switched on and with snapshots" -ForegroundColor DarkGray continue
+        Write-Output -InputObject " - switched on and with snapshots" -ForegroundColor DarkGray continue
     } 
     # Skips the rest of the loop if the machine has a shared drive and is not set up as fault tolerant (indicating that it's a Linked Clone) 
     # Thanks to Keshav Attrey for this method - http://www.vmdev.info/?p=546) 
@@ -44,25 +44,25 @@ foreach ($objVM in $objVMs){
     $committed = $viewVM.Summary.Storage.Committed
     $ftInfo = $viewVM.Summary.Config.FtInfo 
     if (($unshared -ne $committed) -and (($ftInfo -eq $null) -or ($ftInfo.InstanceUuids.Length -le 1))){
-        Write-Host "The machine is a linked clone" -ForegroundColor DarkGray continue
+        Write-Output -InputObject "The machine is a linked clone" -ForegroundColor DarkGray continue
     }
-    Write-Host "Added to the list of machines to be converted" $arrMachinesToBeConverted += $objVM
+    Write-Output -InputObject "Added to the list of machines to be converted" $arrMachinesToBeConverted += $objVM
 }
-Write-Host "Starting Storage vMotions" -ForegroundColor Blue
-Write-Host $arrMachinesToBeConverted.Count -ForegroundColor Blue -NoNewline
-Write-Host " machines to be converted" -ForegroundColor DarkGray
-Write-Host ""
+Write-Output -InputObject "Starting Storage vMotions" -ForegroundColor Blue
+Write-Output -InputObject $arrMachinesToBeConverted.Count -ForegroundColor Blue -NoNewline
+Write-Output -InputObject " machines to be converted" -ForegroundColor DarkGray
+Write-Output -InputObject ""
 foreach ($objVM in $arrMachinesToBeConverted | Sort-Object){
     # Get the biggest datastore
     $objBiggestDatastore = Get-Datastore | Sort-Object -Property FreeSpaceMB -Descending
     # Select the datastore from the top of the previously generated list (index 0) and remove the preceeding "Datastore-" from it's ID to give us the MOID
     $strTargetDatastore = ($objBiggestDatastore[0].Id).replace('Datastore-','')
     # Let the user know what's going on
-    Write-Host "Migrating machine " -NoNewline 
-    Write-Host $objVM -ForegroundColor Blue -NoNewline
-    Write-Host ", to Thin Provisioned format on datastore " -NoNewline
-    Write-Host $objBiggestDatastore[0] -ForegroundColor Blue -NoNewline
-    Write-Host "" 
+    Write-Output -InputObject "Migrating machine " -NoNewline 
+    Write-Output -InputObject $objVM -ForegroundColor Blue -NoNewline
+    Write-Output -InputObject ", to Thin Provisioned format on datastore " -NoNewline
+    Write-Output -InputObject $objBiggestDatastore[0] -ForegroundColor Blue -NoNewline
+    Write-Output -InputObject "" 
     # Get the view of the VM we're moving
     $viewVM = Get-View -VIObject $objVM
     # Remove the preceding "HostSystem-" from the VM's Host's ID, giving us the Host's MOID

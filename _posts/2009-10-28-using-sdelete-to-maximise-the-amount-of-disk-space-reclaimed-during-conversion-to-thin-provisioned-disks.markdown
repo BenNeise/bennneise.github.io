@@ -25,7 +25,7 @@ I took one of our standard Windows XP guests which had been migrated to the new 
 
 Here's what happened
 
-![](/assets/DiskSpaceUsed1.png)
+![Graph showing disk space used](/assets/post-images/2010-01-13-disk-space-used.png
 
 ## Normal (Thick) Disk
 

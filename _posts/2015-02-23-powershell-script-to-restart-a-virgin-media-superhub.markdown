@@ -18,27 +18,27 @@ To save this occasional annoyance, I wanted to schedule a restart for the router
 ```powershell
 function Restart-VirginRouter {
     <#
-    .Synopsis
+    .SYNOPSIS
     Restarts a Virgin Media Suberhub.
 
-    .Description
+    .DESCRIPTION
     Restarts a Virgin Media Suberhub using the web interface.
     
-    .Parameter RouterIP 
+    .PARAMETER RouterIP 
     The IP address of the router.
 
-    .Parameter Username
+    .PARAMETER Username
     The username used to log into the web interface.
 
-    .Parameter Password,
+    .PARAMETER Password,
     The password used to log into the web interface.
 
-    .Example
+    .EXAMPLE
     Restart-VirginRouter -RouterIP "192.168.0.1" -Username "admin" -Password "hunter2"
 
     Restarts the router using the specified credentials.
 
-    .Notes
+    .NOTES
     Ben Neise 23/02/15
 
     #>

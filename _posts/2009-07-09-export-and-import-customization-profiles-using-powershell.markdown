@@ -14,6 +14,6 @@ As part of this process, I was just about to start writing  a script to export o
 
 It failed on a couple of customisations, but by adding...
 
-`Write-Host "Exporting $($CustomizationProfile.Name)"`
+`Write-Output -InputObject "Exporting $($CustomizationProfile.Name)"`
 
 ...after the foreach loop started, it was easy to see that it was customisations with `/` and `*` characters that were causing the errors. I fixed those manually, and it worked perfectly.

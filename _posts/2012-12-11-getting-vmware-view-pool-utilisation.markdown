@@ -37,7 +37,7 @@ Remove-PSSession -Session $objRemoteSession
 $objPools = $objPools | Where-Object {$_.deliveryModel -eq "Provisioned"} | Sort-Object pool_id
 # Loop through the pools
 foreach ($objPool in $objPools){
-    Write-Host "Checking:" $objPool.pool_id
+    Write-Output -InputObject "Checking:" $objPool.pool_id
     # Get the groups which are entitled to the pool
     $arrEntitlementsToCurrentPool = @($objEntitlements | Where-Object {$_.pool_id -eq $objPool.pool_id})
     $intUsers = 0
@@ -46,7 +46,7 @@ foreach ($objPool in $objPools){
         Switch ($objADObject.Type) {
             "user" {$intUsers ++}
             "group" {$intUsers += ($objADObject | Get-QADGroupMember -SizeLimit 0 -Indirect).Count}
-            Default {Write-Host "Entitled object is not a user or group"}
+            Default {Write-Output -InputObject "Entitled object is not a user or group"}
         }
     }
     $objPool | Add-Member -Name "EntitledUsers" -MemberType NoteProperty -Value $intUsers
