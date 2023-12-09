@@ -2,6 +2,7 @@
 layout: page
 title: Getting started with VMware PowerCLI
 summary: A simple introduction to using VMware's PowerShell command line tools.
+tags: powershell
 ---
 
 <div class="info">This page is a little out of date, and I'll be looking to update it shortly.</div>

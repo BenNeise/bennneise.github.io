@@ -5,7 +5,6 @@ date: '2015-05-29 13:24:49'
 tags: vmware-aria-automation-orchestrator vmware-aria-automation
 ---
 
-
 ![vcologo](/assets/vro_logo.png){: .center-image }
 
 We're soon going to be implementing multiple [vRealize Orchestrator](http://www.vmware.com/uk/products/vrealize-orchestrator) (vRO) servers in our [vRealize Automation ](http://www.vmware.com/uk/products/vrealize-automation)(vRA) development environment to allow people to choose different endpoints. Essentially if someone's working on a workflow, that shouldn't affect a different developer who is testing a template. So I wanted a way of allowing customers (in this case, developers) to choose from a list of Orchestrator endpoints.
@@ -20,7 +19,6 @@ Thankfully, using [vRA Custom Properties](http://pubs.vmware.com/vCAC-61/topic/c
 
 Before you start, you should be comfortable using Orchestrator with vRA. This isn't a guide on how to set up vRA/vRO integration. Your vRO server must be set up with all the necessary prerequisites that it would need to work as an endpoint.  If you've done this once, you've hopefully documented the process, so it's just a case of replicating it on another server.
 
-
 ## Create the vRO Endpoint in vRA
 
 Assuming you haven't already go multiple endpoints configured; the first thing you're going to need to do is create one.
@@ -31,7 +29,6 @@ Assuming you haven't already go multiple endpoints configured; the first thing y
 2. **Address**: use the FQDN of the server
 3. **Credentials:** Select existing credentials, or create new. Remember to use the format *username@domain*
 4. **Custom properties**: Create a new custom property named **VMware.VCenterOrchestrator.Priority** and give it a value. The value you give it depends on which order you would like vRA to attempt to use the server. You should probably set your most stable (production-ready) server with the lowest number.
-
 
 ## Create the vRA Custom Property
 

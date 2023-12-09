@@ -15,9 +15,9 @@ The document is technically detailed, but makes interesting reading. The authors
 
 In the unlikely event that Hypervisor Swapping is unable to provide enough memory to meet the requirement, the hypervisor blocks the execution of all virtual machines which exceed their memory limit.
 
-The whitepaper details the results of various benchmarks to evaluate the performance overhead of each of the reclamation strategies. While I'd certainly heard that the performance impact of TPS was negligible, I had always been slightly sceptical, but the data provided by VMware would appear to back it up.
+The white paper details the results of various benchmarks to evaluate the performance overhead of each of the reclamation strategies. While I'd certainly heard that the performance impact of TPS was negligible, I had always been slightly sceptical, but the data provided by VMware would appear to back it up.
 
-The whitepaper also includes some best practices for memory management, some of which have had me thinking about our memory allocation strategy:-
+The white paper also includes some best practices for memory management, some of which have had me thinking about our memory allocation strategy:-
 
 - **Do not disable page sharing or the balloon driver**. These two techniques are enabled by default in ESX4 and I can't imagine that anyone would disable them unless they had specific reason to. It's also another reason to make sure you have VMware tools installed on all your guests.
 - **Carefully specify the memory limit and memory reservation**. Our environment is pretty fluid, with a large number of small guests with 10-15% of them being used. For this to be useful for us, these values would need to be constantly checked and reconfigured.

@@ -13,6 +13,8 @@ I don't mind writing documentation for my scripts, but I find that most document
 - **Duplicated effort**  - I tend to document my script inline, (so that `Get-Help` will work), why do I need to document the same details elsewhere?
 - **Keeping it up-to-date**  - The only thing worse than *no* documentation, is clearly outdated documentation.
 
+<!--more-->
+
 I had a folder full of PS1 scripts, each of which had the necessary headers. However, I needed to get this documentation into our repository of choice (a GitLab wiki).
 
 So, in order to save me duplicating some effort, I wrote up a quick function that'll read the inline documentation from all the PowerShell scripts in a folder, and output a markdown formatted document per script, as well as an index document which links to the others. This imports nicely into a GitLab wiki. At first I thought I'd be lucky, and someone would have created an `ConvertTo-Markdown` function, but of course a PowerShell object doesn't map to a document in the same way that it maps to a table, or a CSV.

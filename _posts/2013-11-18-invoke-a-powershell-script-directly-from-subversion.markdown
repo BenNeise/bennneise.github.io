@@ -15,27 +15,27 @@ The terrifying looking regex was based on [SqlChow](http://sqlchow.wordpress.com
 ```powershell
 function Invoke-SubversionScript {
     <#
-    .Synopsis
+    .SYNOPSIS
     Runs a script directly from Subversion.
     
-    .Description
+    .DESCRIPTION
     Given a valid Subversion URL and credentials (Basic authentication) invokes the script on the local machine.
     
-    .Parameter Url
+    .PARAMETER Url
     The URL of the script. Should be a valid URL, and end in PS1
 
-    .Parameter Username
+    .PARAMETER Username
     The username used to access Subversion (Basic authentication).
     
-    .Parameter Password
+    .PARAMETER Password
     The password for the account used to access Subversion (Basic authentication).
     
-    .Example
+    .EXAMPLE
     Runs the script at the specified URL.
     
     Invoke-SubversionScript -Url "http://subversion/svn/repository/folder/SCOM2012functions.ps1" -Username "Domain\Username" -Password "Password1"
     
-    .Notes
+    .NOTES
     Ben Neise 18/11/2013
     
     #>
@@ -54,11 +54,14 @@ function Invoke-SubversionScript {
         $Password = ""
 	)
     process {
+        
         $strAuthentication = 'Basic ' + [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($Username + ":" + $Password ))
+       
         $objWebClient = New-Object System.Net.WebClient
         $objWebClient.Headers.Add("Content-Type", "application/xml")
         $objWebClient.Headers.Add("Accept", "application/xml")
         $objWebClient.Headers.Add("Authorization", $strAuthentication )
+
         try {
             $strCommand = $objWebClient.DownloadString($Url)
         }

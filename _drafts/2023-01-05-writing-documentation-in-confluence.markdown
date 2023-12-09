@@ -3,6 +3,7 @@ layout: post
 comments: true
 title: Confluence documentation for developers
 date: '2022-01-05 09:15:00'
+tags: documentation confluence
 ---
 
 In this post, I'll go through some of the things I've found useful when writing documentation, with specific reference to Confluence.

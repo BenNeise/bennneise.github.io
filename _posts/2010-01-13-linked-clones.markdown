@@ -34,7 +34,7 @@ Here are the data:-
 
 And in graph-format, for extra impact:-
 
-[![DiskSpaceUsed](http://ben.neise.co.uk/wp-content/uploads/2010/01/DiskSpaceUsed1-300x178.png)](http://ben.neise.co.uk/wp-content/uploads/2010/01/DiskSpaceUsed1.png)
+![Graph showing disk space used](/assets/post-images/2010-01-13-disk-space-used.png)
 
 All size estimates are based on the machines in a powered-down state. When powered on, a swap file (equal to the size of the assigned RAM) is created, and (assuming the machines are non-persistent) REDO files are created on all types of machines.
 

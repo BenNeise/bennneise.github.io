@@ -56,5 +56,3 @@ $objPools | Select-Object @{` Name="Pool";Expression={@($_.pool_id)}}, @{Name="M
 ```
 
 Although this displays results on screen, there are of course all the normal ways to output the object to HTML, CSV, XML and so on. I'll leave it to your imagination.
-
-

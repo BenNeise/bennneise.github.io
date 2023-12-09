@@ -6,7 +6,9 @@ tags: vmware-aria-automation
 ---
 
 After migrating from vRealize Automation (vRA) 6.2, we've recently started the long-overdue work of investigating the new functionality introduced with the event broker. We're still using the state-change triggered workflows for machine life-cycle integration between vRA and vRealize Orchestration (vRO), and that's going to be a big-job to change; but I thought I could maybe look at one of our other requirements which was to ensure that changes to blueprints made using the GUI get stored in source control.
+
 <!--more-->
+
 I managed to configure a simple use-case which was a trigger which will fire whenever a change is made to a blueprint. I got everything working in our development environment, then wanted to move the work to the live environment.
 
 Our normal process for promoting objects (blueprints, reservations, property definitions, etc.) is to use the REST API to GET the JSON from the development environment, then PUT/POST it to live. This ensures that the GUIDs are consistent, and saves someone having to recreate complex objects. We've got some internal PowerShell modules to help with this, and some Jenkins jobs to manage promotion.

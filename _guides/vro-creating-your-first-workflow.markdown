@@ -2,6 +2,7 @@
 layout: post
 title: VMware Aria Automation Orchestrator - Creating your first workflow
 summary: How to create your first workflow using VMware Aria Automation Orchestrator
+tags: vmware-aria-automation-orchestrator
 ---
 
 <div class="info">This guide has now been updated to refer to the latest version of VMware Aria Automation Orchestrator.</div>
