@@ -22,5 +22,3 @@ After only a little more digging, my dream of being lauded for increasing our fr
 I imagine this is what they mean by "unsupported", and this is why the TP functionality in VI 3.5 is largely undocumented.
 
 This changes the conversion process from a one-off time-consuming action to something that would need to be done on an ongoing basis. I think we'll just have to wait until we get the chance to upgrade to vSphere 4.
-
-

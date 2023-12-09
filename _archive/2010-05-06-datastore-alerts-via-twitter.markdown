@@ -22,10 +22,10 @@ $intThreshold = 10
 # Connect to the VI server
 Connect-VIServer $strVIServer
 # Loop through the datastores
-ForEach ($objDatastore in (
+foreach ($objDatastore in (
     Get-Datastore | Sort-Object FreeSpaceMB | Select-Object Name, @{Name="PercentageFreeSpace"; Expression={[math]::round(($_.FreeSpaceMB / $_.CapacityMB * 100), 1)}})
     ){
-    If ($objDatastore.PercentageFreeSpace -lt $intThreshold){
+    if ($objDatastore.PercentageFreeSpace -lt $intThreshold){
         $objName = $objDatastore.Name $objFreeSpace = $objDatastore.PercentageFreeSpace E:\Tools\tweetC\tweetc.exe "$objName has only $objFreeSpace % remaining"
     }
 }
@@ -35,7 +35,7 @@ Disconnect-VIServer -Confirm:$false
 
 The Twitter account is protected (to save it from getting followed by porn-bots). I can now set it up for device alerts, which should hopefully give me a head's up on any potential problems. I could also implement other alerts in this method. For example, you could ping a critical machine, and tweet if it's not available:
 
-`If ((Get-WmiObject -Class Win32_PingStatus -Filter "Address='CriticalMachineHostname'").StatusCode -ne 0){ E:\Tools\tweetC\tweetc.exe "Critical machine not reposnding to pings!" }`
+`if ((Get-WmiObject -Class Win32_PingStatus -Filter "Address='CriticalMachineHostname'").StatusCode -ne 0){ E:\Tools\tweetC\tweetc.exe "Critical machine not reposnding to pings!" }`
 
 Ideally I'd like to revisit this, and remove the requirement for TweetC, but in the meantime it seems to be working great.
 

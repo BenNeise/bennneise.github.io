@@ -24,17 +24,17 @@ Write-Host ""
 $objVMs = Get-Folder "Projects" | Get-VM | Sort-Object Write-Host "Generating list of candidates" -ForegroundColor Blue
 Write-Host ""
 # Loop through all the virtual machines selected
-ForEach ($objVM in $objVMs){
+foreach ($objVM in $objVMs){
     Write-Host "Investigating " -NoNewline Write-Host $objVM -ForegroundColor Blue -NoNewline
     # Skip the rest of the loop if the machine is thin provisioned
-    If ($objVM | Get-HardDisk | Where-Object {$_.StorageFormat -like "Thin"}){
+    if ($objVM | Get-HardDisk | Where-Object {$_.StorageFormat -like "Thin"}){
         Write-Host " - disks are already thin provisioned" -ForegroundColor DarkGray continue
     } # Skip the rest of the loop is the machine is switched on and non-persistent
-    If ($objVM | Where-Object {$_.PowerState -ne "PoweredOff"} | Get-HardDisk | Where-Object {$_.Persistence -notlike "IndependentPersistent"}){
+    if ($objVM | Where-Object {$_.PowerState -ne "PoweredOff"} | Get-HardDisk | Where-Object {$_.Persistence -notlike "IndependentPersistent"}){
         Write-Host " - switched on and non-persistent" -ForegroundColor DarkGray continue
     }
     # Skip the rest of the loop if the machine is powered-on, and has snapshots
-    If ($objVM | Where-Object {$_.PowerState -ne "PoweredOff" -and ($objVM | Get-Snapshot)}) {
+    if ($objVM | Where-Object {$_.PowerState -ne "PoweredOff" -and ($objVM | Get-Snapshot)}) {
         Write-Host " - switched on and with snapshots" -ForegroundColor DarkGray continue
     } 
     # Skips the rest of the loop if the machine has a shared drive and is not set up as fault tolerant (indicating that it's a Linked Clone) 
@@ -43,7 +43,7 @@ ForEach ($objVM in $objVMs){
     $unshared = $viewVM.Summary.Storage.Unshared
     $committed = $viewVM.Summary.Storage.Committed
     $ftInfo = $viewVM.Summary.Config.FtInfo 
-    If (($unshared -ne $committed) -and (($ftInfo -eq $null) -or ($ftInfo.InstanceUuids.Length -le 1))){
+    if (($unshared -ne $committed) -and (($ftInfo -eq $null) -or ($ftInfo.InstanceUuids.Length -le 1))){
         Write-Host "The machine is a linked clone" -ForegroundColor DarkGray continue
     }
     Write-Host "Added to the list of machines to be converted" $arrMachinesToBeConverted += $objVM
@@ -52,7 +52,7 @@ Write-Host "Starting Storage vMotions" -ForegroundColor Blue
 Write-Host $arrMachinesToBeConverted.Count -ForegroundColor Blue -NoNewline
 Write-Host " machines to be converted" -ForegroundColor DarkGray
 Write-Host ""
-ForEach ($objVM in $arrMachinesToBeConverted | Sort-Object){
+foreach ($objVM in $arrMachinesToBeConverted | Sort-Object){
     # Get the biggest datastore
     $objBiggestDatastore = Get-Datastore | Sort-Object -Property FreeSpaceMB -Descending
     # Select the datastore from the top of the previously generated list (index 0) and remove the preceeding "Datastore-" from it's ID to give us the MOID

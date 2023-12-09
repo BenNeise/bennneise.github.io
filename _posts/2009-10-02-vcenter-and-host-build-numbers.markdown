@@ -25,7 +25,7 @@ $arrTableVCs = @()
 $arrTableHosts = @()
 
 # Loop through the array of vCenter servers specified above
-ForEach ($strVCenterServer in $arrVCenterServers){
+foreach ($strVCenterServer in $arrVCenterServers){
 	# Connect to the VC
 	$objVCenterServer = Connect-VIServer $strVCenterServer
 	# Version info about the VC you are connected to
@@ -36,7 +36,7 @@ ForEach ($strVCenterServer in $arrVCenterServers){
 	# Add the VC object to the results array
 	$arrTableVCs += $objVCenterServer
 	# When connected to loop through the hosts managed by the VC
-	ForEach ($objHost in (Get-VMhost | Sort-Object)){
+	foreach ($objHost in (Get-VMhost | Sort-Object)){
 		# Get the view for the current host
 		$viewHost = $objHost | Get-View
 		# Add custom attributes to the host object for VC server, Host and Version

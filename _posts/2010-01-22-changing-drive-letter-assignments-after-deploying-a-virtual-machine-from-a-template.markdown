@@ -14,16 +14,20 @@ I saw Arnim [van Lieshout's post on **Invoke-VMScript** yesterday](http://www.va
 
 ```powershell
 # Change drive letter assignment from D to Q
+
 # Gets the specific VMs we're after as an object
 $objVMs = Get-Folder "Sequencers" | Get-VM | Sort-Object Name
+
 # Assign the command line required for DISKPART to a variable
 $strScript = "IF EXIST D:\ DISKPART /S C:\DiskPart_Change_C_To_Q.txt" 
-# Loop through the VMs ForEach ($objVM in $objVMs){ 
+
+# Loop through the VMs
+foreach ($objVM in $objVMs){ 
     # Let the user know
-    Write-Host Copying file to $objVM
-    Copy-VMGuestFile -Source "C:\Tools\DiskPart_Change_C_To_Q.txt" -Destination "c:\" -LocalToGuest -VM $objVM -HostUser root -HostPassword password -GuestUser Administrator -GuestPassword password 
-Write-Host Changing disk partitions on $objVM
-    Invoke-VMScript $strScript -vm $objVM -HostUser root -HostPassword password -GuestUser Administrator -GuestPassword password -ScriptType "bat"
+    Write-Output -InputObject "Copying file to $objVM"
+    Copy-VMGuestFile -Source "C:\Tools\DiskPart_Change_C_To_Q.txt" -Destination "c:\" -LocalToGuest -VM $objVM -HostUser root -HostPassword "password" -GuestUser "Administrator" -GuestPassword "password" 
+    Write-Output -InputObject "Changing disk partitions on $objVM"
+    Invoke-VMScript $strScript -vm $objVM -HostUser "root" -HostPassword "password" -GuestUser "Administrator" -GuestPassword "password" -ScriptType "bat"
 }
 ```
 The TXT file contained the following:-
@@ -33,5 +37,3 @@ The TXT file contained the following:-
 This requires root credentials for the host, and administrator rights on the target machine, but, as Arnim notes, will work in the absence of client network connectivity.
 
 This is a bit of a hack; leaving the TXT file behind on the C drive; using root credentials rather than an account with the least effective permissions; and having the script contain the credentials in plain-text. However, I'm enthusiastic about using this solution in a more structured way in future. I'm already thinking about using it to defragment and [SDelete](http://technet.microsoft.com/en-us/sysinternals/bb897443.aspx) our thick-provisioned virtual machines before converting them to Thin provisioned disks.
-
-

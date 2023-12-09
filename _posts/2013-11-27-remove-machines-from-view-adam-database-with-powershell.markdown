@@ -12,7 +12,7 @@ It's one of those things that shouldn't happen, but which inevitable does. Someo
 ```powershell
 #Requires -PSSnapin Quest.ActiveRoles.ADManagement
  
-Function Remove-StuckVDIMachineFromAdamDatabase {
+function Remove-StuckVDIMachineFromAdamDatabase {
     <#
     .Synopsis
     Removes an object from View's ADAM database
@@ -46,7 +46,7 @@ Function Remove-StuckVDIMachineFromAdamDatabase {
     Ben Neise 26/02/2014
     
     #>
-    Param (
+    param (
         [Parameter(
             Mandatory = $true,
             Position = 0,
@@ -73,8 +73,8 @@ Function Remove-StuckVDIMachineFromAdamDatabase {
         $objAdamDB = Get-QADObject -IncludeAllProperties -SizeLimit 0 -SearchRoot "OU=Servers,DC=vdi,DC=vmware,DC=int"
     }
     Process {
-        ForEach ($comp in $Computer){
-            $objAdamDB | Where-Object {$_."pae-DisplayName" -eq $comp} | ForEach-Object {
+        foreach ($comp in $Computer){
+            $objAdamDB | Where-Object {$_."pae-DisplayName" -eq $comp} | foreach-Object {
                 Write-Output ("Found ADAM record: " + $_."pae-DisplayName")
                 $_ | Remove-QADObject
             }

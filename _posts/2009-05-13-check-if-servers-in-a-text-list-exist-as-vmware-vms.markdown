@@ -29,11 +29,11 @@ $objVMs = Get-VM
 $strServersOnList = (Get-Content -Path $serverlist)
 
 # Loop through each VM
-ForEach ($objVM in $objVMs){
+foreach ($objVM in $objVMs){
 	# Loop through each server on the list
-	ForEach ($strServer in $strServersOnList){
+	foreach ($strServer in $strServersOnList){
 		# If the current VM object name matches the current item on the list
-		If ($objVM.Name -Like $strServer){
+		if ($objVM.Name -Like $strServer){
 			# Add it to the array of found machines
 			$arrFoundServers += $objVM
 		}

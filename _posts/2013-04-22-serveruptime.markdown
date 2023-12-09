@@ -11,7 +11,7 @@ I'm not sure yet if I'll take part in the [2013 Scripting Games](http://blogs.te
 <!--more-->
 
 ```powershell
-Function Get-Uptime {
+function Get-Uptime {
     <#
     .Synopsis
     Gets uptime of computers via WMI and displays results in hours, mins and seconds.
@@ -44,7 +44,7 @@ Function Get-Uptime {
     Ben Neise 2012-19-04
     
     #>
-    Param (  
+    param (  
         [Parameter(
             Position = 0,
             Mandatory = $true,
@@ -66,9 +66,9 @@ Function Get-Uptime {
         # Get the current time, we do this before the iterating to avoid processing time affecting the uptime results
         $objCurrentTime = Get-Date
         # Iterate through the computers
-        ForEach ($strComputer in $strComputers) {
+        foreach ($strComputer in $strComputers) {
             Write-Host "Checking uptime on computer:" $strComputer
-            If ($strLogFilePath){
+            if ($strLogFilePath){
                 # If the logfile has been defined, write a status message
                 ((Get-Date -Format HH:mm:ss) + " - Checking computer: " + $strComputer)  | Out-File $strLogFilePath -Append -Encoding ASCII
             }
@@ -79,7 +79,7 @@ Function Get-Uptime {
             }
             Catch {
                 Write-Host "ERROR: DNS can't resolve:" $strComputer
-                If ($strLogFilePath){
+                if ($strLogFilePath){
                     # If the logfile has been defined, write an error message
                     ((Get-Date -Format HH:mm:ss) + " - ERROR: DNS can't resolve: " + $strComputer)  | Out-File $strLogFilePath -Append -Encoding ASCII
                 }
@@ -101,7 +101,7 @@ Function Get-Uptime {
             }
             Catch {
                 Write-Host "ERROR: Can't get computer startup time from WMI on:" $strComputer
-                If ($strLogFilePath){
+                if ($strLogFilePath){
                     # If the logfile has been defined, write an error message
                     ((Get-Date -Format HH:mm:ss) + " - ERROR: Can't get computer startup time from WMI on: " + $strComputer)  | Out-File $strLogFilePath -Append -Encoding ASCII
                 }

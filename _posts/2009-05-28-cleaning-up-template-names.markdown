@@ -15,7 +15,7 @@ I wrote this today to remove occurrences of the string "Tmpl" anywhere in the na
 $objTemplates = Get-Template
 
 # Loop through the templates
-ForEach ($objTemplate in $objTemplates){
+foreach ($objTemplate in $objTemplates){
 	# Set the $StrInterimTemplateName variable to the template name, replacing the string "Tmpl" with an empty string
 	$StrInterimTemplateName = ($objTemplate.Name -replace("Tmpl",""))
 	# As the string we've just removed might be anywhere in the name, we need to replace double spaces with single

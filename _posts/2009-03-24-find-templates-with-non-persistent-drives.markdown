@@ -20,18 +20,22 @@ $arrTemplatesWithPersistentDrives = @()
 $objTemplates = Get-Template
 
 # Loop through each template
-ForEach ($objTemplate in $objTemplates){
+foreach ($objTemplate in $objTemplates){
+
   # Get the drives associated with that template
   $objHardDisks = $objTemplate | Get-HardDisk
+
   # Loop through each drive
-  ForEach ($objHardDisk in $objHardDisks){
+  foreach ($objHardDisk in $objHardDisks){
+
     # If any of the drives are non-persistent, add the template object to the empty array
-    If ($objHardDisk.Persistence -match "non"){
+    if ($objHardDisk.Persistence -match "non"){
       $arrTemplatesWithPersistentDrives += $objTemplate
     }
+    
   }
 }
 
-# List the names of the unique templates in the array (as a template with more than one non-perisistent drive would appear more than once)
+# List the names of the unique templates in the array (as a template with more than one non-persistent drive would appear more than once)
 $arrTemplatesWithPersistentDrives | Sort-Object -Unique | Select-Object Name
 ```

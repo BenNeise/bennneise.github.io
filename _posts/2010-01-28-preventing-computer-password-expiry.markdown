@@ -46,5 +46,3 @@ If you need to rejoin machines that have already fallen off the domain, you can 
 Skipping the middle reboot saves a couple of minutes (which adds up if you have a lot to do). The above processes can also be scripted through the use of PowerCLI with Invoke-VMCommand and either NETDOM (for XP/Vista) or PowerShell for Windows 7.
 
 While this issue also happens with machines which have been off the domain for some time, non-persistent machines (as used in a lab, or test environment) require that this issue be systematically fixed as it's more than an occasional annoyance.
-
-

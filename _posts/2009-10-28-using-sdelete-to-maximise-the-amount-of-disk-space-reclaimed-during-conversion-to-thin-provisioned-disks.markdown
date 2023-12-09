@@ -51,5 +51,3 @@ Here's what happened
 Zeroing slack space on this typical machine saved me 0.84 GB (8.4%). For the minimal effort involved, I think this is worthwhile (I have about 500 more machines almost exactly the same as this).
 
 The percentage of free space reclaimed would likely be higher on persistent machines, or larger machines which see frequent creation and deletion of files.
-
-

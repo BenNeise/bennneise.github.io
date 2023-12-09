@@ -30,8 +30,8 @@ forEach ($virtualMachine in $virtualMachines){
     }
     # Check that the host name is not null, and if the hostname does not match the VM name, echo the results
     if (($virtualMachineHostName) -and ($virtualMachine.Name -notlike $virtualMachineHostName)){
-        # Write the results on one line, the VM object name, then the host name in square brackets.  The "`" is an escape character
-        Write-Host $virtualMachine.Name `[$virtualMachineHostName`]
+        # Write the results on one line, the VM object name, then the host name
+        Write-Output -InputObject "$($virtualMachine.name): $virtualMachineHostName"
     }
 }
 ```

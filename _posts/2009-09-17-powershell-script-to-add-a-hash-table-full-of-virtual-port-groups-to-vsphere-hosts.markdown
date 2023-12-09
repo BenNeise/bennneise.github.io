@@ -27,9 +27,9 @@ $ArrVLANs = @{
 Connect-VIserver -Server $strVCenterServer
 
 # Loop through the VLAN/VPG pairs
-ForEach($objVLAN in ($ArrVLANs.Keys | Sort-Object)){
+foreach($objVLAN in ($ArrVLANs.Keys | Sort-Object)){
 	# Loop through the hosts
-	ForEach ($objHost in (Get-VMHost | Sort-Object)){
+	foreach ($objHost in (Get-VMHost | Sort-Object)){
 		# Create the VPG with the VLAN as specified in the array above, on the switch called "VMSwitch" on the current host
 		# Remove the "-WhatIf" tag from the end of the following line to "arm" the script
 		New-VirtualPortGroup -Name $strNewVPG -VirtualSwitch (Get-Virtualswitch -VMHost $objHost | Where-Object { $_.Name -match "VMswitch" }) -VLanId $strNewVlanTag

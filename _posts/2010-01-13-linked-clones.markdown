@@ -66,18 +66,18 @@ $arrStrAttributesToCopy = @(
 # Name of the Custom Attribute on the parent which contains the name of the customisation to use
 $CustomFieldName = "Customisation"
 
-  Function DeployLinkedClone ($strSourceVM, $intToBeDeployed, $intStartDeployingAtNumber, $CustomFieldName){
+  function DeployLinkedClone ($strSourceVM, $intToBeDeployed, $intStartDeployingAtNumber, $CustomFieldName){
   # Bases the name of the machine on the second part of the string split by spaces. This assumes that the template follows the standard naming convention of "Tmpl [Name] x.x"
   $strMachinePrefix = ($strSourceVM.split(' ')[1])
   $objVM = Get-VM $strSourceVM
   $viewVM = $objVM | Get-View
   $objCustomization = Get-OSCustomizationSpec ($objVM.CustomFields.Item($CustomFieldName))
   # Ensure that the machines does not have a non persistent HD
-  If ($objVM | Get-HardDisk | Where-Object {$_.Persistence -like "IndependentNonPersistent"}){
+  if ($objVM | Get-HardDisk | Where-Object {$_.Persistence -like "IndependentNonPersistent"}){
   Write-Host $objTemplate has a non-persistent HD!
   }
   # If the customisation, as specified in the parent's custom attribute does not exist, then quit.
-  If (!$objCustomization){
+  if (!$objCustomization){
     Write-Host Customisation ($objVM.CustomFields.Item($CustomFieldName)) not found. Exiting.
     Break
   }
@@ -88,7 +88,7 @@ $CustomFieldName = "Customisation"
   # Concatenate the machine name prefix (from the template name) with the double-digit integer, which is incrememted on each loop
   $strMachineBeingDeployed = $strMachinePrefix+$strMachineNumber
   # Check that the machine doesn't already exist
-  If ((Get-VM -Name $strMachineBeingDeployed -ErrorAction SilentlyContinue)){
+  if ((Get-VM -Name $strMachineBeingDeployed -ErrorAction SilentlyContinue)){
     Write-Host "Machine $strMachineBeingDeployed already exists!"
     Break
   }
@@ -123,7 +123,7 @@ $CustomFieldName = "Customisation"
   # Get the view (needed for writing custom attributes)
   $viewTarget = $objTargetVM | Get-View
   # Loop through each of the custom attributes which are to be copied
-  ForEach ($arrStrAttributeToCopy in $arrStrAttributesToCopy){
+  foreach ($arrStrAttributeToCopy in $arrStrAttributesToCopy){
     # Read the attribute from the source template
     $objAttribute = $objVM.CustomFields.Item($arrStrAttributeToCopy)
     # Apply the attribute to the machine object

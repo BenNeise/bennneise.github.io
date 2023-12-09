@@ -23,11 +23,11 @@ This seems to cover everything on our environment. If you find something else, t
 ```powershell
 # Name of the custom attribute which we are wanting to check/update $strCAInfrastructureConsultant = "Infrastructure Consultant"
 # Loop through all the machines
-ForEach ($objVM in (Get-VM | Sort-Object Name)){
+foreach ($objVM in (Get-VM | Sort-Object Name)){
     Write-Host "Checking " -NoNewline
     Write-Host $objVM -ForegroundColor Blue
     # If the specified custom attribute is empty
-    If ($objVM.CustomFields.Item($strCAInfrastructureConsultant) -eq ""){
+    if ($objVM.CustomFields.Item($strCAInfrastructureConsultant) -eq ""){
         # Find the username of the person who created the machine. As this is returned in Domain\Username format, we split it, and take the second portion
         $strInfrastructureConsultant = ((@(($objVM | Get-ViEvent | Where-Object {$_.FullFormattedMessage -match "Deploying*" -or $_.FullFormattedMessage -match "Creating*" -or $_.FullFormattedMessage -match "Clone of*"} | Select-Object Username)))[0].Username).Split("\")[1]
         Write-Host "Adding " -NoNewline -ForegroundColor DarkGray

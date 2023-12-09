@@ -21,11 +21,11 @@ $arrResults = @()
 $objVMViews = Get-View -ViewType "VirtualMachine" | Where-Object {!$_.Config.Template}
 
 # Loop through the .net view objects representing the machines
-ForEach ($objVMView in $objVMViews){
+foreach ($objVMView in $objVMViews){
   # Loop through the .net view's devices
-  ForEach ($objDevice in $objVMView.Config.Hardware.Device) {
+  foreach ($objDevice in $objVMView.Config.Hardware.Device) {
     # Where the device is a virtual disk
-    If ($objDevice.GetType().Name -eq "VirtualDisk"){
+    if ($objDevice.GetType().Name -eq "VirtualDisk"){
       # Create a new object to represent the virtual disk
       $objVirtualDisk = New-Object PSObject
       # Append properties to the disk object based on the view object
@@ -35,9 +35,9 @@ ForEach ($objVMView in $objVMViews){
       $objVirtualDisk | Add-Member -Name "DiskMode" -MemberType NoteProperty -Value $objDevice.Backing.DiskMode
       $objVirtualDisk | Add-Member -Name "SizeGB" -MemberType NoteProperty -Value ($objDevice.CapacityInKB / 1024 / 1024)
       # If there is a ThinProvisioned property, then the disk is sparse
-      If ($objDevice.Backing.ThinProvisioned){
+      if ($objDevice.Backing.ThinProvisioned){
         $objVirtualDisk | Add-Member -Name "ThinProvisioned" -MemberType NoteProperty -Value $True}
-      Else {
+      else {
         $objVirtualDisk | Add-Member -Name "ThinProvisioned" -MemberType NoteProperty -Value $False
       }
       # Append the virtual disk object to the array of results

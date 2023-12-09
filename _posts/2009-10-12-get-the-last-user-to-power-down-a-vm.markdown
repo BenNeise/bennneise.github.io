@@ -10,14 +10,11 @@ We can use PowerShell to search through the event logs of a machine object ($obj
 
 <!--more-->
 
-
 ```powershell
 $objEvent = @(
-    Get-VIEvent -Entity $objVM | Where-Object{$_.fullFormattedMessage -like"Task: Power off Virtual Machine"}
+    Get-VIEvent -Entity $objVM | Where-Object {$_.fullFormattedMessage -like "Task: Power off Virtual Machine"}
 )
 $objEvent[0].userName $objEvent[0].createdTime
 ```
 
 I recall seeing an alternate way of getting events, which might be faster; if I have time, I'll look it up.
-
-

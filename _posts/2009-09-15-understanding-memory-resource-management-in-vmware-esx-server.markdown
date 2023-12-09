@@ -26,5 +26,3 @@ The whitepaper also includes some best practices for memory management, some of 
 - **Set appropriate Virtual Machine memory size**. The virtual machine memory size should be a little larger than the average used by the guest. I think this is an area we need to look at in our environment. Our default RAM allocations for guests is probably a little on the low side, due to historical reasons, and due to our current environment being configured with a  rather paltry 16GB of physical RAM (a problem that will be resolved in the next couple of months). We may be keeping our memory usage in check, but the resultant disk-swapping might be stressing our storage infrastructure.
 
 The white paper is definitely worth reading; it's certainly going to help me plan a memory management strategy for the implementing our infrastructure on the new hardware .
-
-

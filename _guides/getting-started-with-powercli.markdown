@@ -155,7 +155,7 @@ if ($virtualMachineObject) {
         Write-Host -Object "Hostname: $($virtualMachineGuest.Hostname)"
 
         # Get the IP address(es), and write them to screen
-        $virtualMachineGuest.IPAddress | ForEach-Object {
+        $virtualMachineGuest.IPAddress | foreach-Object {
             
             # If more than one IP address is found, this will write each one to screen on a seperate line
             Write-Host -Object "IP Address: $($_)"
@@ -175,7 +175,7 @@ This script asks the user for a machine name (using **Read-Host**), then gets th
 
 ```powershell
 # Loop through each VM
-ForEach ($objVM in (
+foreach ($objVM in (
     Get-VM | Where-Object {
         # Where the configured memory is greater than 2000
         $_.MemoryMB -gt "2000"

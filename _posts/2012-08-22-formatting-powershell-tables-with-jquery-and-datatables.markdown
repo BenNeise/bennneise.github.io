@@ -5,8 +5,9 @@ date: '2012-08-22 11:09:55'
 tags: powershell
 ---
 
-
 One of the great things about PowerShell is its ability to easily export objects to HTML, which  - with a little CSS  - makes it straightforward to create great-looking reports. But static lists of data aren't enough anymore, people demand interactivity.
+
+<!--more-->
 
 [DataTables](http://datatables.net) is a plug-in for the [jQuery](http://jquery.com/) JavaScript library which is great for displaying interactive HTML tables, with options for sorting and filtering. You can have a look at some of the [examples](http://datatables.net/examples/) on their page to see how powerful it is.
 

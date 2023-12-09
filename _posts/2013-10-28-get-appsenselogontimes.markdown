@@ -11,7 +11,7 @@ I'm doing logon tuning just now for non-persistent VDI desktops  - seeing long i
 <!--more-->
 
 ```powershell
-Function Get-AppSenseLogonTimes {
+function Get-AppSenseLogonTimes {
 	<#
 	.Synopsis
 	Returns information about AppSense logon events as recorded by the AppSense event log 
@@ -33,7 +33,7 @@ Function Get-AppSenseLogonTimes {
 	Ben Neise 28/10/2013
 	
 	#>
-	Param (
+	param (
 		[String]
 		$ComputerName = $env:localhost
 	)

@@ -16,6 +16,7 @@ We needed a new way for VIC users to easily see which were the larger machines, 
 
 ```powershell
 $VCServerName = "MYVCSERVER"
+
 $VC = Connect-VIServer -Server $VCServerName
 $SI = Get-View ServiceInstance
 $CFM = Get-View $SI.Content.CustomFieldsManager
@@ -26,20 +27,20 @@ $ManagedObjectType = "VirtualMachine"
 
 # Check if the custom field already exists
 $myCustomField = $CFM.Field | Where {$_.Name -eq $CustomFieldName}
-If (!$myCustomField){
+if (!$myCustomField){
 	# Create Custom Field
 	$FieldCopy = $CFM.Field[0]
 	$CFM.AddCustomFieldDef($CustomFieldName, $ManagedObjectType, $FieldCopy.FieldDefPrivileges, $FieldCopy.FieldInstancePrivileges)
 }
  
 $objVMs = Get-VM
-ForEach ($objVM in $objVMs){
+foreach ($objVM in $objVMs){
 	$objTotalDiskSize = 0
 	# Sum the total size of all disks attached to the VM
-	ForEach	($objHardDisk in ($objVM | Get-HardDisk)){
+	foreach	($objHardDisk in ($objVM | Get-HardDisk)){
 			$objTotalDiskSize += ($objHardDisk.CapacityKB/1024/1024)
 			}
-	If ($objTotalDiskSize){
+	if ($objTotalDiskSize){
 		# Round the size to one decimal place
 		$objHDSize = "{0:N1}" -f $objTotalDiskSize
 		$VMView = $objVM | Get-View

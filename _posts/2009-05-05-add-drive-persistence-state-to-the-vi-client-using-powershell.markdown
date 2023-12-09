@@ -24,7 +24,7 @@ $ManagedObjectType = "VirtualMachine"
 
 # Check if the custom field already exists
 $myCustomField = $CFM.Field | Where {$_.Name -eq $CustomFieldName}
-If (!$myCustomField){
+if (!$myCustomField){
 	# Create Custom Field
 	$FieldCopy = $CFM.Field[0]
 	$CFM.AddCustomFieldDef($CustomFieldName, $ManagedObjectType, $FieldCopy.FieldDefPrivileges, $FieldCopy.FieldInstancePrivileges)
@@ -33,13 +33,13 @@ If (!$myCustomField){
 # Get the machine objects
 $objVMs = (Get-VM) + (Get-Template)
 # Loop through each of the machine objects
-ForEach ($objVM in $objVMs){
+foreach ($objVM in $objVMs){
 	$strPersistence = ""
 	$objHardDisks = $objVM | Get-HardDisk
 	# Count the number of hard drives
 	$intHardDisks = ($objHardDisks | Measure-Object).count
 	# Loop through each of the hard disks
-	ForEach ($objHardDisk in $objHardDisks){
+	foreach ($objHardDisk in $objHardDisks){
 		# Replace default persisstence states with initials for brevity
 		Switch ($objHardDisk.Persistence) {
 			Persistent {
@@ -55,7 +55,7 @@ ForEach ($objVM in $objVMs){
 		# Concatenate the initial onto the persistence string
 		$strPersistence = "$strPersistence" + $strPersistenceInitial
 		# If there are more hard drives to add
-		If ($intHardDisks -gt 1) {
+		if ($intHardDisks -gt 1) {
 			# Append a comma and a space (there may be a more elegant way of doing this)
 			$strPersistence = "$strPersistence" + ", "
 			# Count down the number of hard drives
@@ -63,7 +63,7 @@ ForEach ($objVM in $objVMs){
 		}
 	}
 	# Add the $strPersistence to custom attribute $CustomFieldName (HD Persistence)
-	If ($strPersistence){
+	if ($strPersistence){
 		$VMView = $objVM | Get-View
 		$VMView.setCustomValue($CustomFieldName,$strPersistence)
 	}

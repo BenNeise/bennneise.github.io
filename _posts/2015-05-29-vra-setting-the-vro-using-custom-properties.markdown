@@ -67,5 +67,3 @@ What we've done so far will create an empty text box on one or more blueprints, 
 ![SelectTheOrchestratorServer](/assets/SelectTheOrchestratorServer.png)
 
 Now, test out a catalog request it should give you a drop-down list like this
-
-

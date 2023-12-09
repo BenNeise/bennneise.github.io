@@ -15,6 +15,7 @@ After downloading the file I followed the installation instructions, and immedia
 ```powershell
 Add-PSSnapin : The Windows PowerShell snap-in 'IBM.PowerShell.WebSphereMQ' is not installed on this machine. At line:1 char:13 + Add-PSSnapin <<<<; IBM.PowerShell.WebSphereMQ + CategoryInfo : InvalidArgument: (IBM.PowerShell.WebSphereMQ:String) [Add-PSSnapin], PSArgumentException + FullyQualifiedErrorId : AddPSSnapInRead,Microsoft.PowerShell.Commands.AddPSSnapinCommand
 ```
+
 It seems that this was because I was running it in the (default) 64-bit PowerShell session, rather than an x86 session. This means that if you're running reports, you need to specify the x86 version of PowerShell (on my system this is in `%SystemRoot%\syswow64\WindowsPowerShell\v1.0\powershell.exe`).
 
 The CMDLets also require some server components to be installed (although it will not indicate that there's anything wrong until running a command crashes your Powershell.exe session. I got it working with the options shown below (although I'm not entirely sure which were the critical components).

@@ -14,7 +14,7 @@ Knowing that it's possible to list the number of machines in a pool, and the ent
 This script depends on the [Quest AD CMDLets](http://www.quest.com/powershell/activeroles-server.aspx). Some day I'm going to try and wean myself off the Quest tools, as I don't like having to install pre-requisites on all the machines I use. Some-day, but not today.
 
 ```powershell
-If (!(Get-PSSnapin -ErrorAction SilentlyContinue | Where-Object {$_.Name -eq "Quest.ActiveRoles.ADManagement"})){
+if (!(Get-PSSnapin -ErrorAction SilentlyContinue | Where-Object {$_.Name -eq "Quest.ActiveRoles.ADManagement"})){
     Add-PSSnapin Quest.ActiveRoles.ADManagement
 }
 #requires -PSSnapin Quest.ActiveRoles.ADManagement
@@ -36,12 +36,12 @@ Remove-PSSession -Session $objRemoteSession
 # Filter out manual pools (where deliveryModel would be "Manual", and sort for neat logging
 $objPools = $objPools | Where-Object {$_.deliveryModel -eq "Provisioned"} | Sort-Object pool_id
 # Loop through the pools
-ForEach ($objPool in $objPools){
+foreach ($objPool in $objPools){
     Write-Host "Checking:" $objPool.pool_id
     # Get the groups which are entitled to the pool
     $arrEntitlementsToCurrentPool = @($objEntitlements | Where-Object {$_.pool_id -eq $objPool.pool_id})
     $intUsers = 0
-    ForEach ($arrEntitledObject in $arrEntitlementsToCurrentPool){
+    foreach ($arrEntitledObject in $arrEntitlementsToCurrentPool){
         $objADObject = Get-QADObject $arrEntitledObject.sid 
         Switch ($objADObject.Type) {
             "user" {$intUsers ++}
