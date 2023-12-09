@@ -26,29 +26,38 @@ $arrTableHosts = @()
 
 # Loop through the array of vCenter servers specified above
 foreach ($strVCenterServer in $arrVCenterServers){
+
 	# Connect to the VC
 	$objVCenterServer = Connect-VIServer $strVCenterServer
+
 	# Version info about the VC you are connected to
-	$viewVCenterServer = Get-View serviceinstance
+	$viewVCenterServer = Get-View "serviceinstance"
+
 	# Add custom attributes to each VC objects for version and build
-	$objVCenterServer | Add-Member -Name Version -type noteproperty -value ($viewVCenterServer.content.about.Version) -Force
-	$objVCenterServer | Add-Member -Name Build -type noteproperty -value ($viewVCenterServer.content.about.Build) -Force
+	$objVCenterServer | Add-Member -Name Version -type "noteproperty" -value ($viewVCenterServer.content.about.Version) -Force
+	$objVCenterServer | Add-Member -Name Build -type "noteproperty" -value ($viewVCenterServer.content.about.Build) -Force
+
 	# Add the VC object to the results array
 	$arrTableVCs += $objVCenterServer
+
 	# When connected to loop through the hosts managed by the VC
 	foreach ($objHost in (Get-VMhost | Sort-Object)){
+
 		# Get the view for the current host
 		$viewHost = $objHost | Get-View
+
 		# Add custom attributes to the host object for VC server, Host and Version
-		$objHost | Add-Member -Name VCServer -type noteproperty -value $objVCenterServer.Name -Force
-		$objHost | Add-Member -Name Host -type noteproperty -value $viewHost.Name -Force
-		$objHost | Add-Member -Name Version -type noteproperty -value $viewHost.Config.Product.Version -Force
+		$objHost | Add-Member -Name "VCServer" -type "noteproperty" -value $objVCenterServer.Name -Force
+		$objHost | Add-Member -Name "Host" -type "noteproperty" -value $viewHost.Name -Force
+		$objHost | Add-Member -Name "Version" -type "noteproperty" -value $viewHost.Config.Product.Version -Force
+
 		# Add the host object to the results array
 		$arrTableHosts += $objHost
 	}
 	# Disconnect from the VC server
 	Disconnect-VIServer -Confirm:$False
 }
+
 # Output the VC results (can be modified to output to a CSV with Export-CSV)
 $arrTableVCs | Select-Object Name, Version, Build | Sort-Object Name
 
