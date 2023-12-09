@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About me
+title: about me
 permalink: /about-me/
 ---
 ![Ben Neise, looking serious, in a black & white picture](/assets/ben_profile_pic.jpg){: .center-image }

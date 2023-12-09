@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Guides
+title: guides
 permalink: /guides/
 ---
 
