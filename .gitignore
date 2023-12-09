@@ -4,8 +4,6 @@
 
 # Build files
 _site
-#.jekyll-metadata
-#.sass-cache
 Gemfile.lock
 
 # Python venv (WIP)
