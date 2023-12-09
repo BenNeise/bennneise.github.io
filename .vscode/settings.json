@@ -1,4 +1,11 @@
 {
     "editor.formatOnSave": false,
-    "cSpell.language": "en-GB"
+    "cSpell.language": "en-GB",
+    "cSpell.words": [
+        "Arnim",
+        "crashplan",
+        "datatable",
+        "Huisman",
+        "WSNM"
+    ]
 }
