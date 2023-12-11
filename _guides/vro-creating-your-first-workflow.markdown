@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: VMware Aria Automation Orchestrator - Creating your first workflow
 summary: How to create your first workflow using VMware Aria Automation Orchestrator
 tags: vmware-aria-automation-orchestrator
@@ -14,29 +14,29 @@ tags: vmware-aria-automation-orchestrator
 
 ![vROLogo](/assets/vro_logo.png){: .center-image}
 
-[VMware Aria Automation Orchestrator](https://www.vmware.com/products/aria-automation-orchestrator.html) (vRO) is a a (mostly) GUI based application which can help you automate and orchestrate a wide range of tasks. Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, Orchestrator has since been included as part of vSphere and/or Aria Automation entitlements.
+[VMware Aria Automation Orchestrator](https://www.vmware.com/products/aria-automation-orchestrator.html) (Orchestrator) is a a (mostly) GUI based application which can help you automate and orchestrate a wide range of tasks. Originally an application called _Dunes Virtual Services Orchestrator_, the company _Dunes Technologies_ was purchased by VMware in 2007. Something of a hidden-gem, Orchestrator has since been included as part of vSphere and/or Aria Automation entitlements.
 
 
-# How can vRO help you?
+# How can Orchestrator help you?
 
-vRO is an automation and Orchestration solution. You write Workflows which can then be executed. There are a number of pre-canned workflows which can be dragged-and dropped onto a new workflow to execute in sequence. Workflows can have multiple inputs, and you can make some reasonably presentable and simple to use forms.
+Orchestrator is an automation and Orchestration solution. You write **Workflows** which can then be executed. There are a number of pre-canned workflows which can be dragged-and dropped onto a new workflow to execute in sequence. Workflows can have multiple inputs, and you can make some reasonably presentable, dynamic and simple-to-use forms.
 
-From simple tasks ("Snapshot a machine") to more complex, layered solutions with a number of external dependencies. Being VMware, it excels at managing vSphere machines, but it also provides a number of other integrations.
+This allows you to run simple tasks ("Snapshot a machine") to more complex, layered solutions with a number of external dependencies. Being VMware, it excels at managing vSphere machines, but it also provides a number of other integrations.
 
 
-# What can I automate with vRealize Orchestrator?
+# What can I automate with Orchestrator?
 
-Out of the box vRO offers functionality to integrate with a number of VMware Products (vSphere, vRealize Automation, NSX) as well as Active Directory. There are also a number of plugins available for other vendor's products (such as F5 and InfoBlox).
+Out of the box Orchestrator offers functionality to integrate with a number of VMware Products (vSphere, vRealize Aria Automation, NSX) as well as Active Directory. There are also a number of plugins available for other vendor's products (such as F5 and Infoblox).
 
-If you can't find a plugin for your exact requirements, RO also has the ability to execute PowerShell and SSH on hosts, as well as making SOAP/REST calls to anything with an API.
+If you can't find a plugin for your exact requirements, Orchestrator also has the ability to execute PowerShell and SSH on hosts, as well as making SOAP/REST calls to anything with an API.
 
 
 # Assumptions
 
-I'm going to assume you've got as far as having a working vRO server, and you can get logged-in.
+* I'm going to assume you've got as far as having a working Orchestrator server, and you can get logged-in via the web interface.
 
 
-# Your first workflow
+# Your first Orchestrator Workflow
 
 1. After logging in, you should be on the dashboard. This shows an overview of the various workflows running on your system.
 1. On the panel to the right, select **Workflows**
