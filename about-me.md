@@ -5,7 +5,7 @@ permalink: /about-me/
 ---
 ![Ben Neise, looking serious, in a black & white picture](/assets/ben_profile_pic.jpg){: .center-image }
 
-My name is Ben Neise, and I work for European broadcaster [Sky](https://www.skygroup.sky/) as a Senior Engineering Manager. I live in Bonnybridge, ("[The Roswell of Central Scotland](https://www.heraldscotland.com/news/18562347.bonnybridge-roswell-ufo-hotspot-perhaps-falkirk-triangle-actually-window-another-dimension-/)").
+My name is Ben Neise, and I work for [Ignition Works](http://ignition.works/). I live in Bonnybridge, ("[The Roswell of Central Scotland](https://www.heraldscotland.com/news/18562347.bonnybridge-roswell-ufo-hotspot-perhaps-falkirk-triangle-actually-window-another-dimension-/)").
 
 I specialise in platform engineering, automation, infrastructure-as-code, application deployment and developer experience.
 
