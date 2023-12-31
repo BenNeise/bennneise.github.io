@@ -5,6 +5,7 @@
 # Build files
 _site
 Gemfile.lock
+.jekyll-metadata
 
 # Python venv (WIP)
 venv-utility
