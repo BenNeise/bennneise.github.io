@@ -10,6 +10,7 @@ fi
 git config --global user.email "ben@neise.co.uk"
 git config --global user.name "Ben Neise"
 git config --global --add safe.directory $(pwd)
+git config pull.rebase true
 
 # If there's a Gemfile, then run `bundle install`
 # It's assumed that the Gemfile will install Jekyll too
