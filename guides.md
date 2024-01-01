@@ -8,18 +8,11 @@ These guides are more in depth articles about specific subjects.
 
 {% for guide in site.guides %}
 
-  <h1>
-    <a href="{{ guide.url }}">
-      {{ guide.title }}
-      {% if guide.image %}
-      <p>
-        <img src="{{ guide.image }}" class="guide-hero-image">
-      </p>
-      {% endif %}
-    </a>
-  </h1>
-  <p>
-    {{ guide.summary }}
-  </p>
+  <div class="guide-panel">
+  <a href="{{ guide.url }}"><img src="{{ guide.image }}" class="guide-hero-image"></a>
+  <h1><a href="{{ guide.url }}">{{ guide.title }}</a></h1>
+  <p>{{ guide.summary }}</p>
+  </div>
+
 
 {% endfor %}
