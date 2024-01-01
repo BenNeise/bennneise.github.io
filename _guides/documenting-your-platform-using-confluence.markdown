@@ -1,15 +1,16 @@
 ---
 layout: page
 title: Documenting your platform using Confluence
-summary: Documenting your platform using Confluence
+summary: Tips and advice on documenting your platform using Confluence
 tags: documentation confluence
+image: /assets/guide-images/confluence/confluence-logo.png
 ---
 
 In this post, I'll go through some of the things I've found useful when writing documentation, with specific reference to features and functions available in [Confluence](https://www.atlassian.com/software/confluence).
 
 I'm not a Confluence expert, but these are things that I've found to be a good starting point for those looking to improve documentation. I've also tried to describe only what's available OOTB with Confluence, rather than relying on plugins, or other bespoke additions. 
 
-There are [fancier solutions for documentation than confluence](https://backstage.io/), but corporate intertia will probably dictate that the majority of your users already have access to Confluence, and the majority of your team at least have some sense of how to use it. 
+There are [fancier solutions for documentation than confluence](https://backstage.io/), but corporate inertia will probably dictate that the majority of your users already have access to Confluence, and the majority of your team at least have some sense of how to use it. 
 
 This article is mainly targetted at platform engineers who have been asked to write some documents in Confluence. Or they've maybe been asked to to create a new wiki, or maybe to tame and organise an existing one. 
 
