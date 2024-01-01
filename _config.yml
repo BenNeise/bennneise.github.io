@@ -22,7 +22,7 @@ disqus:
   shortname: benneise
 paginate: 5
 include: [".well-known"]
-
+exclude: ["venv-utility"]
 github_username: benneise
 linkedin_username: benneise
 
