@@ -7,5 +7,6 @@
         "datatable",
         "Huisman",
         "WSNM"
-    ]
+    ],
+    "git.enableCommitSigning": false
 }
