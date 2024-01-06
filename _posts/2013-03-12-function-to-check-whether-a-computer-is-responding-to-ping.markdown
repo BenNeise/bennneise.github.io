@@ -1,18 +1,22 @@
 ---
 layout: post
-title: function to check whether a computer is responding to Ping
+title: PowerShell function to check whether a computer is responding to Ping
 date: '2013-03-12 12:20:17'
 tags: powershell
 ---
 
+<div class="info">This function will not work on PowerShell Core.</div>
 
 A lot of my scripts use Active Directory to create lists of servers. Unfortunately, AD often contains decomissioned computer objects, which can cause certain queries to time-out
 
 I wrote this quick function so that before running WMI queries against a server, we could do a quick check to see whether it was online.
 
+<!--more-->
+
 ```powershell
 function IsPingable {
     <#
+
     .SYNOPSIS
     Pings a server and returns TRUE or FALSE.
      
@@ -36,15 +40,17 @@ function IsPingable {
           Mandatory=$true,
           Position=0
       )]
-      [string]$Computer = ""
+      [string]$Computer
     )
-    $objPing = Get-WmiObject -Class Win32_PingStatus -Filter "Address='$Computer'"
+    
+    $objPing = Get-WmiObject -Class "Win32_PingStatus" -Filter "Address='$Computer'"
     if ($objPing.StatusCode -eq 0){
-        $boolPingable=$true
+        $boolPingable = $true
     }
     else {
-        $boolPingable=$false
+        $boolPingable = $false
     }
-    Return $boolPingable
+
+    return $boolPingable
 }
 ```
