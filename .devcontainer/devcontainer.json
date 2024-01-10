@@ -1,26 +1,32 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/jekyll
 {
+
 	"name": "Jekyll",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
 			// Update 'VARIANT' to pick a Debian OS version: bullseye, buster
-			// Use bullseye when on local arm64/Apple Silicon.
 			//"VARIANT": "bookworm",
-			// Enable Node.js: pick the latest LTS version
-			"NODE_VERSION": "none"
 		}
 	},
-	// Set *default* container specific settings.json values on container create.
-	"settings": {},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"streetsidesoftware.code-spell-checker",
-		"ms-azuretools.vscode-docker",
-		"ms-python.python",
-		"sissel.shopify-liquid"
-	],
+	
+	"customizations":{
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"ms-azuretools.vscode-docker",
+				"ms-python.python",
+				"sissel.shopify-liquid"
+			],
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+
+			}
+		}
+	},
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
 		// Jekyll server
@@ -28,6 +34,7 @@
 		// Live reload server
 		35729
 	],
+
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	//"remoteUser": "vscode",
 	//"containerUser": "vscode", // the value needs to match the value of "remoteUser"
@@ -37,6 +44,7 @@
 	//"containerEnv": {
 	//	"HOME": "/home/node"
 	//},
+
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "sh .devcontainer/post-create.sh"
 }
