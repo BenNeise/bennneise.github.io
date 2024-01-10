@@ -1,0 +1,34 @@
+{
+	"info": {
+		"scope": "markdown",
+		"prefix": ["info"],
+		"body": [
+			"<div class='info'></div>"
+		],
+		"description": "An information callout."
+	},
+	"note": {
+		"scope": "markdown",
+		"prefix": ["note"],
+		"body": [
+			"<div class='note'></div>"
+		],
+		"description": "A note callout."
+	},
+	"tip": {
+		"scope": "markdown",
+		"prefix": ["tip"],
+		"body": [
+			"<div class='tip'></div>"
+		],
+		"description": "A tip callout."
+	},
+	"warning": {
+		"scope": "markdown",
+		"prefix": ["warning"],
+		"body": [
+			"<div class='warning'></div>"
+		],
+		"description": "A warning callout."
+	}
+}
