@@ -91,12 +91,18 @@ h1
 {
 	color:#374017;
 	padding-top:30px;
-	size:x-large;
+	size:xx-large;
 }
 
 h2
 {
 	padding-top:20px;
+	size:x-large
+}
+h3
+{
+	padding-top:15px;
+	size:large
 }
 
 li:not(:last-child)
@@ -124,19 +130,19 @@ pre code
 .post-content h2
 {
 	color:#374017;
-	font-size:1.17em;
+	font-size:x-large;
 }
 
 .post-content h3
 {
 	color:#374017;
-	font-size:1em;
+	font-size:large;
 }
 
 .post-content h4
 {
 	color:#374017;
-	font-size:.83em;
+	/*font-size:larger;*/
 }
 
 .post-image
