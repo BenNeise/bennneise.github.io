@@ -26,7 +26,7 @@ function GenerateScriptDocumentationInMarkdown {
     Generates documentation for a folder-full of scripts using the integrated Get-Help CMDlets.
     
     .DESCRIPTION
-    Generates a .markdown documentat for each PS1 script in a folder which has the necessary headers required by Get-Help. Also generates an index document which lists (and links to) all generated documentats. Each file name  is preceeded with "script_ps1_" so that they are listed together when viewing the Wiki documents.
+    Generates a .markdown document for each PS1 script in a folder which has the necessary headers required by Get-Help. Also generates an index document which lists (and links to) all generated documents. Each file name  is preceded with "script_ps1_" so that they are listed together when viewing the Wiki documents.
     
     .PARAMETER SourceScriptFolder
     Source folder where the scripts are located
@@ -175,7 +175,5 @@ function GenerateScriptDocumentationInMarkdown {
 
 GenerateScriptDocumentationInMarkdown -SourceScriptFolder "C:\Git\Lab\evp-vm-build\scripts"  -DocumentationOutputFolder "C:\Git\Lab\evp-vm-build.wiki\" -DocumentationIndexPath "C:\Git\Lab\evp-vm-build.wiki\scripts_Ps1.markdown"
 ```
-
-The documentation generated looks something like [this](https://stackedit.io/viewer#!provider=gist&gistId=9cc7c75d1937de12f6a2&filename=TestPingDocumentation.markdown).
 
 Not sure how useful this will be to other people, as it's a pretty specific set of circumstances. I'm also not 100% satisfied with it, as the help object returned by Get-Help is a bit of a chimera of object types, which has made the code a bit ugly.
