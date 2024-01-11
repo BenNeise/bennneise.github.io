@@ -5,9 +5,9 @@ date: '2013-03-12 12:20:17'
 tags: powershell
 ---
 
-<div class="info">This function will not work on PowerShell Core.</div>
+<div class="info">This function will not work on PowerShell Core. But you should probably be using <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-connection?view=powershell-7.4">Test-Connection</a> regardless.</div>
 
-A lot of my scripts use Active Directory to create lists of servers. Unfortunately, AD often contains decomissioned computer objects, which can cause certain queries to time-out
+A lot of my scripts use Active Directory to create lists of servers. Unfortunately, AD often contains decommissioned computer objects, which can cause certain queries to time-out
 
 I wrote this quick function so that before running WMI queries against a server, we could do a quick check to see whether it was online.
 
