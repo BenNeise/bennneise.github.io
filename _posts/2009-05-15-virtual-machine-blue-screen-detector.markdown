@@ -12,8 +12,6 @@ tags: vmware-vsphere powershell
 
 From Eric's blog:
 
-> [F]irst it captures a screenshot of a virtual machine. Secondly it uses the Toolkit Extensions to copy it to the local drive. When the PNG image is saved on the local drive, it's converted to TIFF. The TIFF image will be used to extract the text using OCR.
+> ...first it captures a screenshot of a virtual machine. Secondly it uses the Toolkit Extensions to copy it to the local drive. When the PNG image is saved on the local drive, it's converted to TIFF. The TIFF image will be used to extract the text using OCR.
 
-It's the kind of thing that naive users expect computers to be able to do, but which actually turn out to be rather difficult. It's an incredible use of the various technologies involved  - PowerCLI, the Toolkit Extensions, MODI and PrimalForms.
-
-
+It's the kind of thing that non-IT people expect computers to be able to do, but which actually turn out to be rather difficult. It's an incredible use of the various technologies involved  - PowerCLI, the Toolkit Extensions, MODI and PrimalForms.
