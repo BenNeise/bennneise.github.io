@@ -54,8 +54,9 @@ I am a fan of using the [Diátaxis structure](https://diataxis.fr/), with some a
 
 ### How-to Guides
 
-How to guides are the easiest to create and decribe.
+How to guides are the easiest type of content to create and decribe, as they probably form the majority of existing content. 
 
+* You will find a built-in template for How to guides in Confluence, by clicking the **...** to the right of the **Create** button used to create new pages. 
 * The page title should start with "How to ..." this makes them easy to find, sort, and also focusses your mind on what you're helping the reader to do.
 * How to pages on the "internal" wiki will focus on how to do things like code promotion, or how to resolve common errors. 
 * How to pages on the "external" wiki will focus on how to use the platform, and also how to resolve common errors 
@@ -69,16 +70,7 @@ From [diataxis.fr](https://diataxis.fr/tutorials-how-to/)...
 
 > A tutorial serves the needs of the user who is at study. Its obligation is to provide a successful learning experience. A how-to guide serves the needs of the user who is at work. Its obligation is to help the user accomplish a task. These are completely different needs and obligations, and they are why the distinction between tutorials and how-to guides matters: tutorials are learning-oriented, and how-to guides are task-oriented.
 
-* You should try to keep your tutorials short, and link them together. For example, have a guide on getting an API token which links to a tutorial about using that key to deploy a machine using Terraform. 
-
-
-### Technical Reference
-
-Technical information. Lists of IP addresses, or server names. 
-
-Ideally this information should either be things which are not subject to frequent change, or you should find a way to have them dynamically update.
-
-<div class="note">I regard out of date information as being worse than no information. Aside from the obvious hazard of old or misleading information, having stale data poisons the consumer of your documentation. "If that page is out of date, then how much more of this is out of date?".</div>
+* You should try to keep your tutorials short, and link them together. For example, have a guide on getting an API token which links to a tutorial about using that key to deploy a machine using Terraform. Your readers will find it easier to find the time to run through a short (<1hr) tutorial than a longer
 
 
 ### Topics
@@ -88,14 +80,24 @@ The Topics section is for in depth information.
 If you have been using labels well, you can use this as a collection. For example, a Topics page on backups might be a link to the SLA document in the [Technical Reference](#technical-reference), as well as a link to How To documents on restoration processes. The Topics essentially acts as a framework from which to hang the other articles.  
 
 
+### Technical Reference
+
+This section of the wiki is used to store (boring!) technical, information. Lists of IP addresses, server names, architectural diagrams. These should be presented as-is, without context. That context can be provided in other pages (like [Topics](#topics)) which link to them 
+
+Ideally this information should either be things which are not subject to frequent change, or you should find a way to have them dynamically update.
+
+<div class="note">I regard out of date information as being worse than no information. Aside from the obvious hazard of old or misleading information, having stale data poisons the consumer of your documentation. "If that page is out of date, then how much more of this is out of date?".</div>
+
+
 ### Administration
 
-I found that it's useful, particularly on the internal wiki, to have an admin section. This includes some information which doesn't fit elsewhere, and also some documentation that's frequently accessed. 
+I found that it's useful, particularly on the internal wiki, to have an administration section. This includes some information which doesn't fit elsewhere, and also some documentation that's frequently accessed. 
 
+* A description of the wiki itself ("This wiki is designed to help users of the platform), and links to other wikis
 * Your team's contact details, usernames, Active Directory groups and Disctribution Lists
 * New starter guides
 * Working practices
-* Curriculum
+* New starter curriculum
 * Useful links to other places in the wiki, or other wikis
 
 
@@ -146,31 +148,6 @@ I liked these options so much, that I've used the same types on this blog
 <div class="tip"><b>Tips</b> can be used to give the users hints. Use liberally.</div>
 
 <div class="warning"><b>Warnings</b> will draw attention to something that the reader should not do. Use sparingly.</div>
-
-## Use tables
-
-Tables allow you to present information in an easy to read format.
-
-<table>
-<thead>
-  <tr>
-    <th>Tables</th>
-    <th>Are</th>
-    <th>Useful</th>
-  </tr>
-  </thead>
-  <tr>
-    <td>For</td>
-    <td>Presenting</td>
-    <td>Information</td>
-  </tr>
-  <tr>
-    <td>And</td>
-    <td>For Visual</td>
-    <td>Interest</td>
-  </tr>
-</table>
-
 
 ## Use codeblocks
 
