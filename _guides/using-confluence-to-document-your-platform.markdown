@@ -15,12 +15,12 @@ In this post, I'll go through some of the lessons I've learned when writing docu
 
 This article is mainly targetted at platform engineers who are using Confluence. Maybe they've been asked to document a new platform, maybe they've been asked to to create a new wiki, or maybe to tame and organise an existing one. 
 
-I won't profess to being a Confluence expert, but these are things that I've found to be a good starting point for those looking to improve documentation. I've also tried to describe only what's available OOTB with Confluence, rather than relying on plugins, or other bespoke additions. 
+I won't profess to being a Confluence expert, but these are things that I've found to be a good starting point for those looking to improve documentation. I've also tried to describe only what's available out-of-the-box with Confluence, rather than relying on plugins, or other bespoke additions. 
 
 
 # What's to like about Confluence?
 
-There are certainly trendier solutions for documentation than Confluence ([Backstage](https://backstage.io/) or [ReadTheDocs](https://about.readthedocs.com/)), but in a corporate setting, you will probably find that the majority of your users already have access to Confluence. You'll probably also discoversee that the majority of your team at least have _some_ expereince of using it.
+There are certainly trendier solutions for documentation than Confluence ([Backstage](https://backstage.io/) or [ReadTheDocs](https://about.readthedocs.com/)), but in a corporate setting, you will probably find that the majority of your users already have access to Confluence. You'll probably also discover that the majority of your team at least have _some_ experience of using it.
 
 The biggest argument for Confluence is often just that it's incumbent. 
 
@@ -44,7 +44,7 @@ If you're looking at an existing body of unorganised documentation, don't be afr
 
 Per-page permissions on Confluence are complex to maintain. Permissions are permissive, so to give someone permission on a specific page, you would have to give them permission on the whole wiki. If they shouldn't see anything else, then you'd need to restrict all other pages. This isn't really a feasible long-term strategy.
 
-Having multiple wikis means that you can have different content targetted towards different audiences. I've found it useful to have a wiki for your platform consumers with instructions on how to use your product/platform, and a wiki for your support teams, with instructions on how to maintain and support the platform. Keeping them seperate helps re-inforce the different writing styles, and content that each requires. 
+Having multiple wikis means that you can have different content targetted towards different audiences. I've found it useful to have a wiki for your platform consumers with instructions on how to use your product/platform, and a wiki for your support teams, with instructions on how to maintain and support the platform. Keeping them separate helps reinforce the different writing styles, and content that each requires. 
 
 
 ## Consider the structure within your wiki
@@ -54,7 +54,7 @@ I am a fan of using the [Diátaxis structure](https://diataxis.fr/), with some a
 
 ### How-to Guides
 
-How to guides are the easiest type of content to create and decribe, as they probably form the majority of existing content. 
+How to guides are the easiest type of content to create and describe, as they probably form the majority of existing content. 
 
 * You will find a built-in template for How to guides in Confluence, by clicking the **...** to the right of the **Create** button used to create new pages. 
 * The page title should start with "How to ..." this makes them easy to find, sort, and also focusses your mind on what you're helping the reader to do.
@@ -94,7 +94,7 @@ Ideally this information should either be things which are not subject to freque
 I found that it's useful, particularly on the internal wiki, to have an administration section. This includes some information which doesn't fit elsewhere, and also some documentation that's frequently accessed. 
 
 * A description of the wiki itself ("This wiki is designed to help users of the platform), and links to other wikis
-* Your team's contact details, usernames, Active Directory groups and Disctribution Lists
+* Your team's contact details, usernames, Active Directory groups and Distribution Lists
 * New starter guides
 * Working practices
 * New starter curriculum
@@ -108,11 +108,11 @@ Because of the neat integrations between Confluence and Jira, I've found it real
 
 ### Frequently Asked Questions
 
-When I started implementing the Diataxis style, we had a significant. With almost religious zeal, I tried to rework all of the FAQ articles into the existing diataxis sections, but it _just wasn't possible_. I think there's a valid case for an FAQ section. Engineers are often asked questions ... the same questions ... and it's incredibly useful to point the question-asker to a well formatted, complete page whch answers their questions, and can point them onward to further documentation. 
+When I started implementing the Diataxis style, we had a significant. With almost religious zeal, I tried to rework all of the FAQ articles into the existing diataxis sections, but it _just wasn't possible_. I think there's a valid case for an FAQ section. Engineers are often asked questions ... the same questions ... and it's incredibly useful to point the question-asker to a well formatted, complete page which answers their questions, and can point them onward to further documentation. 
 
 # Style
 
-I'd rather not be too prescriptive about writing style, as I feel it might discourage contrinutions; but there are some things that help you if you're getting started:
+I'd rather not be too prescriptive about writing style, as I feel it might discourage contributions; but there are some things that help you if you're getting started:
 
 
 ## Have an introduction, or abstract
@@ -196,7 +196,7 @@ Make sure to give your images plenty of space. If you're using a numbered list, 
 
 <div class="tip">Consider using a drop-shadow to differentiate the image from the background. This is especially true if the image contains a lot of white. Otherwise they just look like text.</div>
 
-Consider your audience when adding these types of images. For long [How-to documents](#how-to-guides) for technical people, overuse of images makes them difficult to follow. You can just say "Click Next" without needing an image of the screen. For tutorials though, where there's an expectation that the user is more naeive there's probably no such things as too many images - they help reassure the user that they are on the right track.
+Consider your audience when adding these types of images. For long [How-to documents](#how-to-guides) for technical people, overuse of images makes them difficult to follow. You can just say "Click Next" without needing an image of the screen. For tutorials though, where there's an expectation that the user is more naïve there's probably no such things as too many images - they help reassure the user that they are on the right track.
 
 
 ## Use comments
@@ -253,7 +253,7 @@ Pasting from a word document is a bit of a shortcut to having something like ser
 
 ## Mix things up
 
-Try to avoid a "wall of text" by using tables, images, lists, columns, callouts, etc to break things up.
+Try to avoid a "wall of text" by using tables, images, lists, columns, call-outs, etc to break things up.
 
 [Columns and sections](https://confluence.atlassian.com/doc/column-macro-51872396.html) can be a little difficult to get started with, but they make sense soon enough. Personally, I tend to avoid them for most content pages (I think if you're using complex layouts, it's an indication that your page is trying to do more than one thing), but the more elaborate columns-based options can make for good, visually interesting, landing pages. 
 
@@ -284,4 +284,4 @@ Automating content creation goes beyond the scope of this introduction document,
 
 Confluence is a safe, traditional choice for hosting documentation. But it's a safe traditional choice for a number of reasons. 
 
-I've barely scratched the surface of Confluence functionality, but the guidance above (particularly Labels and Headings), should provide a foundation on which you can build some more advanced functionality. 
+I've barely scratched the surface of Confluence functionality, but the guidance above (particularly [Labels](#use-labels) and [Headings](#use-built-in-styles-for-headings)), should provide a foundation on which you can build some more advanced functionality. 
