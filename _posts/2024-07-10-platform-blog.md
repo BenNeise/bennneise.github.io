@@ -9,35 +9,37 @@ _Blogs._
 
 I appreciate that you're reading one right now, but the word still seems quaint, old-fashioned. It's all so very _turn-of-the-century_, so very _web 2.0_. 
 
-I'm going to describe some of the reasons why, even in 2024, you might want to have a blog for your platform. 
+I'm going to describe some of the reasons why, even in 2024, you might want to have a blog for your platform. Or, if you already have a blog, some hints and tips for making the most of it, and maybe some encouragement to use it more! 
 
 <!--more-->
 
 ## Blogs excel at providing detailed context
 
-When you release a new feature, or make a change, your platform may have a banner, with a short call to action. 
+When you release a new feature, or make a change, your platform may have a banner, with a call to action. You might also post a message to Teams or Slack, with a summary of the change. 
 
 You're also almost certainly sending out e-mails with a bit more context, maybe even to the right people. But we all know that long e-mails don't get read, so we need to keep them short.
 
-For those users who want to know **why** something is happening, blogs provide an excellent way of contextualising that information. Adding a link to your banner, or e-mail means that people who want, can choose to get that context, and you're not overwhelming those people who don't need or want that material. 
+So where do people go when they need more information?
 
-Your linked blog post can provide all sorts of extra information. If it's a new feature, why was it implemented? How do your customers go about using it? Is there a mechanism for providing feedback? If it's a change to the way the platform works, then why was it implemented? What does the customer need to do? Are further changes planned?
+For those users who want to know **why** something is happening, blogs provide an excellent way of contextualising that information. Adding a link to your banner, notification, or e-mail means that people who want, can choose to get that context, and you're not overwhelming those people who don't need or want that material. 
+
+The blog post can provide all sorts of extra information. If it's a new feature, why was it implemented? How do your customers go about using it? Is there a mechanism for providing feedback? If it's a change to the way the platform works, then why was it implemented? What does the customer need to do? Are further changes planned?
 
 
 ## Blogs can be updated
 
-As soon as you hit the send button on an e-mail, that information is now _out there_. Even if you e-mail a follow-up, the original e-mail could be referenced without context, or forwarded on.
+As soon as you hit the send button on an e-mail, that information is now _out there_. Even if you e-mail a follow-up, the original e-mail could be referenced without context, or forwarded-on.
 
-But ... if your e-mail is short, and includes a link to your platform blog, you can update the blog as many times as you like. Further context can be added, linkes to documentation can be updated ... dates can (ahem) be changed. Anyone following the link from an e-mail with a subject line starting `Fwd: Fwd: Fwd:` will get still the most up-to-date details.
+But ... if your e-mail is minimal, and includes a link to your platform blog, you can update the blog as many times as you like. Further context can be added, links to documentation can be updated ... dates can (ahem) be changed. Anyone following the link from an e-mail with a subject line starting `Fwd: Fwd: Fwd:` will get still the most up-to-date details.
 
-If you get questions (via e-mail, slack, or comments on the post itself) you can add clarifying information. 
+If you get questions (via e-mail, Slack, or comments on the post itself) you can add clarifying information directly to the post. 
 
 
 ## Blogs encourage your engineers to think of customers
 
 If you ask your platform engineers to write a blog post prior to the release of a new feature, they are forced to put themselves into the customer's position. 
 
-I typically like to start with the format:- 
+I typically like to start all new product blog posts with the format:- 
 
 * What is happening?
 * Who is affected?
