@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Four Reasons You Cloud Platform Needs a Blog in 2024
+title: Four Reasons Your Cloud Platform Needs a Blog in 2024
 date: '2024-07-10 09:00:00'
 tags: platform-engineering
 ---
