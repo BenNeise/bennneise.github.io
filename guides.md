@@ -4,7 +4,7 @@ title: guides
 permalink: /guides/
 ---
 
-These guides are more in depth articles about specific subjects.
+Guides are more in depth articles about specific subjects than the blog posts, and tend to be a bit more detailed.
 
 {% for guide in site.guides %}
 
