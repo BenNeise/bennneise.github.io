@@ -3,12 +3,7 @@ layout: page
 title: about me
 permalink: /about-me/
 ---
-![Ben Neise, looking serious, in a black & white picture](/assets/ben_profile_pic.jpg){: .center-image }
-
-* TOC
-{:toc}
-
-# Work
+![Ben Neise, in the garden](/assets/ben_profile_pic.jpg){: .center-image }
 
 My name is Ben Neise, and I work for [Ignition Works](http://ignition.works/). I live in Bonnybridge, ("[The Roswell of Central Scotland](https://www.heraldscotland.com/news/18562347.bonnybridge-roswell-ufo-hotspot-perhaps-falkirk-triangle-actually-window-another-dimension-/)").
 
