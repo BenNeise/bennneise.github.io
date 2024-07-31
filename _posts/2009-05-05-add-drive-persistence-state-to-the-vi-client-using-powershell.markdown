@@ -23,7 +23,7 @@ $CustomFieldName = "HD Persistence"
 $ManagedObjectType = "VirtualMachine"
 
 # Check if the custom field already exists
-$myCustomField = $CFM.Field | Where {$_.Name -eq $CustomFieldName}
+$myCustomField = $CFM.Field | Where-Object {$_.Name -eq $CustomFieldName}
 if (!$myCustomField){
 	# Create Custom Field
 	$FieldCopy = $CFM.Field[0]
@@ -41,7 +41,7 @@ foreach ($objVM in $objVMs){
 	# Loop through each of the hard disks
 	foreach ($objHardDisk in $objHardDisks){
 		# Replace default persisstence states with initials for brevity
-		Switch ($objHardDisk.Persistence) {
+		switch ($objHardDisk.Persistence) {
 			Persistent {
 				$strPersistenceInitial = "P"
 			}

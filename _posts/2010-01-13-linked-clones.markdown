@@ -8,6 +8,8 @@ tags: vmware-vsphere
 
 We've started our first "proper" implementation of Linked Clones in our vSphere 4 environment. While we've done some limited proof-of-concept work, this is the first project to be entirely deployed using Linked Clones. The objective is to reduce the space used by our training machines on our new environment.
 
+<!--more-->
+
 Linked clones allow multiple machines to share a common read-only "base" VMDK file, with each machine generating their own delta (REDO). Under normal usage circumstances, the REDO would continue to grow throughout the life of the machine; however as our machines have non-persistent hard drives, they reset to a clean state when powered-down. This makes our environment ideally suited to taking advantage of the functionality offered by Linked Clones. They can either be created manually (by moving and renaming files on the datastore), or via the APIs, you can get more information on them in this [White Paper from VMware](http://www.vmware.com/support/developer/vc-sdk/linked_vms_note.pdf).
 
 Our training machines are functionally identical to our production machines, and similarly consist of three types  - Capture, Packaging and Verification. These are 11, 8, and 8 GB respectively. The usage patterns are slightly different, as  - unlike "live" projects which have a steady stream of work, trainees tend to come in in large batches. This means that the training environment either needs to be continuously large, but mostly idle, or it needs to be regularly redeployed then stripped back.
@@ -109,7 +111,7 @@ $CustomFieldName = "Customisation"
   $specClone.Snapshot = $viewVM.Snapshot.CurrentSnapshot
   # Create an object to represent the location of the clone
   $specClone.Location = New-Object Vmware.Vim.VirtualMachineRelocateSpec
-  # This is the move-type that specifies the new disk backing (which is the bit that makes a linked clone)
+  # This is the move-Type that specifies the new disk backing (which is the bit that makes a linked clone)
   $specClone.Location.DiskMoveType = "createNewChildDiskBacking"
   # Run the task with the specified parameters
   $task = $viewVM.CloneVM_Task($objFolder, $strMachineBeingDeployed, $specClone)

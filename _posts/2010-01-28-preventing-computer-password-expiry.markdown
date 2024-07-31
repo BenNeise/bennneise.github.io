@@ -10,6 +10,8 @@ If, like me, you work with non-persistent virtual machines on Windows domains, y
 
 > "The trust relationship between this workstation and the primary domain failed."
 
+<!--more-->
+
 The problem is detailed in this [KB Article](http://support.microsoft.com/kb/162797). What happens is that every 30 days (by default) the client initiates a computer password change on the domain controller. This computer password is used to authenticate the computer as the computer object in AD, and is distinct from the user's password. When the non-persistent machine resets, the passwords go out of synchronisation and domain authentication fails.
 
 As per [Microsoft's KB article](http://support.microsoft.com/kb/154501/), this can be fixed by disabling the client-initiated computer password changes. This change can be implemented using Local or Group Policy, with a shell script, or by directly editing the registry. Instructions for each of these are below.

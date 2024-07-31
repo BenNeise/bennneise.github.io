@@ -5,12 +5,13 @@ date: '2010-06-09 08:49:58'
 tags: vmware-vsphere powershell
 ---
 
-
 As we are constantly creating, moving, renaming and deleting machines, it's difficult enough to keep track of machines I have deployed myself; never mind keeping track of what the other team members are doing.
 
 In order to try make it easier to find the owner of a machine, we implemented a custom attribute "Infrastructure Consultant", which the analyst should complete. Inevitably, despite the best of intentions, this is occasionally missed, and we end up with machine of unknown provenance.
 
 The following script sorts this by finding machines where the custom attribute is empty, then populating it with a best guess, based on the machine's event log.
+
+<!--more-->
 
 It looks for three types of events:-
 

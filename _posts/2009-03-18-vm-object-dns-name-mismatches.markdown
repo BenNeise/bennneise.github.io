@@ -15,7 +15,7 @@ We were working recently to align our guest virtual machine object names (the on
 $virtualMachines = Get-VM
 
 # Loop through all of the VMs
-forEach ($virtualMachine in $virtualMachines){
+foreach ($virtualMachine in $virtualMachines){
     
     # Get the VM Guest object (which contains the DNS information)
     $guest = Get-VMGuest -VM $virtualMachine

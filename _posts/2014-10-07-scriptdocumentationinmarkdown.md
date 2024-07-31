@@ -93,7 +93,7 @@ function GenerateScriptDocumentationInMarkdown {
 
     # Get the scripts from the folder
     $scripts = Get-ChildItem $SourceScriptFolder -Filter "*.ps1"
-    forEach ($script in $scripts){
+    foreach ($script in $scripts){
         $i ++
         Write-Progress -Activity "Documenting scripts" -Status ("Script $i of $($scripts.count)") -CurrentOperation ("Documenting: $($Script.BaseName)") -PercentComplete ($i / $scripts.count * 100)
         $help = Get-Help $script.FullName -ErrorAction "SilentlyContinue"
@@ -141,10 +141,10 @@ function GenerateScriptDocumentationInMarkdown {
             
             if ($help.PARAMETERs){
                 "## Parameters" | Out-File -FilePath $outputFile -Append
-                forEach ($item in $help.PARAMETERs.PARAMETER){
+                foreach ($item in $help.PARAMETERs.PARAMETER){
                     "### " + $item.name | Out-File -FilePath $outputFile -Append
                     "- **Type**: " + $item.Type.Name | Out-File -FilePath $outputFile -Append
-                    forEach ($arrParameterProperty in $arrParameterProperties){
+                    foreach ($arrParameterProperty in $arrParameterProperties){
                         if ($item.$arrParameterProperty){
                             "- **$arrParameterProperty**: " + $item.$arrParameterProperty | Out-File -FilePath $outputFile -Append
                         }
@@ -156,7 +156,7 @@ function GenerateScriptDocumentationInMarkdown {
 
             if ($help.EXAMPLEs){
                 "## Examples `r`n" | Out-File -FilePath $outputFile -Append
-                forEach ($item in $help.EXAMPLEs.EXAMPLE){
+                foreach ($item in $help.EXAMPLEs.EXAMPLE){
                     "`r`n### " + $item.title.Replace("--------------------------","").Replace("EXAMPLE","Example") | Out-File -FilePath $outputFile -Append
                     if ($item.Code){
                         "``````PowerShell`r`n" + $item.Code + "`r`n``````" | Out-File -FilePath $outputFile -Append

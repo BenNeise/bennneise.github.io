@@ -33,7 +33,7 @@ function Remove-StuckVDIMachineFromAdamDatabase {
     Remove-StuckVDIMachineFromAdamDatabase -Computer "Desktop01"    
 
     .EXAMPLE
-    Removes each of an array of computernames passed as an argument
+    Removes each of an array of computer names passed as an argument
 
     Remove-StuckVDIMachineFromAdamDatabase $arrRogueEntries
 

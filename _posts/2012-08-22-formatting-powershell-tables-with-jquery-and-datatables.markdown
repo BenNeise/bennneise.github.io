@@ -31,7 +31,7 @@ By looking at the output generated, we can see that, although valid HTML, it doe
 </table>
 ```
 
-The following jScript, added to the HEAD section of the document dynamically changes all the incorrectly formatted tables on the page, and allows them to be displayed as DataTables.
+The following Javascript, added to the HEAD section of the document dynamically changes all the incorrectly formatted tables on the page, and allows them to be displayed as DataTables.
 
 ```html
 <script type="text/javascript">
@@ -54,4 +54,4 @@ The following jScript, added to the HEAD section of the document dynamically cha
 </script>
 ```
 
-It may not be the most elegant use of jScript, as I was learning as I went along, but hopefully it might save someone else some time.
+It may not be the most elegant use of Javascript, as I was learning as I went along, but hopefully it might save someone else some time.

@@ -7,6 +7,8 @@ tags: vmware-horizon-view
 
 The move from persistent physical desktops, to non-persistent linked clones (with a separate user personalisation layer) requires rethinking the way in which machines are configured and software is deployed. The challenge is to deliver a consistent, highly available platform with the maximum efficiency. In this case efficiency means utilising Horizon View's ability to dynamically provision just enough desktops, while ensuring that the necessary configuration changes are delivered by AppSense.
 
+<!--more-->
+
 ## Computer configuration
 
 We do the bulk of computer configuration via GPO. This includes things like removing unnecessary Windows Features, optimisation of machines for use as VDI hosts, and using Group Policy Preferences to configure local groups and accounts.

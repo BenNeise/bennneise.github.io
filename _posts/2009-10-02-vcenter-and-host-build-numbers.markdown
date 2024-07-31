@@ -34,8 +34,8 @@ foreach ($strVCenterServer in $arrVCenterServers){
 	$viewVCenterServer = Get-View "serviceinstance"
 
 	# Add custom attributes to each VC objects for version and build
-	$objVCenterServer | Add-Member -Name Version -type "noteproperty" -value ($viewVCenterServer.content.about.Version) -Force
-	$objVCenterServer | Add-Member -Name Build -type "noteproperty" -value ($viewVCenterServer.content.about.Build) -Force
+	$objVCenterServer | Add-Member -Name Version -Type "noteproperty" -Value ($viewVCenterServer.content.about.Version) -Force
+	$objVCenterServer | Add-Member -Name Build -Type "noteproperty" -Value ($viewVCenterServer.content.about.Build) -Force
 
 	# Add the VC object to the results array
 	$arrTableVCs += $objVCenterServer
@@ -47,9 +47,9 @@ foreach ($strVCenterServer in $arrVCenterServers){
 		$viewHost = $objHost | Get-View
 
 		# Add custom attributes to the host object for VC server, Host and Version
-		$objHost | Add-Member -Name "VCServer" -type "noteproperty" -value $objVCenterServer.Name -Force
-		$objHost | Add-Member -Name "Host" -type "noteproperty" -value $viewHost.Name -Force
-		$objHost | Add-Member -Name "Version" -type "noteproperty" -value $viewHost.Config.Product.Version -Force
+		$objHost | Add-Member -Name "VCServer" -Type "noteproperty" -Value $objVCenterServer.Name -Force
+		$objHost | Add-Member -Name "Host" -Type "noteproperty" -Value $viewHost.Name -Force
+		$objHost | Add-Member -Name "Version" -Type "noteproperty" -Value $viewHost.Config.Product.Version -Force
 
 		# Add the host object to the results array
 		$arrTableHosts += $objHost
@@ -64,7 +64,6 @@ $arrTableVCs | Select-Object Name, Version, Build | Sort-Object Name
 # Output the Host results (can be modified to output to a CSV with Export-CSV)
 $arrTableHosts | Select-Object VCServer, Host, Version, Build | Format-Table
 
-# End of script
 ```
 
 

@@ -16,8 +16,8 @@ $strNewVlanTag = "123"
 
 $ObjAllHosts = Get-VMHost | Sort-Object -Property Name
 
-foreach($objHost in $ObjAllHosts){
-    $strVSwitch = Get-Virtualswitch -VMHost (Get-VMHost $objHost) | Where-Object { $_.Name -like "VMswitch" }
+foreach ($objHost in $ObjAllHosts){
+    $strVSwitch = Get-VirtualSwitch -VMHost (Get-VMHost $objHost) | Where-Object { $_.Name -like "VMswitch" }
     Write-Output -InputObject "Adding Virtual Port Group $strNewVPG with VLAN Tag $strNewVlanTag to $objHost"
     New-VirtualPortGroup -Name $strNewVPG -VirtualSwitch $strVSwitch -VLanId $strNewVlanTag
 }
@@ -31,9 +31,9 @@ When it comes to re-naming existing virtual port groups across hosts there doesn
 $strOldVPG = "OldVPGName"
 $strNewVPG = "NewVPGName"
 $ObjAllHosts = (Get-VMHost | Sort-Object -Property Name)
-foreach($objHost in $ObjAllHosts){
+foreach ($objHost in $ObjAllHosts){
     Write-Output -InputObject "Changing Virtual Port Group Settings on" $objHost
-    $strVSwitch = Get-Virtualswitch -VMHost (Get-VMHost -Name $objHost) | Where-Object { $_.Name -match "VMswitch" }
+    $strVSwitch = Get-VirtualSwitch -VMHost (Get-VMHost -Name $objHost) | Where-Object { $_.Name -match "VMswitch" }
     $objOldVPG = Get-VirtualPortGroup (Get-VMHost -Name $objHost) | Where-Object { $_.Name -match $strOldVPG }
     Write-Output -InputObject "Removing Virtual Port Group" $objOldVPG
     Remove-VirtualPortGroup -VirtualPortGroup $objOldVPG -Confirm:$false -WhatIf
@@ -43,5 +43,3 @@ foreach($objHost in $ObjAllHosts){
 ```
 
 Run it once to check it's doing what you want, then remove the `-WhatIf` tags to run it for real.
-
-

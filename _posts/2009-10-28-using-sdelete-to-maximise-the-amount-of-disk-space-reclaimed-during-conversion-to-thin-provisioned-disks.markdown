@@ -9,6 +9,8 @@ We're currently neck-deep in migration at the moment, but despite the workload, 
 
 One of the reasons we were moving to vSphere was the ability to thin-provision (TP) our disks, which we're hoping will allow us to increase the amount of machines that we can provision without needing to allocate more storage (currently 18 TB).  I found an article by [Duncan Epping over at Yellow Bricks](http://www.yellow-bricks.com/2009/07/31/storage-vmotion-and-moving-to-a-thin-provisioned-disk/) suggesting the use of [Sysinternals SDelete](http://technet.microsoft.com/en-ca/sysinternals/bb897443.aspx) utility before the conversion to TP.
 
+<!--more-->
+
 Essentially, as deleted files are not zeroed in Windows, and because VMware looks at the raw disk when "deallocating" space during conversion to think provisioned disks; deleted data are not reclaimed.  Running SDelete in the Windows guest before converting the disk to thin provisioned format zeroes the deleted data and should allow the maximum amount of space to be reclaimed.
 
 While I don't doubt that this is all correct, I wasn't sure how much extra space it would allow us to reclaim. The majority of our guests are relatively small windows clients, almost all of which have non-persistent hard drives; of course  - once they've been made non-persistent, the drive is effectively frozen, and subsequent use won't increase the amount of non-zeroed slack space.

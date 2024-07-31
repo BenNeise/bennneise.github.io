@@ -9,13 +9,15 @@ tags: vmware-horizon-view
 
 I'm currently working on user-centric application delivery to non-persistent VDI desktops. The rationale for this is that the more applications which can be delivered dynamically, the fewer pools we need to provision. This suits applications like Microsoft Project and Visio, which both tend to be used by a small number of people on each pool. These apps are too expensive to deploy to non-users, and need [locked-down to fulfil license requirements if deployed under Citrix](http://www.appsense.com/media/19839/microsoft_license_control_whitepaper_us.pdf "AppSense - Microsoft Application License Control  in virtual environments"). User-based deployment via App-V allows the application to be targeted to users in existing pool; however, the non-persistent nature of the desktop means that the application needs delivered quickly (and silently) at each logon.
 
+<!--more-->
+
 While App-V integrates with SCCM, user-targeted applications can take a couple of minutes to be available. This isn't really an option for this kind of non-persistent desktop deployment as it's likely to result in confused users whose "missing" applications appear as they're on the phone to the service desk.
 
 We needed a way to deliver applications to users, based on their AD group membership during logon. AppSense (which we already had deployed) seemed ideal. AppSense has wizard-based integration for App-V, but the dialog only allows you to select App-V 4's **SFT** files, not the new **APPV** files created by version 5.
 
 ![An App-V dialog box](/assets/post-images/App-VDialog.png){: .center-image }
 
-I started by running a custom (PowerShell) script, using the [new CMDLets](http://blogs.technet.com/b/appv/archive/2012/12/03/app-v-5-0-client-powershell-deep-dive.aspx "App-V 5.0 Client PowerShell Deep Dive"). The script itself is pretty straightforward, checking to see if the CMDLets are loaded (and loading if necessary), adding the client-package from the file, and publishing it. We need to set the `-Global` paramater on the `Publish-AppvClientPackage` as we're running the script under **System** context, and we want it to be visible to the user.
+I started by running a custom (PowerShell) script, using the [new CMDLets](http://blogs.technet.com/b/appv/archive/2012/12/03/app-v-5-0-client-powershell-deep-dive.aspx "App-V 5.0 Client PowerShell Deep Dive"). The script itself is pretty straightforward, checking to see if the CMDLets are loaded (and loading if necessary), adding the client-package from the file, and publishing it. We need to set the `-Global` parameter on the `Publish-AppvClientPackage` as we're running the script under **System** context, and we want it to be visible to the user.
 
 ![An App-V Custom Dialog](/assets/post-images/CustomAction.png){: .center-image }
 

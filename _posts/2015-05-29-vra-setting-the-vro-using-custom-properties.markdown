@@ -9,6 +9,8 @@ tags: vmware-aria-automation-orchestrator vmware-aria-automation
 
 We're soon going to be implementing multiple [vRealize Orchestrator](http://www.vmware.com/uk/products/vrealize-orchestrator) (vRO) servers in our [vRealize Automation ](http://www.vmware.com/uk/products/vrealize-automation)(vRA) development environment to allow people to choose different endpoints. Essentially if someone's working on a workflow, that shouldn't affect a different developer who is testing a template. So I wanted a way of allowing customers (in this case, developers) to choose from a list of Orchestrator endpoints.
 
+<!--more-->
+
 This might be useful in the following cases:
 
 - Allowing specific customers to use their own Orchestrators (for example in different domains)
