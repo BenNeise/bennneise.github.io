@@ -5,6 +5,8 @@ date: '2024-07-10 09:00:00'
 tags: platform-engineering
 ---
 
+<div class='info'>My good friend <a href="https://www.linkedin.com/in/bryanross/">Bryan Ross</a> has extended upon this article on his <a href="https://newsletter.bryanross.me/p/the-communication-blueprint-every">Chief Therapy Officer blog</a></div>
+
 _Blogs._
 
 I appreciate that you're reading one right now, but the word still seems quaint, old-fashioned. It's all so very _turn-of-the-century_, so very _web 2.0_. 
