@@ -43,6 +43,6 @@ Also, how did they submit the response?
 
 We don't judge people on how long they took to complete the exercise. So long as the candidate communicated any potential delays (_"I'm moving house"_ / _"I'm going on holiday"_ / _"I have a sick cat"_), we try to respect people's free time, and their personal circumstances.
 
-Over the years we have been using the bacon test; we've found that it has proven to be a fairly accurate barometer of - not just someone's technical ability - but their apprach to solving a problem.
+Over the years we have been using the bacon test; we've found that it has proven to be a fairly accurate barometer of - not just someone's technical ability - but their approach to solving a problem.
 
 And yes, we do also [offer a vegetarian option](https://catfact.ninja/)!
