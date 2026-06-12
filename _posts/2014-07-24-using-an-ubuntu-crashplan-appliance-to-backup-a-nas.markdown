@@ -2,7 +2,7 @@
 layout: post
 title: Using an Ubuntu CrashPlan appliance to backup a NAS
 image: "/content/images/2016/01/download.png"
-date: '2014-07-24 09:59:37'
+date: "2014-07-24 09:59:37"
 tags: home
 ---
 
@@ -25,7 +25,7 @@ I decided that the best solution would be to use an Ubuntu agent, running as a H
 9. Remove the comment character (#) and change the IP address to that of your of your Ubuntu server. For example: `serviceHost=192.168.1.29`
 10. On the server, create the folders where you're going to mount the NFS shares and manually mount them to make sure they work. You'll need to know the IP address to that of your NAS, and the path to the share(s). mkdir -p /mnt/nfs/videos sudo mount 192.168.0.13:/data/Videos /mnt/nfs/videos mkdir -p /mnt/nfs/pictures sudo mount 192.168.0.13:/data/Pictures /mnt/nfs/pictures mkdir -p /mnt/nfs/software sudo mount 192.168.0.13:/data/Software /mnt/nfs/software mkdir -p /mnt/nfs/ebooks sudo mount 192.168.0.13:/data/eBooks /mnt/nfs/ebooks
 11. Now we need to make sure that when the server is restarted, it will automatically re-mount these shares. Edit **fstab** with the following command:- `sudo nano -w /etc/fstab`
-12. Add a line for each share you wish to mount, like this 
+12. Add a line for each share you wish to mount, like this
 
 ```
 192.168.0.13:/data/Videos /mnt/nfs/videos nfs auto 0 0
@@ -33,7 +33,8 @@ I decided that the best solution would be to use an Ubuntu agent, running as a H
 192.168.0.13:/data/Software /mnt/nfs/software nfs auto 0 0
 192.168.0.13:/data/eBooks /mnt/nfs/ebooks nfs auto 0 0
 ```
+
 13. Reboot the server and ensure that the NFS shares map correctly (you can see existing mounts by running the command **mount**)
 14. Now, on the client machine, open the CrashPlan GUI, and select the mount points which you wish to be backed-up.
 
-This is now working well  - although the change in method means that I need to send all of my data up to CrashPlan again, I was hoping that it'd be able to map the previously uploaded files to the same files on their new paths.
+This is now working well - although the change in method means that I need to send all of my data up to CrashPlan again, I was hoping that it'd be able to map the previously uploaded files to the same files on their new paths.

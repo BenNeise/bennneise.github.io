@@ -1,12 +1,11 @@
 ---
 layout: post
 title: Changing drive letter assignments after deploying a virtual machine from a template
-date: '2010-01-22 13:36:31'
+date: "2010-01-22 13:36:31"
 tags: powershell
 ---
 
-
-We've had an ongoing problem with "Sequencing" machines for [Microsoft Application Virtualisation](http://en.wikipedia.org/wiki/Microsoft_Application_Virtualization) (formerly SoftGrid). The virtual machine template is correctly set up with a secondary drive set to Q:\ (the drive letter is integral to the sequencing process). However, when the machines are deployed from the template, the Sysprep part of the customization process [results in the drive being "reset"](http://social.technet.microsoft.com/forums/en-US/itprovistadeployment/thread/694daccd-a48d-4529-9aaa-555cda297038) to the lowest available  - in this case D:\.
+We've had an ongoing problem with "Sequencing" machines for [Microsoft Application Virtualisation](http://en.wikipedia.org/wiki/Microsoft_Application_Virtualization) (formerly SoftGrid). The virtual machine template is correctly set up with a secondary drive set to Q:\ (the drive letter is integral to the sequencing process). However, when the machines are deployed from the template, the Sysprep part of the customization process [results in the drive being "reset"](http://social.technet.microsoft.com/forums/en-US/itprovistadeployment/thread/694daccd-a48d-4529-9aaa-555cda297038) to the lowest available - in this case D:\.
 
 At first, we manually changed these assignments using the Disk Management MMC before setting the drives to non-persistent. Lately, I've been using a DISKPART script, which speeds up the process, but still requires logging into each machine.
 
@@ -19,17 +18,18 @@ I saw [Arnim van Lieshout's post on **Invoke-VMScript** yesterday](http://www.va
 $objVMs = Get-Folder "Sequencers" | Get-VM | Sort-Object Name
 
 # Assign the command line required for DISKPART to a variable
-$strScript = "IF EXIST D:\ DISKPART /S C:\DiskPart_Change_C_To_Q.txt" 
+$strScript = "IF EXIST D:\ DISKPART /S C:\DiskPart_Change_C_To_Q.txt"
 
 # Loop through the VMs
-foreach ($objVM in $objVMs){ 
+foreach ($objVM in $objVMs){
     # Let the user know
     Write-Output -InputObject "Copying file to $objVM"
-    Copy-VMGuestFile -Source "C:\Tools\DiskPart_Change_C_To_Q.txt" -Destination "c:\" -LocalToGuest -VM $objVM -HostUser root -HostPassword "password" -GuestUser "Administrator" -GuestPassword "password" 
+    Copy-VMGuestFile -Source "C:\Tools\DiskPart_Change_C_To_Q.txt" -Destination "c:\" -LocalToGuest -VM $objVM -HostUser root -HostPassword "password" -GuestUser "Administrator" -GuestPassword "password"
     Write-Output -InputObject "Changing disk partitions on $objVM"
     Invoke-VMScript $strScript -vm $objVM -HostUser "root" -HostPassword "password" -GuestUser "Administrator" -GuestPassword "password" -ScriptType "bat"
 }
 ```
+
 The TXT file contained the following:-
 
 `SELECT VOLUME 2 ASSIGN LETTER=Q`

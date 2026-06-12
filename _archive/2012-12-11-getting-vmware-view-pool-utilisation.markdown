@@ -1,15 +1,13 @@
 ---
 layout: post
 title: Getting VMWare View pool utilisation
-date: '2012-12-11 15:36:28'
+date: "2012-12-11 15:36:28"
 tags: vmware-horizon-view powershell
 ---
 
-
-
 We needed a way to keep track of how many users had been granted permission on a pool to ensure that there were plenty of provisioned desktops.
 
-Knowing that it's possible to list the number of machines in a pool, and the entitled users and groups using View CMDLets on a connection server via a PSRemote session, and knowing that it's possible to enumerate the total number of users in a group (including indirect membership); it's then just a case of combining the numbers into a single report  - minimum provisioned machines vs maximum number of users.
+Knowing that it's possible to list the number of machines in a pool, and the entitled users and groups using View CMDLets on a connection server via a PSRemote session, and knowing that it's possible to enumerate the total number of users in a group (including indirect membership); it's then just a case of combining the numbers into a single report - minimum provisioned machines vs maximum number of users.
 
 This script depends on the [Quest AD CMDLets](http://www.quest.com/powershell/activeroles-server.aspx). Some day I'm going to try and wean myself off the Quest tools, as I don't like having to install pre-requisites on all the machines I use. Some-day, but not today.
 
@@ -42,7 +40,7 @@ foreach ($objPool in $objPools){
     $arrEntitlementsToCurrentPool = @($objEntitlements | Where-Object {$_.pool_id -eq $objPool.pool_id})
     $intUsers = 0
     foreach ($arrEntitledObject in $arrEntitlementsToCurrentPool){
-        $objADObject = Get-QADObject $arrEntitledObject.sid 
+        $objADObject = Get-QADObject $arrEntitledObject.sid
         Switch ($objADObject.Type) {
             "user" {$intUsers ++}
             "group" {$intUsers += ($objADObject | Get-QADGroupMember -SizeLimit 0 -Indirect).Count}

@@ -1,0 +1,5 @@
+# Markdownlint configuration for legacy site content.
+# We keep core markdown validation while allowing historical long lines and inline HTML
+# that are required by this Jekyll/GitHub Pages repository.
+
+rules "~MD013", "~MD029", "~MD031", "~MD033", "~MD026"

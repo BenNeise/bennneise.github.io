@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Datastore alerts via Twitter
-date: '2010-05-06 13:28:41'
+date: "2010-05-06 13:28:41"
 ---
-
 
 With thin provisioning currently being implemented in our environment, and plans to expand the use of Linked Clones, it's become apparent that we're going to have to start paying close attention to our datastores.
 
@@ -38,5 +37,3 @@ The Twitter account is protected (to save it from getting followed by porn-bots)
 `if ((Get-WmiObject -Class Win32_PingStatus -Filter "Address='CriticalMachineHostname'").StatusCode -ne 0){ E:\Tools\tweetC\tweetc.exe "Critical machine not reposnding to pings!" }`
 
 Ideally I'd like to revisit this, and remove the requirement for TweetC, but in the meantime it seems to be working great.
-
-

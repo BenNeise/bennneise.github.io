@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Using the WebSphere MQ PowerShell library
-date: '2013-02-07 14:48:28'
+date: "2013-02-07 14:48:28"
 tags: powershell
 ---
-
 
 ![WebSphereMQLogo](/assets/ibm-websphere.jpeg)
 
@@ -39,5 +38,3 @@ Get-WMQChannelStatus : String was not recognized as a valid DateTime. At D:\WebS
 I believe this is a culture/localisation issue. I tried a number of workarounds based on that assumption, but couldn't get anything to work. I ended up using a horrible cludge; using PowerShell to invoke the [standalone MQSC](http://www-01.ibm.com/support/docview.wss?uid=swg24007769) client, then parsing the results back into a PowerShell object.
 
 We eventually managed to get something which would get the required data, and - as it's PowerShell, it could be presented easily in a any of a number of formats.
-
-

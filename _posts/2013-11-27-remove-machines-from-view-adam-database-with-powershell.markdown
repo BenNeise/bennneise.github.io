@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Remove machine objects from VMWare View's ADAM database with PowerShell
-date: '2013-11-27 16:45:16'
+date: "2013-11-27 16:45:16"
 tags: vmware-horizon-view powershell
 ---
 
@@ -11,26 +11,26 @@ It's one of those things that shouldn't happen, but which inevitable does. Someo
 
 ```powershell
 #Requires -PSSnapin Quest.ActiveRoles.ADManagement
- 
+
 function Remove-StuckVDIMachineFromAdamDatabase {
     <#
     .SYNOPSIS
     Removes an object from View's ADAM database
-    
+
     .DESCRIPTION
     Finds a computer object in View's ADAM database which represents a machine.
     Probably one stuck in a Deleting "(Missing)" state. Deletes it (with confirmation)
- 
+
     .PARAMETER Computer
     The name of the computer to search for.
- 
+
     .PARAMETER ConnectionServer
     The connection server. Is set by default to "yourconnectionserver".
- 
+
     .EXAMPLE
     Removes a desktop called "Desktop01"
-    
-    Remove-StuckVDIMachineFromAdamDatabase -Computer "Desktop01"    
+
+    Remove-StuckVDIMachineFromAdamDatabase -Computer "Desktop01"
 
     .EXAMPLE
     Removes each of an array of computer names passed as an argument
@@ -40,11 +40,11 @@ function Remove-StuckVDIMachineFromAdamDatabase {
     .EXAMPLE
     Uses the pipeline to remove each of an array of stuck machines
 
-    $arrPipeline | Remove-StuckVDIMachineFromAdamDatabase 
-    
+    $arrPipeline | Remove-StuckVDIMachineFromAdamDatabase
+
     .NOTES
     Ben Neise 26/02/2014
-    
+
     #>
     param (
         [Parameter(
@@ -55,7 +55,7 @@ function Remove-StuckVDIMachineFromAdamDatabase {
         )]
         [Array]
         $Computer,
- 
+
         [Parameter(
             Mandatory = $false,
             Position = 1
@@ -86,6 +86,4 @@ function Remove-StuckVDIMachineFromAdamDatabase {
 }
 ```
 
-You'll want to change **yourconnectionserver** to  - *well*  - your connection server. Obviously the normal caveats apply: the ones about running scripts you download from the internet in your Production environment.
-
-
+You'll want to change **yourconnectionserver** to - _well_ - your connection server. Obviously the normal caveats apply: the ones about running scripts you download from the internet in your Production environment.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using the vRealize 7.x REST API to get a tenant's Event Broker subscriptions
-date: '2018-02-14 10:37:07'
+date: "2018-02-14 10:37:07"
 tags: vmware-aria-automation
 ---
 
@@ -33,16 +33,17 @@ However, when I tried this, in [Postman](https://www.getpostman.com/) using a Te
     ]
 }
 ```
+
 When I tried using `administrator@vsphere.local`, the result was slightly better as I got an empty array.
 
 The documentation _does_ make some reference to per-tenant scoping:-
 
 > **Workflow Subscriptions**
-> 
+>
 > Workflow subscriptions use the event broker service to monitor the registered services for event messages in vRealize Automation, and then run a specified vRealize Orchestrator workflow when the conditions in the subscription are met.
-> 
+>
 > To configure the subscription, you specify the event topic, the triggering conditions, and the workflow that runs when triggered.
-> 
+>
 > Tenant administrators can create and manage the workflow subscriptions that are specific to their tenant. The system administrator can create and manage system workflow subscriptions. The created system workflow subscriptions are active for events in any tenant and for system events.
 
 So. on a hunch, I tried scoping the query, in much the same way as the other XaaS (Advanced Service Designer) queries:-

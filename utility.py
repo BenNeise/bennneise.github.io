@@ -28,7 +28,7 @@ for path in Path('./_site/').rglob('*.html'):
         # If it starts with assets
         if image_link.startswith("/assets/"):
             print(f'Image link: {image_link}')
-            print(f'Exists: {Path("." + image_link).is_file()}') 
+            print(f'Exists: {Path("." + image_link).is_file()}')
             image_links.add(image_link.replace("/assets/",""))
 
 # Get all of the files in Assets

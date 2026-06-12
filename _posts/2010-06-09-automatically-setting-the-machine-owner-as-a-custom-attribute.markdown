@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Automatically setting the machine owner as a custom attribute
-date: '2010-06-09 08:49:58'
+date: "2010-06-09 08:49:58"
 tags: vmware-vsphere powershell
 ---
 
@@ -39,6 +39,5 @@ foreach ($objVM in (Get-VM | Sort-Object Name)){
     }
 }
 ```
+
 This doesn't take a long time to run, and will hopefully catch all those occasions where we forget to complete the custom attributes on the machine. It could of course be easily modified to check/update any other custom attribute.
-
-

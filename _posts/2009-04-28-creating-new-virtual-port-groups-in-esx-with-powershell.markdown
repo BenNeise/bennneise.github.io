@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Creating new Virtual Port Groups in ESX with PowerShell
-date: '2009-04-28 12:18:34'
+date: "2009-04-28 12:18:34"
 tags: vmware-vsphere powershell
 ---
-
 
 We frequently need to create new virtual port groups on our ESX hosts with VLAN tags which correspond to pre-assigned DHCP scopes. I wrote this PowerShell script to create the new VPG across all hosts.
 

@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Add disk persistence information to the VI Client using PowerShell
-date: '2009-05-05 12:02:40'
+date: "2009-05-05 12:02:40"
 tags: vmware-vsphere powershell
 ---
-
 
 I've further adapted [Hugo's script](http://www.peetersonline.nl/index.php/vmware/add-snapshot-information-to-the-vi-client-using-powershell/) to add a custom attribute which shows the drive persistence state(s) when the script was run.
 

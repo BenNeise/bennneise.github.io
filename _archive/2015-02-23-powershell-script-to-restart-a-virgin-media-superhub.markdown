@@ -1,12 +1,12 @@
 ---
 layout: post
 title: PowerShell script to restart a Virgin Media SuperHub
-date: '2015-02-23 10:49:03'
+date: "2015-02-23 10:49:03"
 tags: home powershell
 ---
 
-
 ![SuperHub](/assets/er_photo_141727.jpg){: .center-image]}
+
 <div class="info">This almost certainly will not work anymore, but I'm leaving it here in case it's useful to anyone doing anything similar.</div>
 
 Sometimes, after a week or so of uptime, I find that wireless access through my Virgin Media SuperHub gets very slow (wired access is fine). Like most IT issues, the issue can be fixed with a restart, but as it's a wireless issue, restarting the router [via the web interface](http://help.virginmedia.com/system/selfservice.controller?CMD=VIEW_ARTICLE&ARTICLE_ID=138977&CURRENT_CMD=SEARCH&CONFIGURATION=1001&PARTITION_ID=1&USERTYPE=1&LANGUAGE=en&COUNTY=us&VM_CUSTOMER_TYPE=Cable) is sometimes out of the question. I usually end up having to go next door and restart the router manually.
@@ -23,8 +23,8 @@ function Restart-VirginRouter {
 
     .DESCRIPTION
     Restarts a Virgin Media Suberhub using the web interface.
-    
-    .PARAMETER RouterIP 
+
+    .PARAMETER RouterIP
     The IP address of the router.
 
     .PARAMETER Username
@@ -43,26 +43,26 @@ function Restart-VirginRouter {
 
     #>
     param (
-    
+
     [Parameter(
         Mandatory = $true,
         Position = 1
     )]
-    [string]    
+    [string]
         $RouterIP,
-    
+
     [Parameter(
         Mandatory = $true,
         Position = 2
     )]
-    [string]    
+    [string]
         $Username,
 
     [Parameter(
         Mandatory = $true,
         Position = 3
     )]
-    [string]    
+    [string]
         $Password
     )
 
@@ -89,5 +89,3 @@ function Restart-VirginRouter {
 I've integrated this function into a script, and set it as a scheduled task to run every morning at 5am. (I figure that if I'm awake and on the internet at 5am, then I could probably do with a break anyway.)
 
 I'm not sure yet what causes the network slowdown, it might be interference from a neighbour's network, or electrical interference, but this seems to be enough to stop it happening.
-
-

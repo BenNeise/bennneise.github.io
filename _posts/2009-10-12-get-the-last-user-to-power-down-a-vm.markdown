@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Get the last user to power down a VM
-date: '2009-10-12 08:07:40'
+date: "2009-10-12 08:07:40"
 tags: vmware-vsphere powershell
 ---
 
-We can use PowerShell to search through the event logs of a machine object (`$virtualMachine` in the example below) for events which match a specific pattern  - in this case powering off a machine. Once we have the event object, we can access the properties of the first object in the array (the most recent event).
+We can use PowerShell to search through the event logs of a machine object (`$virtualMachine` in the example below) for events which match a specific pattern - in this case powering off a machine. Once we have the event object, we can access the properties of the first object in the array (the most recent event).
 
 <!--more-->
 

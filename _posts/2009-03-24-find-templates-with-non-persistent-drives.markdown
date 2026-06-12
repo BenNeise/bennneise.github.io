@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Find vSphere templates with non-persistent disks
-date: '2009-03-24 11:41:00'
+date: "2009-03-24 11:41:00"
 tags: vmware-vsphere powershell
 ---
-
 
 As we're running a development lab, we use a lot of templates for machine deployment and a lot of non-persistent disks to allow machines to be easily restored to a clean-state. We've had issues where machines with non-persistent disks were converted to templates. In this case guest customisation will fail.
 
@@ -32,7 +31,7 @@ foreach ($objTemplate in $objTemplates){
     if ($objHardDisk.Persistence -match "non"){
       $arrTemplatesWithPersistentDrives += $objTemplate
     }
-    
+
   }
 }
 

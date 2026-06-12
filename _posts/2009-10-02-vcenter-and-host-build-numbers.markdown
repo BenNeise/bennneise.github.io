@@ -1,10 +1,9 @@
 ---
 layout: post
 title: vCenter and host build numbers
-date: '2009-10-02 09:53:07'
+date: "2009-10-02 09:53:07"
 tags: vmware-vsphere
 ---
-
 
 This is based on [Carter Shanklin's PowerShell snippets to query VC and ESX build version numbers](http://communities.vmware.com/message/1013433#1013433).
 
@@ -65,5 +64,3 @@ $arrTableVCs | Select-Object Name, Version, Build | Sort-Object Name
 $arrTableHosts | Select-Object VCServer, Host, Version, Build | Format-Table
 
 ```
-
-

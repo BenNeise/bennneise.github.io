@@ -1,11 +1,9 @@
 ---
 layout: post
 title: Automatically converting machines to thin provisioned format
-date: '2010-03-18 10:19:06'
+date: "2010-03-18 10:19:06"
 tags: vmware-vsphere powershell
-
 ---
-
 
 I haven't been posting too much here recently I'm afraid. A lot of the things that I'm currently working on are pretty specific to the environment here, and are not particularly useful (or indeed, interesting) to anyone else.
 
@@ -36,13 +34,13 @@ foreach ($objVM in $objVMs){
     # Skip the rest of the loop if the machine is powered-on, and has snapshots
     if ($objVM | Where-Object {$_.PowerState -ne "PoweredOff" -and ($objVM | Get-Snapshot)}) {
         Write-Output -InputObject " - switched on and with snapshots" -ForegroundColor DarkGray continue
-    } 
-    # Skips the rest of the loop if the machine has a shared drive and is not set up as fault tolerant (indicating that it's a Linked Clone) 
-    # Thanks to Keshav Attrey for this method - http://www.vmdev.info/?p=546) 
+    }
+    # Skips the rest of the loop if the machine has a shared drive and is not set up as fault tolerant (indicating that it's a Linked Clone)
+    # Thanks to Keshav Attrey for this method - http://www.vmdev.info/?p=546)
     $viewVM = $objVM | Get-View -Property Name,Summary,Config.Hardware.Device
     $unshared = $viewVM.Summary.Storage.Unshared
     $committed = $viewVM.Summary.Storage.Committed
-    $ftInfo = $viewVM.Summary.Config.FtInfo 
+    $ftInfo = $viewVM.Summary.Config.FtInfo
     if (($unshared -ne $committed) -and (($ftInfo -eq $null) -or ($ftInfo.InstanceUuids.Length -le 1))){
         Write-Output -InputObject "The machine is a linked clone" -ForegroundColor DarkGray continue
     }
@@ -58,11 +56,11 @@ foreach ($objVM in $arrMachinesToBeConverted | Sort-Object){
     # Select the datastore from the top of the previously generated list (index 0) and remove the preceeding "Datastore-" from it's ID to give us the MOID
     $strTargetDatastore = ($objBiggestDatastore[0].Id).replace('Datastore-','')
     # Let the user know what's going on
-    Write-Output -InputObject "Migrating machine " -NoNewline 
+    Write-Output -InputObject "Migrating machine " -NoNewline
     Write-Output -InputObject $objVM -ForegroundColor Blue -NoNewline
     Write-Output -InputObject ", to Thin Provisioned format on datastore " -NoNewline
     Write-Output -InputObject $objBiggestDatastore[0] -ForegroundColor Blue -NoNewline
-    Write-Output -InputObject "" 
+    Write-Output -InputObject ""
     # Get the view of the VM we're moving
     $viewVM = Get-View -VIObject $objVM
     # Remove the preceding "HostSystem-" from the VM's Host's ID, giving us the Host's MOID
@@ -75,11 +73,11 @@ foreach ($objVM in $arrMachinesToBeConverted | Sort-Object){
     # Add the host to the specification using the MOID
     $specRelocate.host = New-Object VMware.Vim.ManagedObjectReference
     $specRelocate.host.type = "HostSystem"
-    $specRelocate.host.value = $strTargetHost 
+    $specRelocate.host.value = $strTargetHost
     # This is the specification property that makes the disk Thin Provisioned
-    $specRelocate.transform = "sparse" 
+    $specRelocate.transform = "sparse"
     # Create the task where the previously specified task is applied to the view of the target VM
-    $task = $viewVM.RelocateVM_Task($specRelocate, $priority) 
+    $task = $viewVM.RelocateVM_Task($specRelocate, $priority)
     # Start the task, and wait for it to complete before continuing
     Get-VIObjectByVIView $task | Wait-Task | Out-Null
 }

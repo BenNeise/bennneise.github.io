@@ -1,7 +1,7 @@
 ---
 layout: post
 title: vRealize Automation - Setting the Orchestrator Server using Custom Properties
-date: '2015-05-29 13:24:49'
+date: "2015-05-29 13:24:49"
 tags: vmware-aria-automation-orchestrator vmware-aria-automation
 ---
 
@@ -19,7 +19,7 @@ This might be useful in the following cases:
 
 Thankfully, using [vRA Custom Properties](http://pubs.vmware.com/vCAC-61/topic/com.vmware.ICbase/PDF/vcloud-automation-center-61-custom-property-reference.pdf), this isn't too difficult to implement.
 
-Before you start, you should be comfortable using Orchestrator with vRA. This isn't a guide on how to set up vRA/vRO integration. Your vRO server must be set up with all the necessary prerequisites that it would need to work as an endpoint.  If you've done this once, you've hopefully documented the process, so it's just a case of replicating it on another server.
+Before you start, you should be comfortable using Orchestrator with vRA. This isn't a guide on how to set up vRA/vRO integration. Your vRO server must be set up with all the necessary prerequisites that it would need to work as an endpoint. If you've done this once, you've hopefully documented the process, so it's just a case of replicating it on another server.
 
 ## Create the vRO Endpoint in vRA
 
@@ -28,9 +28,9 @@ Assuming you haven't already go multiple endpoints configured; the first thing y
 1. Log into your vRealize Automation portal
 2. Navigate to **Infrastructure** > **Endpoints** > **Endpoints**
 3. Click **New Endpoint** > **Orchestration** > **vCenter Orchestrator**1. **Name**: Give it a useful name
-2. **Address**: use the FQDN of the server
-3. **Credentials:** Select existing credentials, or create new. Remember to use the format *username@domain*
-4. **Custom properties**: Create a new custom property named **VMware.VCenterOrchestrator.Priority** and give it a value. The value you give it depends on which order you would like vRA to attempt to use the server. You should probably set your most stable (production-ready) server with the lowest number.
+4. **Address**: use the FQDN of the server
+5. **Credentials:** Select existing credentials, or create new. Remember to use the format _username@domain_
+6. **Custom properties**: Create a new custom property named **VMware.VCenterOrchestrator.Priority** and give it a value. The value you give it depends on which order you would like vRA to attempt to use the server. You should probably set your most stable (production-ready) server with the lowest number.
 
 ## Create the vRA Custom Property
 
@@ -45,9 +45,8 @@ If you're going to set it in multiple places, be aware of the [order of preceden
 
 1. Wherever you decide to create the custom attribute, click **New Property**
 2. Create a new property with the Name **VMware.VCenterOrchestrator.EndpointName**
-3. Either leave the **Value** blank  - or  - if you want set it to whatever should be the default Orchestrator.
+3. Either leave the **Value** blank - or - if you want set it to whatever should be the default Orchestrator.
 4. Check the **Prompt user** box, and click the green checkmark to save your change before clicking **OK**
-
 
 ## Create the vRA Property Dictionary entry
 
@@ -55,7 +54,7 @@ What we've done so far will create an empty text box on one or more blueprints, 
 
 1. In vRA navigate to **Infrastructure** > **Blueprints** > **Property Dictionary**
 2. Click **New Property Definition**, set the **name** as **VMware.VCenterOrchestrator.EndpointName**.
-3. Set the **Display name** to something friendly like *Orchestrator*, and give it an appropriate description
+3. Set the **Display name** to something friendly like _Orchestrator_, and give it an appropriate description
 4. Set **Control Type** to **DropDown**, and click the **Required** check box
 5. Click the green checkmark to save your changes, then click **Ok**.
 6. Now, edit the **Property Attributes** of the **Property Definition** you just created. Click **New Property Attribute**

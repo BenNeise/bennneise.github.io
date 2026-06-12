@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Preventing computer password expiry
-date: '2010-01-28 14:53:45'
+date: "2010-01-28 14:53:45"
 tags: microsoft-windows
 ---
-
 
 If, like me, you work with non-persistent virtual machines on Windows domains, you will be familiar with your machines becoming periodically disconnected from the domain. This usually manifests itself in the following error message when you attempt to log on:-
 
@@ -18,12 +17,12 @@ As per [Microsoft's KB article](http://support.microsoft.com/kb/154501/), this c
 
 # Using local, or group policy
 
-Set the key shown below to **Enabled**  
+Set the key shown below to **Enabled**
 ![Interior of house, covered in sticky labels](/assets/post-images/GPO.png){: .center-image }
 
 # Using REGEDIT
 
-Set the below value to **1**  
+Set the below value to **1**
 ![Interior of house, covered in sticky labels](/assets/post-images/regedit.png){: .center-image }
 
 # Using Windows shell script

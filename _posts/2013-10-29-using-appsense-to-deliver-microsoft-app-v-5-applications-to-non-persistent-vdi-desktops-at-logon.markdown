@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Using AppSense to deliver Microsoft App-V 5 applications to non-persistent
+title:
+  Using AppSense to deliver Microsoft App-V 5 applications to non-persistent
   VDI desktops at logon
-date: '2013-10-29 13:37:13'
+date: "2013-10-29 13:37:13"
 tags: vmware-horizon-view
 ---
-
 
 I'm currently working on user-centric application delivery to non-persistent VDI desktops. The rationale for this is that the more applications which can be delivered dynamically, the fewer pools we need to provision. This suits applications like Microsoft Project and Visio, which both tend to be used by a small number of people on each pool. These apps are too expensive to deploy to non-users, and need [locked-down to fulfil license requirements if deployed under Citrix](http://www.appsense.com/media/19839/microsoft_license_control_whitepaper_us.pdf "AppSense - Microsoft Application License Control  in virtual environments"). User-based deployment via App-V allows the application to be targeted to users in existing pool; however, the non-persistent nature of the desktop means that the application needs delivered quickly (and silently) at each logon.
 

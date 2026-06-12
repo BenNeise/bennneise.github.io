@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Resolving Virtual Machine object name and DNS name mismatches using PowerCLI
-date: '2009-03-18 12:50:13'
+date: "2009-03-18 12:50:13"
 tags: powershell vmware-vsphere
 ---
-
 
 We were working recently to align our guest virtual machine object names (the ones shown in vSphere) with their DNS names. As we have over 800 guests, this would have taken us a while to compile by hand. In order to make the process a little easier, I wrote the following PowerShell script to flag machines where the hostname differs from the object name.
 
@@ -16,10 +15,10 @@ $virtualMachines = Get-VM
 
 # Loop through all of the VMs
 foreach ($virtualMachine in $virtualMachines){
-    
+
     # Get the VM Guest object (which contains the DNS information)
     $guest = Get-VMGuest -VM $virtualMachine
-    
+
     # Sometimes the FQDN is empty or blank, so we screen those out
     if ($guest.Hostname){
         # The host name is the first part of the FQDN, so we split it, and take the first (0) segment as our host name

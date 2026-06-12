@@ -1,11 +1,9 @@
 ---
 layout: post
 title: Displaying vSphere disk properties (including provisioning & persistence)
-date: '2014-02-18 13:29:33'
+date: "2014-02-18 13:29:33"
 tags: vmware-vsphere powershell
-
 ---
-
 
 I was doing some tidying of old scripts and came across something I thought it might be useful, so I tidied it up and added some documentation.
 

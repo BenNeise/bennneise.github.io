@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AppSense and VMware View Horizon Linked Clones
-date: '2014-02-24 13:36:47'
+date: "2014-02-24 13:36:47"
 tags: vmware-horizon-view
 ---
 
@@ -13,7 +13,7 @@ The move from persistent physical desktops, to non-persistent linked clones (wit
 
 We do the bulk of computer configuration via GPO. This includes things like removing unnecessary Windows Features, optimisation of machines for use as VDI hosts, and using Group Policy Preferences to configure local groups and accounts.
 
-Generic platform software (Java, Flash, Microsoft Office, the App-V Client, etc.) and Windows hotfixes are installed to the all of the Pool Masters via SCCM. Pool specific applications are also deployed to specific pool masters via manually configured SCCM Device Collections. This ensures consistency within pools and  - where possible  - between pools. Consistency is obviously important for the users and the people supporting them, but also helps with storage de-duplication.
+Generic platform software (Java, Flash, Microsoft Office, the App-V Client, etc.) and Windows hotfixes are installed to the all of the Pool Masters via SCCM. Pool specific applications are also deployed to specific pool masters via manually configured SCCM Device Collections. This ensures consistency within pools and - where possible - between pools. Consistency is obviously important for the users and the people supporting them, but also helps with storage de-duplication.
 
 This process effectively takes a vanilla Windows 7 machine as input, and outputs a configured corporate virtual machine desktop. This means that the majority of changes have been applied before AppSense gets involved.
 
@@ -25,7 +25,6 @@ The AppSense Client Configuration Agent and the Environment Manager Agent are al
 
 To avoid all linked-clones sharing the Pool Master's AppSense SID, we need to remove the SID from the pool master. This is done via a shutdown script on a GPO linked to the pool master's OU.
 
-
 ## User configuration
 
 User configuration is done via AppSense on the linked clones themselves.
@@ -36,7 +35,6 @@ As the Environment Manager Configuration is modified at a greater frequency than
 
 Remember, that as we've already applied computer settings via GPO, we don't need to worry about restarting the computer after the AppSense configuration has been installed (which we would need to do in order to apply AppSense start-up actions). We've also pre-deployed the agents (Environment and Client Communication), which means that the installation of the configuration should proceed fairly quickly.
 
-
 ### Ensuring the machine is "ready" for the user
 
 However, this approach did introduce an issue where View was provisioning Linked Clones and marking them as "Available" (and potentially allowing users to log on) before the configuration had been downloaded. This would result in users getting machines which had not yet had the configuration applied. In order to give AppSense enough time to deploy new configurations, we introduced an artificial delay to the start-up of the VMware View Agent (WSNM). The OUs which contain the linked clones, have the following start-up script:
@@ -46,4 +44,5 @@ Get-Service -Name "WSNM" | Stop-Service | Set-Service -StartUpType "Manual"
 Start-Sleep -Seconds 300
 Get-Service -Name "WSNM" | Start-Service | Set-Service -StartUpType "Automatic"
 ```
+
 This script results in machines showing as "Agent Unreachable" for the first five minutes after starting-up which gives AppSense enough time to deploy the configuration.
