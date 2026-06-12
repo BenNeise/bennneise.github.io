@@ -1,0 +1,62 @@
+name: Auto-merge dependency PRs
+
+on:
+  pull_request_target:
+    types: [opened, labeled, reopened, synchronize, ready_for_review]
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      checks: read
+      contents: read
+    steps:
+      - name: Auto-merge dependency PRs
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) {
+              core.info('No pull request found in context.');
+              return;
+            }
+
+            const labels = (pr.labels || []).map(l => l.name);
+            const isDependencyPR = pr.user && pr.user.login === 'dependabot[bot]' || labels.includes('dependencies');
+            if (!isDependencyPR) {
+              core.info('PR is not a dependency PR; skipping auto-merge.');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prNumber = pr.number;
+
+            // Wait for GitHub to calculate mergeability
+            let prData = null;
+            for (let i = 0; i < 12; i++) {
+              prData = (await github.rest.pulls.get({ owner, repo, pull_number: prNumber })).data;
+              if (prData.mergeable !== null) break;
+              core.info('Waiting for mergeable status...');
+              await new Promise(r => setTimeout(r, 5000));
+            }
+
+            if (!prData || !prData.mergeable) {
+              core.info(`PR not mergeable (state: ${prData ? prData.mergeable_state : 'unknown'}).`);
+              return;
+            }
+
+            // Check required status checks / check runs for head sha
+            const headSha = prData.head.sha;
+            const checks = await github.rest.checks.listForRef({ owner, repo, ref: headSha });
+            const runs = checks.data.check_runs || [];
+            const failing = runs.some(r => r.conclusion && r.conclusion !== 'success' && r.conclusion !== 'neutral');
+            if (failing) {
+              core.info('One or more check runs are failing or pending; skipping auto-merge.');
+              return;
+            }
+
+            // Merge the PR (squash) using the GITHUB_TOKEN
+            await github.rest.pulls.merge({ owner, repo, pull_number: prNumber, merge_method: 'squash' });
+            core.info(`Merged PR #${prNumber}`);
