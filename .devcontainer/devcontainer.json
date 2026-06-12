@@ -35,6 +35,8 @@
 		35729
 	],
 
+	"remoteUser": "vscode",
+
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	//"remoteUser": "vscode",
 	//"containerUser": "vscode", // the value needs to match the value of "remoteUser"
