@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 
+ruby "3.3.4"
+
 gem "minima"
-gem "github-pages", group: :jekyll_plugins
+gem "github-pages", "~> 232", group: :jekyll_plugins
 gem "webrick", "~> 1.8"
 
 # Plugins
