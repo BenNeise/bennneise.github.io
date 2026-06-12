@@ -13,7 +13,7 @@ jobs:
       contents: read
     steps:
       - name: Auto-merge dependency PRs
-        uses: actions/github-script@v6
+        uses: actions/github-script@v9
         with:
           script: |
             const pr = context.payload.pull_request;
