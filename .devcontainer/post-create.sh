@@ -1,7 +1,5 @@
 #!/bin/sh
 
-rm Gemfile.lock
-
 # Install the version of Bundler.
 if [ -f Gemfile.lock ] && grep "BUNDLED WITH" Gemfile.lock > /dev/null; then
     cat Gemfile.lock | tail -n 2 | grep -C2 "BUNDLED WITH" | tail -n 1 | xargs gem install bundler -v
@@ -19,10 +17,5 @@ if [ -f Gemfile ]; then
     bundle install
 fi
 
-sudo apt update
-sudo apt install python3-full -y
-sudo apt install python3-pip -y
-
-python3 -m venv venv-utility
-source venv-utility/bin/activate
-./venv-utility/bin/pip install beautifulsoup4 --trusted-host files.pythonhosted.org --trusted-host pypi.org --trusted-host pypi.python.org 
+# Python and BeautifulSoup are installed in the DevContainer image via Dockerfile.
+# This keeps setup deterministic and avoids repeated package installation on every container start.
